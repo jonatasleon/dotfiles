@@ -1,4 +1,4 @@
-source $HOME/.antigen.zsh
+source $HOME/.antigen/antigen.zsh
 source $HOME/.profile.zsh
 
 # Load the oh-my-zsh's library.
