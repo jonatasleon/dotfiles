@@ -10,7 +10,7 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias vimconfig="$EDITOR ~/.vimrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias profileconfig="$EDITOR ~/.profile.zsh"
-alias xopen="xdg-open" 
+alias xopen="xdg-open"
 alias hs="history | grep"
 alias mkcd='foo() { mkdir -p "$1"; cd "$1" }; foo'
 alias update="sudo apt-get update && sudo apt-get upgrade -y"
@@ -24,7 +24,6 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 # NVM Configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Pyenv configuration
 export PYENV_ROOT="$HOME/.pyenv"
