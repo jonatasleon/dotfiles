@@ -11,6 +11,7 @@ antigen bundles <<EOBUNDLES
 	pipenv
 	pyenv
 	virtualenv
+    nvm
 	svn
 	sudo
 	docker-compose
