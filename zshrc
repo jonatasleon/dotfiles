@@ -7,13 +7,14 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo.
 antigen bundles <<EOBUNDLES
-    git
-    pipenv
-    pyenv
-    virtualenv
-    nvm
-    svn
     sudo
+    git
+    svn
+    pyenv
+    nvm
+    rvm
+    virtualenv
+    bundler
     docker-compose
 EOBUNDLES
 
