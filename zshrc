@@ -7,22 +7,22 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo.
 antigen bundles <<EOBUNDLES
-	git
-	pipenv
-	pyenv
-	virtualenv
+    git
+    pipenv
+    pyenv
+    virtualenv
     nvm
-	svn
-	sudo
-	docker-compose
+    svn
+    sudo
+    docker-compose
 EOBUNDLES
 
 # Bundles from custom repos.
 antigen bundles <<EOBUNDLES
-	chrissicool/zsh-256color
-	MichaelAquilina/zsh-you-should-use
-	zsh-users/zsh-syntax-highlighting
-	zsh-users/zsh-autosuggestions
+    chrissicool/zsh-256color
+    MichaelAquilina/zsh-you-should-use
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-autosuggestions
 EOBUNDLES
 
 # Theme to use.
