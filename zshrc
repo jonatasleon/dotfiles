@@ -1,6 +1,5 @@
 source $HOME/.checkdep.zsh
 source $HOME/.antigen/antigen.zsh
-source $HOME/.profile.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -38,7 +37,4 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=true
 bindkey "^ " autosuggest-accept
 bindkey "^U" backward-kill-line
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-unalias _
+source $HOME/.profile.zsh
