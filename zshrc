@@ -15,6 +15,7 @@ antigen bundles <<EOBUNDLES
     rvm
     virtualenv
     bundler
+    docker
     docker-compose
 EOBUNDLES
 
