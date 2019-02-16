@@ -17,6 +17,7 @@ alias update="sudo apt-get update && sudo apt-get upgrade -y"
 alias tailf="tail -f"
 alias lhalt="ls -halt"
 alias lhaltr="ls -haltr"
+alias chrome="google-chrome-stable"
 
 # Set format date-time to history of commands
 export HISTTIMEFORMAT="%d/%m/%y %T "
