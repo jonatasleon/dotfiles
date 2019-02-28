@@ -18,6 +18,7 @@ alias tailf="tail -f"
 alias lhalt="ls -halt"
 alias lhaltr="ls -haltr"
 alias chrome="google-chrome-stable"
+alias b="byobu"
 
 # Set format date-time to history of commands
 export HISTTIMEFORMAT="%d/%m/%y %T "
