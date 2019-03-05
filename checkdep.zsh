@@ -10,3 +10,9 @@ if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
     echo "Downloading Vundle"
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
+
+# Check if exist TPM
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+    echo "Downloading TPM"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
