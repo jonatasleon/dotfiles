@@ -251,5 +251,11 @@ au BufNewFile,BufRead *.js,*.html,*.css
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+" Ignore ctrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules\|\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+
 " Set onedark (https://github.com/joshdick/onedark.vim) as color scheme
 colorscheme onedark
