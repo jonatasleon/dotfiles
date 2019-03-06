@@ -29,7 +29,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'chrisbra/NrrwRgn'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " Git support
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -140,6 +141,7 @@ nnoremap <Leader>S :w !sudo tee %<CR>
 
 " Close window
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :qa<CR>
 
 " Reopen last closed buffer
 nnoremap <Leader>bl :vs<bar>:b#<CR>
@@ -159,6 +161,12 @@ xnoremap <Leader>y "+y
 
 " Copy line
 nnoremap Y y$
+
+" Session settings
+let g:session_autoload='yes'
+let g:session_autosave='yes'
+let g:session_default_to_last=1
+let g:session_command_aliases=1
 
 " Set YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
