@@ -26,6 +26,10 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'kristijanhusak/vim-carbon-now-sh'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'chrisbra/NrrwRgn'
 
 " Git support
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -39,6 +43,9 @@ Plugin 'joshdick/onedark.vim'
 " Status line
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+" Linting
+Plugin 'w0rp/ale'
 
 " Python support
 Plugin 'plytophogy/vim-virtualenv'
@@ -65,6 +72,10 @@ filetype plugin indent on    " required
 " Configuration Section
 """""""""""""""""""""""""""""""""""""""""""""""""
 
+" Set cursorline
+autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline
+
 " Map jk to ESC in insert mode
 inoremap jk <esc>
 
@@ -81,28 +92,37 @@ nnoremap <Leader><Space> :%s/<Tab>/  /g<CR>
 nnoremap <Leader>vr :source ~/.vimrc<CR>
 
 " Quickly open .vimrc in new buffer
-nnoremap <Leader>vv :edit ~/.vimrc<CR>
+nnoremap <Leader>vv :edit ~/.dotfiles/vimrc<CR>
 
 " Change move to displayed line
 nnoremap j gj
 nnoremap k gk
 
+" Arrow-keys support
+set <left>=OD
+set <right>=OC
+set <up>=OA
+set <down>=OB
+
 " Remap move split
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <Leader>w <C-W><C-W>
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <Leader>h :TmuxNavigateLeft<CR>
+nnoremap <silent> <Leader>j :TmuxNavigateDown<CR>
+nnoremap <silent> <Leader>k :TmuxNavigateUp<CR>
+nnoremap <silent> <Leader>l :TmuxNavigateRight<CR>
+nnoremap <silent> <Leader>\ :TmuxNavigatePrevious<CR>
+nnoremap <silent> <Leader>w <C-W><C-W>
 
 " Move to beginning/end of line
 nnoremap B ^
 nnoremap E $
 
-" Show line number
-set number
-
 " Auto read files change
 set autoread
+
+" Show line number
+set number
 
 " Set relative number by default
 set relativenumber
@@ -130,8 +150,22 @@ nnoremap <Leader>bq :bdelete %<CR>
 " Set pastetoggle key
 set pastetoggle=<Leader>i
 
+" System clipboard
+set clipboard^=unnamedplus
+
+" Set copy/paste keys
+nnoremap <Leader>y "+yy
+xnoremap <Leader>y "+y
+
 " Copy line
 nnoremap Y y$
+
+" Set YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion=1
+map <Leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Set Carbon map
+xnoremap <Leader>p :CarbonNowSh<CR>
 
 " Set NERDTree config
 autocmd vimenter * NERDTree
@@ -213,9 +247,6 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
-
-" System clipboard
-set clipboard=unnamed
 
 " Set Proper Tabs for PEP 8
 au BufNewFile,BufRead *.py
