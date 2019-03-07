@@ -19,18 +19,20 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Utilities
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-scripts/ZoomWin'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
-Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+
+" File/Window/Pane navigation
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/ZoomWin'
 
 " Git support
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -49,12 +51,12 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
 
 " Python support
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ambv/black'
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-python/python-syntax'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'ambv/black'
 
 " Snippets
 Plugin 'honza/vim-snippets'
