@@ -28,7 +28,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-Plugin 'Townk/vim-autoclose'
+Plugin 'jiangmiao/auto-pairs'
 
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
