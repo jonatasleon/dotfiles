@@ -28,6 +28,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'Townk/vim-autoclose'
 
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -113,11 +114,12 @@ set <down>=OB
 " Remap move split
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <Leader>h :TmuxNavigateLeft<CR>
-nnoremap <silent> <Leader>j :TmuxNavigateDown<CR>
-nnoremap <silent> <Leader>k :TmuxNavigateUp<CR>
-nnoremap <silent> <Leader>l :TmuxNavigateRight<CR>
-nnoremap <silent> <Leader>\ :TmuxNavigatePrevious<CR>
+nnoremap <C-A><C-e> :echo "Works"<CR>
+nnoremap <silent> <C-A><C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-A><C-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <C-A><C-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <C-A><C-l> :TmuxNavigateRight<CR>
+nnoremap <silent> <C-A>\     :TmuxNavigatePrevious<CR>
 nnoremap <silent> <Leader>w <C-W><C-W>
 
 " Move to beginning/end of line
@@ -255,6 +257,25 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 " Disabe automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" ALE Config
+let g:ale_linters = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'javascript': ['eslint'],
+    \ }
+let b:ale_fixers = {
+    \ 'javascript': ['prettier', 'eslint'],
+    \ }
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 0
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
+let g:ale_echo_cursor = 0
+
+" ALE Maps
+nnoremap <Leader>an :ALENextWrap<CR>
+nnoremap <Leader>ap :ALEPreviousWrap<CR>
+nnoremap <Leader>af :ALEFix<CR>
+nnoremap <Leader>al :ALELint<CR>
+
 " Set Proper Tabs
 set tabstop=4
 set shiftwidth=4
@@ -263,13 +284,17 @@ set expandtab
 
 " Set Proper Tabs for PEP 8
 au BufNewFile,BufRead *.py
-    \ set tabstop=4     |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4  |
-    \ set textwidth=79  |
-    \ set expandtab     |
-    \ set autoindent    |
-    \ set fileformat=unix
+  \ set tabstop=4     |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4  |
+  \ set textwidth=100 |
+  \ set expandtab     |
+  \ set autoindent    |
+  \ set fileformat=unix
+
+" Flag unnecessary whitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Highlight python code
 let python_highlight_all=1
@@ -289,13 +314,10 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Set Proper Tabs for a full-stack development
 au BufNewFile,BufRead *.js,*.html,*.css
-    \ set tabstop=2     |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
-
-" Flag unnecessary whitespace
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+  \ set tabstop=2     |
+  \ set softtabstop=2 |
+  \ set shiftwidth=2
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 
 " Ignore ctrlP
 let g:ctrlp_custom_ignore = {
