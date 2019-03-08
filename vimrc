@@ -106,10 +106,10 @@ nnoremap j gj
 nnoremap k gk
 
 " Arrow-keys support
-set <left>=OD
-set <right>=OC
-set <up>=OA
-set <down>=OB
+set <Left>=OD
+set <Right>=OC
+set <Up>=OA
+set <Down>=OB
 
 " Remap move split
 let g:tmux_navigator_no_mappings = 1
