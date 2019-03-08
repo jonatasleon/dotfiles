@@ -8,8 +8,8 @@ export EDITOR=$(which vim)
 # For a full list of active aliases, run `alias`.
 alias zshconfig="$EDITOR ~/.dotfiles/zshrc"
 alias vimconfig="$EDITOR ~/.dotfiles/vimrc"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias profileconfig="$EDITOR ~/.dotfiles/profile.zsh"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias xopen="xdg-open"
 alias hs="history | grep"
 alias mkcd='foo() { mkdir -p "$1"; cd "$1" }; foo'
@@ -18,8 +18,8 @@ alias tailf="tail -f"
 alias lhalt="ls -halt"
 alias lhaltr="ls -haltr"
 alias chrome="google-chrome-stable"
-alias b="byobu"
 alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
+alias updatedotfiles="(cd ~/.dotfiles; git pull --rebase origin master)"
 
 # Set format date-time to history of commands
 export HISTTIMEFORMAT="%d/%m/%y %T "
