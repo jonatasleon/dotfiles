@@ -50,6 +50,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Linting
 Plugin 'w0rp/ale'
+Plugin 'sheerun/vim-polyglot'
 
 " Python support
 Plugin 'Valloric/YouCompleteMe'
@@ -260,13 +261,13 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " ALE Config
 let g:ale_linters = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \ 'javascript': ['eslint'],
+    \ 'javascript': ['prettier', 'eslint'],
     \ }
-let b:ale_fixers = {
+let g:ale_fixers = {
     \ 'javascript': ['prettier', 'eslint'],
     \ }
 let g:ale_linters_explicit = 1
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 let g:ale_echo_cursor = 0
 
@@ -275,6 +276,9 @@ nnoremap <Leader>an :ALENextWrap<CR>
 nnoremap <Leader>ap :ALEPreviousWrap<CR>
 nnoremap <Leader>af :ALEFix<CR>
 nnoremap <Leader>al :ALELint<CR>
+
+" Polyglot setup
+let g:polyglot_disabled = ['tmux']
 
 " Set Proper Tabs
 set tabstop=4
