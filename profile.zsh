@@ -19,6 +19,7 @@ alias lhalt="ls -halt"
 alias lhaltr="ls -haltr"
 alias chrome="google-chrome-stable"
 alias b="byobu"
+alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
 
 # Set format date-time to history of commands
 export HISTTIMEFORMAT="%d/%m/%y %T "

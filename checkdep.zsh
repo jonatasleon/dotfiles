@@ -16,3 +16,10 @@ if [ ! -d $HOME/.tmux/plugins/tpm ]; then
     echo "Downloading TPM"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+# Check for my custom snips
+if [ ! -d $HOME/.vim/UltiSnips  ]; then
+    echo "Downloading Jonatas' custom UltiSnips"
+    git clone https://github.com/jonatasleon/my-snips ~/.vim/UltiSnips
+fi
+
