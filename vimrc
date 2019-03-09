@@ -20,6 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Utilities
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
 Plugin 'scrooloose/nerdcommenter'
@@ -28,7 +29,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-Plugin 'jiangmiao/auto-pairs'
 
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -49,8 +49,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Linting
-Plugin 'w0rp/ale'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'w0rp/ale'
 
 " Python support
 Plugin 'Valloric/YouCompleteMe'
@@ -58,7 +58,6 @@ Plugin 'ambv/black'
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-python/python-syntax'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
 
 " Markdown support
 Plugin 'reedes/vim-pencil'
@@ -124,6 +123,8 @@ set laststatus=2
 set foldmethod=syntax
 set foldlevel=99
 
+set hidden
+
 " Show invisible characters
 set list
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
@@ -139,8 +140,6 @@ set <Left>=OD
 set <Right>=OC
 set <Up>=OA
 set <Down>=OB
-
-set hidden
 
 " Set cursorline
 autocmd InsertLeave,WinEnter *
@@ -171,6 +170,12 @@ autocmd FileType *
   \ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Variable assignment ===============================
+" ctrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules\|\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+
 " Session settings
 let g:session_autoload='yes'
 let g:session_autosave='yes'
@@ -188,7 +193,7 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeAutoDeleteBuffer=1
-let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$', '__pycache__'] "ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$', '__pycache__', 'node_modules'] "ignore files in NERDTree
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -214,7 +219,6 @@ let g:polyglot_disabled = ['tmux']
 
 " Highlight python code
 let python_highlight_all=1
-let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
 " Trigger configuration. Do not use <Tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-j>"
@@ -226,12 +230,6 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" Ignore ctrlP
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules\|\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
-
 " Variable assignment ===============================
 " Map jk to ESC in insert mode
 inoremap jk <esc>
@@ -242,66 +240,23 @@ inoremap <Esc> <Nop>
 " Map space to Leader
 map <Space> <Leader>
 
-" Quickly replace all tabs with spaces
-nnoremap <Leader><Space> :%s/<Tab>/  /g<CR>
-
-" Quickly source .vimrc
-nnoremap <Leader>vr :source ~/.vimrc<CR>
-
-" Quickly open .vimrc in new buffer
-nnoremap <Leader>vv :edit ~/.dotfiles/vimrc<CR>
-
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-
 " Change move to displayed line
 nnoremap j gj
 nnoremap k gk
-
-nnoremap <Silent> <C-a><C-h> :TmuxNavigateLeft<CR>
-nnoremap <Silent> <C-a><C-j> :TmuxNavigateDown<CR>
-nnoremap <Silent> <C-a><C-k> :TmuxNavigateUp<CR>
-nnoremap <Silent> <C-a><C-l> :TmuxNavigateRight<CR>
-nnoremap <Silent> <C-a>\     :TmuxNavigatePrevious<CR>
-nnoremap <Silent> <Leader>w <C-w><C-w>
 
 " Move to beginning/end of line
 nnoremap B ^
 nnoremap E $
 
-" Toggle Relative Number
-nnoremap <Silent> <Leader>rn :set relativenumber!<CR>
-
 " Select all content
 nnoremap vA ggVG
 
-" Save document
-nnoremap <Leader>s :w<CR>
-nnoremap <Leader>S :w !sudo tee %<CR>
-
-" Close window
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>Q :qa<CR>
-
-" Reopen last closed buffer
-nnoremap <Leader>bl :vs<bar>:b#<CR>
-
-" Delete current buffer
-nnoremap <Leader>bq :bdelete %<CR>
-
-" Set buftabline shortcut
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprev<CR>
-nnoremap <Leader>1 :bfirst<CR>
-nnoremap <Leader>9 :blast<CR>
-nnoremap <Leader>bm :bm<CR>
+" Copy line
+nnoremap Y y$
 
 " Set copy/paste keys
 nnoremap <Leader>y "+yy
 xnoremap <Leader>y "+y
-
-" Copy line
-nnoremap Y y$
 
 " Keep search results at the center of screen
 nnoremap n nzz
@@ -311,19 +266,60 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-map <Leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" Buffers maps
+nnoremap <silent> <Leader>n :bnext<CR>
+nnoremap <silent> <Leader>p :bprev<CR>
+nnoremap <silent> <Leader>1 :bfirst<CR>
+nnoremap <silent> <Leader>9 :blast<CR>
+nnoremap <silent> <Leader>bm :bm<CR>
+nnoremap <silent> <Leader>bl :vs<CR><C-w><C-w>:b#<CR>
+nnoremap <silent> <Leader>bL :sp<CR><C-w><C-w>:b#<CR>
+nnoremap <silent> <Leader>ba :ba<CR>
+nnoremap <silent> <Leader>bq :bdelete %<CR>
 
-" Set Carbon map
-xnoremap <Leader>p :CarbonNowSh<CR>
+" Save document
+nnoremap <Leader>s :w<CR>
+nnoremap <Leader>S :w !sudo tee %<CR>
 
-" Resize split to NERDTree split initial size
-nnoremap <Silent> <Leader>t :vertical resize 30<CR>
+" Close window
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :qa<CR>
+
+" Quickly replace all tabs with spaces
+nnoremap <Leader><Space> :%s/<Tab>/  /g<CR>
+
+" Quickly source .vimrc
+nnoremap <Leader>vr :source ~/.vimrc<CR>
+
+" Quickly open .vimrc in new buffer
+nnoremap <Leader>vv :edit ~/.dotfiles/vimrc<CR>
 
 " Enable folding with the Leader + Spacebar
 nnoremap <Leader><Space> za
 
 " Press <Leader> Enter to remove search highlights
-noremap <Silent> <Leader><CR> :noh<CR>
+noremap <silent> <Leader><cr> :noh<CR>
+
+" Toggle Relative Number
+nnoremap <silent> <Leader>rn :set relativenumber!<CR>
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Resize split to NERDTree split initial size
+nnoremap <silent> <Leader>t :NERDTreeFocus <bar> :vertical resize 30<CR>
+
+nnoremap <silent> <C-a><C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-a><C-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <C-a><C-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <C-a><C-l> :TmuxNavigateRight<CR>
+nnoremap <silent> <C-a>\     :TmuxNavigatePrevious<CR>
+nnoremap <silent> <Leader>w <C-w><C-w>
+
+map <Leader>g YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Set Carbon map
+xnoremap <Leader>p :CarbonNowSh<CR>
 
 " ALE Maps
 nnoremap <Leader>an :ALENextWrap<CR>
