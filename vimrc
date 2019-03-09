@@ -195,6 +195,7 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$', '__pycache__'] "ignore files in NERDTree
 " Resize split to NERDTree split initial size
 nnoremap <silent> <Leader>t :vertical resize 30<CR>
+
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
@@ -259,16 +260,11 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " ALE Config
+let g:ale_linters_explicit = 1
 let g:ale_linters = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \ 'javascript': ['prettier', 'eslint'],
     \ }
-let g:ale_fixers = {
-    \ 'javascript': ['prettier', 'eslint'],
-    \ }
-let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 let g:ale_echo_cursor = 0
 
 " ALE Maps
@@ -285,16 +281,6 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
-
-" Set Proper Tabs for PEP 8
-au BufNewFile,BufRead *.py
-  \ set tabstop=4     |
-  \ set softtabstop=4 |
-  \ set shiftwidth=4  |
-  \ set textwidth=100 |
-  \ set expandtab     |
-  \ set autoindent    |
-  \ set fileformat=unix
 
 " Flag unnecessary whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
