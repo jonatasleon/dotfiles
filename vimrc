@@ -189,11 +189,12 @@ let g:tmux_navigator_no_mappings = 1
 let g:ycm_autoclose_preview_window_after_completion=1
 
 " NERDTree
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-let NERDTreeAutoDeleteBuffer=1
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$', '__pycache__', 'node_modules'] "ignore files in NERDTree
+let NERDTreeQuitOnOpen = 3
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
