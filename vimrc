@@ -54,7 +54,6 @@ Plugin 'w0rp/ale'
 
 " Python support
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'ambv/black'
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-python/python-syntax'
 Plugin 'vim-scripts/indentpython.vim'
@@ -156,7 +155,7 @@ autocmd VimEnter *
   \ if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Set Proper Tabs for a full-stack development
-autocmd BufNewFile,BufRead *.js,*.html,*.css
+autocmd BufNewFile,BufRead *.html,*.css
   \ set tabstop=2     |
   \ set softtabstop=2 |
   \ set shiftwidth=2
@@ -170,6 +169,14 @@ autocmd FileType *
   \ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Variable assignment ===============================
+" Define default virtualenv dir
+let g:vim_venv = expand("~") . '/.vim/venv'
+
+" Define a function to create path to executables into virtualenv
+fun GetEnvPath(bin_name)
+    return g:vim_venv . '/bin/' . a:bin_name
+endf
+
 " ctrlP
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'node_modules\|\v[\/]\.(git|hg|svn)$',
@@ -208,12 +215,27 @@ let g:airline_powerline_fonts = 1
 let g:SimpylFold_docstring_preview=1
 
 " ALE Config
+let g:ale_vim_vint_use_global = 1
+let g:ale_fix_on_save = 1
+let g:ale_virtualenv_dir_names = [g:vim_venv]
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_column_always = 1
+
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
-  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
+  \ 'vim': ['vint'],
   \ }
-let g:ale_fix_on_save = 1
-let g:ale_echo_cursor = 0
+let g:ale_vim_vint_executable = GetEnvPath('vint')
+
+" Gitgutter
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
 
 " Polyglot setup
 let g:polyglot_disabled = ['tmux']
@@ -323,7 +345,8 @@ map <Leader>g YcmCompleter GoToDefinitionElseDeclaration<CR>
 xnoremap <Leader>p :CarbonNowSh<CR>
 
 " ALE Maps
-nnoremap <Leader>an :ALENextWrap<CR>
-nnoremap <Leader>ap :ALEPreviousWrap<CR>
+nnoremap <silent> <Leader>an :ALENextWrap<CR>
+nnoremap <silent> <Leader>ap :ALEPreviousWrap<CR>
+nnoremap <Leader>ai :ALEInfo<CR>
 nnoremap <Leader>af :ALEFix<CR>
 nnoremap <Leader>al :ALELint<CR>
