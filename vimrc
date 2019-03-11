@@ -20,6 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Utilities
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'etdev/vim-hexcolor'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
@@ -58,8 +59,14 @@ Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-python/python-syntax'
 Plugin 'vim-scripts/indentpython.vim'
 
+" Plugin Support
+Plugin 'pangloss/vim-javascript'
+
 " Markdown support
 Plugin 'reedes/vim-pencil'
+
+" HTML Support
+Plugin 'alvan/vim-closetag'
 
 " Snippets
 Plugin 'honza/vim-snippets'
@@ -168,12 +175,17 @@ autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h
 autocmd FileType *
   \ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Set the filetype based on the file's extension, overriding any
+" 'filetype' that has already been set
+au BufRead,BufNewFile *.ejs set filetype=html
+au BufRead,BufNewFile *.js set filetype=javascript
+
 " Variable assignment ===============================
 " Define default virtualenv dir
 let g:vim_venv = expand("~") . '/.vim/venv'
 
 " Define a function to create path to executables into virtualenv
-fun GetEnvPath(bin_name)
+fun! GetEnvPath(bin_name)
     return g:vim_venv . '/bin/' . a:bin_name
 endf
 
@@ -227,8 +239,15 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {
   \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
   \ 'vim': ['vint'],
+  \ 'javascript': ['eslint'],
+  \ }
+let g:ale_fixers = {
+  \ 'javascript': ['eslint'],
   \ }
 let g:ale_vim_vint_executable = GetEnvPath('vint')
+
+" Closetag
+let g:closetag_filenames = "*.html,*.xhtml,*.ejs"
 
 " Gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
