@@ -30,6 +30,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'majutsushi/tagbar'
 
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -369,3 +370,7 @@ nnoremap <silent> <Leader>ap :ALEPreviousWrap<CR>
 nnoremap <Leader>ai :ALEInfo<CR>
 nnoremap <Leader>af :ALEFix<CR>
 nnoremap <Leader>al :ALELint<CR>
+nnoremap <Leader>g :ALEGoToDefinition<CR>
+
+" CTags Maps
+nnoremap <silent> <C-c> :TagbarToggle<CR>
