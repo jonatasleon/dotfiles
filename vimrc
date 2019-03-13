@@ -241,6 +241,7 @@ let g:ale_linters = {
   \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
   \ 'vim': ['vint'],
   \ 'javascript': ['eslint'],
+  \ 'html': ['prettier'],
   \ }
 let g:ale_fixers = {
   \ 'javascript': ['eslint'],
@@ -370,7 +371,7 @@ nnoremap <silent> <Leader>ap :ALEPreviousWrap<CR>
 nnoremap <Leader>ai :ALEInfo<CR>
 nnoremap <Leader>af :ALEFix<CR>
 nnoremap <Leader>al :ALELint<CR>
-nnoremap <Leader>g :ALEGoToDefinition<CR>
+nnoremap <Leader>ag :ALEGoToDefinition<CR>
 
 " CTags Maps
 nnoremap <silent> <C-c> :TagbarToggle<CR>
