@@ -19,18 +19,18 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Utilities
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'etdev/vim-hexcolor'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'kien/ctrlp.vim'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-Plugin 'majutsushi/tagbar'
 
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -310,12 +310,20 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" Command is only returned when out of NERDTree
+fun! RunOutNERDTree(command)
+    if !(exists("b:NERDTree") && b:NERDTree.isTabTree())
+        return a:command
+    endif
+    echo "You're into NERDTree"
+endf
+
 " Buffers maps
-nnoremap <silent> <Leader>n :bnext<CR>
-nnoremap <silent> <Leader>p :bprev<CR>
-nnoremap <silent> <Leader>1 :bfirst<CR>
-nnoremap <silent> <Leader>9 :blast<CR>
-nnoremap <silent> <Leader>bm :bm<CR>
+nnoremap <silent> <expr> <Leader>n RunOutNERDTree(':bnext<CR>')
+nnoremap <silent> <expr> <Leader>p RunOutNERDTree(':bprev<CR>')
+nnoremap <silent> <expr> <Leader>1 RunOutNERDTree(':bfirst<CR>')
+nnoremap <silent> <expr> <Leader>9 RunOutNERDTree(':blast<CR>')
+nnoremap <silent> <expr> <Leader>bm RunOutNERDTree(':bm<CR>')
 nnoremap <silent> <Leader>bl :vs<CR><C-w><C-w>:b#<CR>
 nnoremap <silent> <Leader>bL :sp<CR><C-w><C-w>:b#<CR>
 nnoremap <silent> <Leader>ba :ba<CR>
