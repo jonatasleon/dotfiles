@@ -23,3 +23,9 @@ if [ ! -d $HOME/.vim/UltiSnips  ]; then
     git clone https://github.com/jonatasleon/my-snips ~/.vim/UltiSnips
 fi
 
+# Check for my custom snips
+if [ ! -d $HOME/.fzf ]; then
+    echo "Downloading and installing fzf"
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all --no-update-rc
+fi
