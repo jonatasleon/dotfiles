@@ -102,6 +102,9 @@ set number
 " Set relative number by default
 set relativenumber
 
+" Set wrap text
+set wrap linebreak nolist
+
 " Set pastetoggle key
 set pastetoggle=<Leader>i
 
@@ -242,6 +245,7 @@ let g:ale_linters = {
   \ 'vim': ['vint'],
   \ 'javascript': ['eslint'],
   \ 'html': ['prettier'],
+  \ 'json': ['jsonlint']
   \ }
 let g:ale_fixers = {
   \ 'javascript': ['eslint'],
@@ -318,6 +322,10 @@ fun! RunOutNERDTree(command)
     echo "You're into NERDTree"
 endf
 
+fun! IsLastBuffer()
+    return len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+endf
+
 " Buffers maps
 nnoremap <silent> <expr> <Leader>n RunOutNERDTree(':bnext<CR>')
 nnoremap <silent> <expr> <Leader>p RunOutNERDTree(':bprev<CR>')
@@ -334,17 +342,14 @@ nnoremap <Leader>s :w<CR>
 nnoremap <Leader>S :w !sudo tee %<CR>
 
 " Close window
-nnoremap <Leader>q :q<CR>
+nnoremap <expr> <Leader>q IsLastBuffer() ? ':q<CR>' : ':bd<CR>'
 nnoremap <Leader>Q :qa<CR>
-
-" Quickly replace all tabs with spaces
-nnoremap <Leader><Space> :%s/<Tab>/  /g<CR>
 
 " Quickly source .vimrc
 nnoremap <Leader>vr :source ~/.vimrc<CR>
 
 " Quickly open .vimrc in new buffer
-nnoremap <Leader>vv :edit ~/.dotfiles/vimrc<CR>
+nnoremap <expr> <Leader>vv RunOutNERDTree(':edit ~/.dotfiles/vimrc<CR>')
 
 " Enable folding with the Leader + Spacebar
 nnoremap <Leader><Space> za
