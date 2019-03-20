@@ -373,7 +373,6 @@ nnoremap <silent> <C-a><C-l> :TmuxNavigateRight<CR>
 nnoremap <silent> <C-a>\     :TmuxNavigatePrevious<CR>
 nnoremap <silent> <Leader>w <C-w><C-w>
 
-map <Leader>g YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Set Carbon map
 xnoremap <Leader>p :CarbonNowSh<CR>
@@ -384,7 +383,7 @@ nnoremap <silent> <Leader>ap :ALEPreviousWrap<CR>
 nnoremap <Leader>ai :ALEInfo<CR>
 nnoremap <Leader>af :ALEFix<CR>
 nnoremap <Leader>al :ALELint<CR>
-nnoremap <Leader>ag :ALEGoToDefinition<CR>
+nnoremap <Leader>ag :YcmCompleter GoTo<CR>
 
 " CTags Maps
 nnoremap <silent> <C-c> :TagbarToggle<CR>
