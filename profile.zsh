@@ -43,5 +43,5 @@ eval "$(pyenv virtualenv-init -)"
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Workaround to git stash/pyenv problem https://github.com/pyenv/pyenv/issues/688
-# export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
+# Workaround to git stash/pyenv problem https://github.com/pyenv/pyenv/issues/690
+export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1

@@ -342,7 +342,7 @@ nnoremap <Leader>s :w<CR>
 nnoremap <Leader>S :w !sudo tee %<CR>
 
 " Close window
-nnoremap <expr> <Leader>q IsLastBuffer() ? ':q<CR>' : ':bd<CR>'
+nnoremap <silent> <expr> <Leader>q IsLastBuffer() ? ':q<CR>' : ':bd<CR>'
 nnoremap <Leader>Q :qa<CR>
 
 " Quickly source .vimrc
