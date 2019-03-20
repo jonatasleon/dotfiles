@@ -361,7 +361,7 @@ noremap <silent> <Leader><cr> :noh<CR>
 nnoremap <silent> <Leader>rn :set relativenumber!<CR>
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <silent> <C-n> :NERDTreeToggle<CR>
 
 " Resize split to NERDTree split initial size
 nnoremap <silent> <Leader>t :NERDTreeFocus <bar> :vertical resize 30<CR>
@@ -373,7 +373,6 @@ nnoremap <silent> <C-a><C-l> :TmuxNavigateRight<CR>
 nnoremap <silent> <C-a>\     :TmuxNavigatePrevious<CR>
 nnoremap <silent> <Leader>w <C-w><C-w>
 
-
 " Set Carbon map
 xnoremap <Leader>p :CarbonNowSh<CR>
 
@@ -384,6 +383,10 @@ nnoremap <Leader>ai :ALEInfo<CR>
 nnoremap <Leader>af :ALEFix<CR>
 nnoremap <Leader>al :ALELint<CR>
 nnoremap <Leader>ag :YcmCompleter GoTo<CR>
+nnoremap <Leader>ar :YcmCompleter GoToReferences<CR>
+nnoremap <Leader>am :YcmCompleter RefactorRename 
+" change current work (like ciw) but repeatable with dot . for same next word.
+nnoremap <Leader>ac :let @/=expand('<cword>')<CR>cgn
 
 " CTags Maps
 nnoremap <silent> <C-c> :TagbarToggle<CR>
