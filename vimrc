@@ -313,6 +313,10 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+" CTags-Tagbar
+let g:tagbar_autofocus = 1
+let g:tagbar_sort = 0
+
 " Variable assignment ===============================
 " Map jk to ESC in insert mode
 inoremap jk <esc>
