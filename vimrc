@@ -423,7 +423,7 @@ nnoremap <Leader>af :ALEFix<CR>
 nnoremap <Leader>al :ALELint<CR>
 nnoremap <Leader>ag :YcmCompleter GoTo<CR>
 nnoremap <Leader>ar :YcmCompleter GoToReferences<CR>
-nnoremap <Leader>am :YcmCompleter RefactorRename 
+nnoremap <Leader>am :YcmCompleter RefactorRename<Space>
 " change current work (like ciw) but repeatable with dot . for same next word.
 nnoremap <Leader>ac :let @/=expand('<cword>')<CR>cgn
 
