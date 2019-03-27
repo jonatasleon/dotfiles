@@ -19,6 +19,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Utilities
+Plugin 'Yggdroot/indentLine'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'etdev/vim-hexcolor'
@@ -316,6 +317,10 @@ let g:UltiSnipsEditSplit="vertical"
 " CTags-Tagbar
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
+
+" Indent Highlight
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
 
 " Variable assignment ===============================
 " Map jk to ESC in insert mode
