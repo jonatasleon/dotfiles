@@ -145,6 +145,9 @@ set shiftwidth=4
 set smarttab
 set expandtab
 
+" Wildignore
+set wildignore+=*/node_modules/*
+
 " Arrow-keys support
 set <Left>=OD
 set <Right>=OC
@@ -429,3 +432,6 @@ nnoremap <Leader>ac :let @/=expand('<cword>')<CR>cgn
 
 " CTags Maps
 nnoremap <silent> <C-c> :TagbarToggle<CR>
+
+" Vimgrep
+nnoremap <Leader>vw :execute "vimgrep /" . expand('<cword>') . "/gj **" <Bar> cw<CR>
