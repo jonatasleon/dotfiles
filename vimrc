@@ -33,6 +33,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 
+" Text Editing
+Plugin 'andrewradev/splitjoin.vim'
+Plugin 'valloric/matchtagalways'
+
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
@@ -440,3 +444,6 @@ nnoremap <silent> <C-c> :TagbarToggle<CR>
 
 " Vimgrep
 nnoremap <Leader>vw :execute "vimgrep /" . expand('<cword>') . "/gj **" <Bar> cw<CR>
+
+" Commands
+command -nargs=1 FindAll vimgrep <args> ** | cw
