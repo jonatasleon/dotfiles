@@ -153,6 +153,9 @@ set expandtab
 " Wildignore
 set wildignore+=*/node_modules/*
 
+" Update time
+set updatetime=250
+
 " Arrow-keys support
 set <Left>=OD
 set <Right>=OC
@@ -445,5 +448,6 @@ nnoremap <silent> <C-c> :TagbarToggle<CR>
 " Vimgrep
 nnoremap <Leader>vw :execute "vimgrep /" . expand('<cword>') . "/gj **" <Bar> cw<CR>
 
-" Commands
-command -nargs=1 FindAll vimgrep <args> ** | cw
+" Commands Assignment ==============================
+" Add command to find a term in all current dir
+command! -nargs=1 FindAll vimgrep <args> ** | cw
