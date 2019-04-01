@@ -32,6 +32,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'godlygeek/tabular'
+Plugin 'KabbAmine/vCoolor.vim'
 
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
@@ -70,6 +72,7 @@ Plugin 'pangloss/vim-javascript'
 
 " Markdown support
 Plugin 'reedes/vim-pencil'
+Plugin 'plasticboy/vim-markdown'
 
 " HTML Support
 Plugin 'alvan/vim-closetag'
@@ -206,7 +209,7 @@ endf
 
 " ctrlP
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules\|\v[\/]\.(git|hg|svn)$',
+  \ 'dir':  '_site\|node_modules\|\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
@@ -237,6 +240,7 @@ let g:NERDSpaceDelims = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formmater = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
+let g:airline_section_x = '%{PencilMode()}'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -442,6 +446,10 @@ nnoremap <Leader>am :YcmCompleter RefactorRename<Space>
 " change current work (like ciw) but repeatable with dot . for same next word.
 nnoremap <Leader>ac :let @/=expand('<cword>')<CR>cgn
 
+" Vim Pencil Format Maps
+nnoremap <silent> Q gqap
+xnoremap <silent> Q gq
+
 " CTags Maps
 nnoremap <silent> <C-c> :TagbarToggle<CR>
 
@@ -451,3 +459,5 @@ nnoremap <Leader>vw :execute "vimgrep /" . expand('<cword>') . "/gj **" <Bar> cw
 " Commands Assignment ==============================
 " Add command to find a term in all current dir
 command! -nargs=1 FindAll vimgrep <args> ** | cw
+
+command! -nargs=1 Chrome execute "silent !google-chrome <args>" | redraw!
