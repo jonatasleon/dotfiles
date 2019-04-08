@@ -39,7 +39,6 @@ Plugin 'posva/vim-vue'
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
 Plugin 'valloric/matchtagalways'
-Plugin 'mattn/emmet-vim'
 
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -388,10 +387,10 @@ fun! IsLastBuffer()
 endf
 
 " Buffers maps
-nnoremap <silent> <expr> <Leader>n RunOutNERDTree(':bnext<CR>')
-nnoremap <silent> <expr> <Leader>p RunOutNERDTree(':bprev<CR>')
-nnoremap <silent> <expr> <Leader>1 RunOutNERDTree(':bfirst<CR>')
-nnoremap <silent> <expr> <Leader>9 RunOutNERDTree(':blast<CR>')
+nnoremap <silent> <expr> <Leader>n  RunOutNERDTree(':bnext<CR>')
+nnoremap <silent> <expr> <Leader>p  RunOutNERDTree(':bprev<CR>')
+nnoremap <silent> <expr> <Leader>1  RunOutNERDTree(':bfirst<CR>')
+nnoremap <silent> <expr> <Leader>9  RunOutNERDTree(':blast<CR>')
 nnoremap <silent> <expr> <Leader>bm RunOutNERDTree(':bm<CR>')
 nnoremap <silent> <Leader>bl :vs<CR><C-w><C-w>:b#<CR>
 nnoremap <silent> <Leader>bL :sp<CR><C-w><C-w>:b#<CR>
