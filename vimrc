@@ -76,6 +76,7 @@ Plugin 'plasticboy/vim-markdown'
 
 " HTML Support
 Plugin 'alvan/vim-closetag'
+Plugin 'mattn/emmet-vim'
 
 " Snippets
 Plugin 'honza/vim-snippets'
@@ -101,6 +102,9 @@ colorscheme onedark
 highlight BadWhitespace ctermbg=red guibg=darkred
 
 " Options setting ===============================
+" Show command progress
+set showcmd
+
 " Auto read files change
 set autoread
 
@@ -210,8 +214,9 @@ endf
 " ctrlP
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '_site\|node_modules\|\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
   \ }
+let g:ctrlp_show_hidden = 1
 
 " Session settings
 let g:session_autoload='yes'
@@ -350,15 +355,8 @@ map <Space> <Leader>
 nnoremap j gj
 nnoremap k gk
 
-" Move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-
 " Select all content
 nnoremap vA ggVG
-
-" Copy line
-nnoremap Y y$
 
 " Set copy/paste keys
 nnoremap <Leader>y "+yy
