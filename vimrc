@@ -203,13 +203,37 @@ au BufRead,BufNewFile *.ejs set filetype=html
 au BufRead,BufNewFile *.js set filetype=javascript
 
 " Variable assignment ===============================
-" Define default virtualenv dir
+" Define default virtualenv directory
 let g:vim_venv = expand("~") . '/.vim/venv'
 
 " Define a function to create path to executables into virtualenv
 fun! GetEnvPath(bin_name)
     return g:vim_venv . '/bin/' . a:bin_name
 endf
+
+fun! MathAndLiquid()
+    "" Define certain regions
+    " Block math. Look for "$$[anything]$$"
+    syn region math start=/\$\$/ end=/\$\$/
+    " inline math. Look for "$[not $][anything]$"
+    syn match math_block '\$[^$].\{-}\$'
+
+    " Liquid single line. Look for "{%[anything]%}"
+    syn match liquid '{%.*%}'
+    " Liquid multi line. Look for "{%[anything]%}[anything]{%[anything]%}"
+    syn region highlight_block start='{% highlight .*%}' end='{%.*%}'
+    " Fenced code blocks, used in GitHub Flavored Markdown (GFM)
+    syn region highlight_block start='```' end='```'
+
+    "" Actually highlight those regions.
+    hi link math Statement
+    hi link liquid Statement
+    hi link highlight_block Function
+    hi link math_block Function
+endfunction
+
+" Call every time we open a Markdown file
+autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
 
 " ctrlP
 let g:ctrlp_custom_ignore = {
@@ -340,6 +364,9 @@ let g:tagbar_sort = 0
 " Indent Highlight
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
+
+" vCoolor
+let g:vcoolor_disable_mappings = 1
 
 " Variable assignment ===============================
 " Map jk to ESC in insert mode
