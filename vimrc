@@ -34,6 +34,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'godlygeek/tabular'
 Plugin 'KabbAmine/vCoolor.vim'
+Plugin 'posva/vim-vue'
 
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
@@ -269,7 +270,7 @@ let g:NERDSpaceDelims = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formmater = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
-let g:airline_section_x = '%{PencilMode()}'
+" let g:airline_section_x = '%{PencilMode()}'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -329,8 +330,11 @@ let g:ale_linters = {
 let g:ale_fixers = {
   \ 'javascript': ['eslint'],
   \ }
+let g:ale_linter_aliases = {
+  \ 'vue': ['javascript', 'html', 'scss'],
+  \ }
 let g:ale_vim_vint_executable = GetEnvPath('vint')
-
+let g:vue_disable_pre_processors=1
 " Closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.ejs"
 
@@ -410,10 +414,10 @@ fun! IsLastBuffer()
 endf
 
 " Buffers maps
-nnoremap <silent> <expr> <Leader>n RunOutNERDTree(':bnext<CR>')
-nnoremap <silent> <expr> <Leader>p RunOutNERDTree(':bprev<CR>')
-nnoremap <silent> <expr> <Leader>1 RunOutNERDTree(':bfirst<CR>')
-nnoremap <silent> <expr> <Leader>9 RunOutNERDTree(':blast<CR>')
+nnoremap <silent> <expr> <Leader>n  RunOutNERDTree(':bnext<CR>')
+nnoremap <silent> <expr> <Leader>p  RunOutNERDTree(':bprev<CR>')
+nnoremap <silent> <expr> <Leader>1  RunOutNERDTree(':bfirst<CR>')
+nnoremap <silent> <expr> <Leader>9  RunOutNERDTree(':blast<CR>')
 nnoremap <silent> <expr> <Leader>bm RunOutNERDTree(':bm<CR>')
 nnoremap <silent> <Leader>bl :vs<CR><C-w><C-w>:b#<CR>
 nnoremap <silent> <Leader>bL :sp<CR><C-w><C-w>:b#<CR>
@@ -481,8 +485,12 @@ nnoremap <silent> <C-c> :TagbarToggle<CR>
 " Vimgrep
 nnoremap <Leader>vw :execute "vimgrep /" . expand('<cword>') . "/gj **" <Bar> cw<CR>
 
+" Marks
+nnoremap <Leader>m ma
+nnoremap <Leader>' 'a
+
 " Commands Assignment ==============================
 " Add command to find a term in all current dir
-command! -nargs=1 FindAll vimgrep <args> ** | cw
+command! -nargs=1 FindAll vimgrep /<args>/gj ** | cw
 
 command! -nargs=1 Chrome execute "silent !google-chrome <args>" | redraw!
