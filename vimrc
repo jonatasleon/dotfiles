@@ -385,6 +385,7 @@ map <Space> <Leader>
 " Change move to displayed line
 nnoremap j gj
 nnoremap k gk
+nnoremap G Gzz
 
 " Select all content
 nnoremap vA ggVG
@@ -419,9 +420,9 @@ nnoremap <silent> <expr> <Leader>p  RunOutNERDTree(':bprev<CR>')
 nnoremap <silent> <expr> <Leader>1  RunOutNERDTree(':bfirst<CR>')
 nnoremap <silent> <expr> <Leader>9  RunOutNERDTree(':blast<CR>')
 nnoremap <silent> <expr> <Leader>bm RunOutNERDTree(':bm<CR>')
+nnoremap <silent> <expr> <Leader>ba RunOutNERDTree(':ba<CR>')
 nnoremap <silent> <Leader>bl :vs<CR><C-w><C-w>:b#<CR>
 nnoremap <silent> <Leader>bL :sp<CR><C-w><C-w>:b#<CR>
-nnoremap <silent> <Leader>ba :ba<CR>
 nnoremap <silent> <Leader>bq :bdelete %<CR>
 
 " Save document
@@ -457,7 +458,6 @@ nnoremap <silent> <C-a><C-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <C-a><C-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <C-a><C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-a><C-l> :TmuxNavigateRight<CR>
-nnoremap <silent> <C-a>\     :TmuxNavigatePrevious<CR>
 nnoremap <silent> <Leader>w <C-w><C-w>
 
 " Set Carbon map
@@ -480,7 +480,7 @@ nnoremap <silent> Q gqap
 xnoremap <silent> Q gq
 
 " CTags Maps
-nnoremap <silent> <C-c> :TagbarToggle<CR>
+nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 
 " Vimgrep
 nnoremap <Leader>vw :execute "vimgrep /" . expand('<cword>') . "/gj **" <Bar> cw<CR>
@@ -491,6 +491,6 @@ nnoremap <Leader>' 'a
 
 " Commands Assignment ==============================
 " Add command to find a term in all current dir
-command! -nargs=1 FindAll vimgrep /<args>/gj ** | cw
+command! -nargs=+ FindAll vimgrep /<args>/gj ** | cw
 
 command! -nargs=1 Chrome execute "silent !google-chrome <args>" | redraw!
