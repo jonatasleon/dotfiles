@@ -19,22 +19,21 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Utilities
+Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'etdev/vim-hexcolor'
+Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
 Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-startify'
+Plugin 'posva/vim-vue'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
-Plugin 'godlygeek/tabular'
-Plugin 'KabbAmine/vCoolor.vim'
-Plugin 'posva/vim-vue'
 
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
@@ -206,12 +205,12 @@ autocmd InsertEnter,WinLeave *
   \ set nocursorline
 
 " Set NERDTree config
-autocmd vimenter * 
-  \ NERDTree
-autocmd StdinReadPre *
-  \ let s:std_in=1
-autocmd VimEnter *
-  \ if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd vimenter * 
+  " \ NERDTree
+" autocmd StdinReadPre *
+  " \ let s:std_in=1
+" autocmd VimEnter *
+  " \ if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Set Proper Tabs for a full-stack development
 autocmd BufNewFile,BufRead *.html,*.css
@@ -244,8 +243,8 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_show_hidden = 1
 
 " Session settings
-let g:session_autoload='yes'
-let g:session_autosave='yes'
+let g:session_autoload='no'
+let g:session_autosave='no'
 let g:session_default_to_last=1
 let g:session_command_aliases=1
 
