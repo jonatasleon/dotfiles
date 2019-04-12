@@ -122,7 +122,7 @@ set wrap linebreak nolist
 set pastetoggle=<Leader>i
 
 " System clipboard
-set clipboard^=unnamedplus
+set clipboard=unnamedplus
 
 " Show linenumbers
 set ruler
@@ -491,6 +491,6 @@ nnoremap <Leader>' 'a
 
 " Commands Assignment ==============================
 " Add command to find a term in all current dir
-command! -nargs=1 FindAll vimgrep /<args>/gj ** | cw
+command! -nargs=+ FindAll vimgrep /<args>/gj ** | cw
 
 command! -nargs=1 Chrome execute "silent !google-chrome <args>" | redraw!
