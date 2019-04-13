@@ -22,5 +22,5 @@ set -g @gpu_high_icon "🔥"
 # One Dark settings
 white="#(tmux show-option -gqv status-fg)"
 set -g @onedark_date_first true
-set -g @onedark_date_format "%A, %b %d
+set -g @onedark_date_format "%A, %b %d"
 set -g @onedark_widgets "#(curl http://wttr.in?format=1)  CPU:#{cpu_fg_color}#{cpu_percentage} #{cpu_icon}#[fg=$white]  GPU:#{gpu_fg_color}#{gpu_percentage} #{gpu_icon}#[fg=$white]  MEM:#{free_mem}"
