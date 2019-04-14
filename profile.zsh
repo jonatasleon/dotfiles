@@ -1,47 +1,72 @@
 export PATH="/usr/local/bin:$PATH"
 
+# zsh-autosuggestions configuration
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+bindkey "^ " autosuggest-accept
+bindkey "^U" backward-kill-line
+
 # Set vim as default editor
 export EDITOR=$(which vim)
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes.
-# For a full list of active aliases, run `alias`.
-alias zshconfig="$EDITOR ~/.dotfiles/zshrc"
-alias vimconfig="$EDITOR ~/.dotfiles/vimrc"
-alias profileconfig="$EDITOR ~/.dotfiles/profile.zsh"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-alias xopen="xdg-open"
-alias hs="history | grep"
-alias mkcd='foo() { mkdir -p "$1"; cd "$1" }; foo'
-alias update="sudo apt-get update && sudo apt-get upgrade -y"
-alias tailf="tail -f"
-alias lhalt="ls -halt"
-alias lhaltr="ls -haltr"
-alias chrome="google-chrome-stable"
-alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
-alias updatedotfiles="(cd ~/.dotfiles; git pull --rebase origin master)"
 
 # Set format date-time to history of commands
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # NVM Configuration
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# Based on http://broken-by.me/lazy-load-nvm/
+nvm() {
+    unset -f nvm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvm "$@"
+}
+
+node() {
+    unset -f node
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    node "$@"
+}
+
+npm() {
+    unset -f npm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    npm "$@"
+}
 
 # Pyenv configuration
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# Based on https://github.com/davidparsson/zsh-pyenv-lazy/blob/master/pyenv-lazy.plugin.zsh
+# Try to find pyenv, if it's not on the path
+export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
+if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+fi
 
-# # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-
-# # Load RVM into a shell session *as a function*
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Lazy load pyenv
+if type pyenv > /dev/null; then
+    export PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
+    function pyenv() {
+        unset -f pyenv
+        eval "$(command pyenv init -)"
+        eval "$(command pyenv virtualenv-init -)"
+        pyenv $@
+    }
+fi
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Workaround to git stash/pyenv problem https://github.com/pyenv/pyenv/issues/690
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
+
+# Profiling zsh start up
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+profzsh() {
+  shell=${1-$SHELL}
+  ZPROF=true $shell -i -c exit
+}
