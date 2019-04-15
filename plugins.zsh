@@ -26,3 +26,6 @@ antigen theme denysdovhan/spaceship-prompt
 
 # Tell Antigen that you're done.
 antigen apply
+
+bindkey "^ " autosuggest-accept
+bindkey "^U" backward-kill-line

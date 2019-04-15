@@ -3,14 +3,20 @@ export PATH="/usr/local/bin:$PATH"
 # zsh-autosuggestions configuration
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
-bindkey "^ " autosuggest-accept
-bindkey "^U" backward-kill-line
 
 # Set vim as default editor
 export EDITOR=$(which vim)
 
 # Set format date-time to history of commands
 export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# Set configuration to Spaceship-prompt
+export SPACESHIP_TIME_SHOW=true
+export SPACESHIP_DIR_LOCK_SYMBOL=" 🔒"
+export SPACESHIP_DIR_TRUNC=4
+
+# Workaround to git stash/pyenv problem https://github.com/pyenv/pyenv/issues/690
+export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # NVM Configuration
 # Based on http://broken-by.me/lazy-load-nvm/
@@ -56,9 +62,6 @@ fi
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Workaround to git stash/pyenv problem https://github.com/pyenv/pyenv/issues/690
-export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # Profiling zsh start up
 timezsh() {
