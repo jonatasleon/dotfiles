@@ -17,9 +17,9 @@ gpu_format="GPU:#{gpu_fg_color}#{gpu_percentage} #{gpu_icon}#[fg=$fg_color]"
 mem_format="#{free_mem}"
 battery_format="#{battery_status_fg}#{battery_icon}#{battery_percentage}#[fg=$fg_color]"
 custom_widgets="${cpu_format}  ${gpu_format}  ${mem_format}"
-if acpi -a; then
-    custom_widgets+="  ${battery_format}"
-fi
+
+if-shell '[ $(acpi -a; echo $?) -eq 0 ]' \
+    'custom_widgets+="  ${battery_format}"'
 
 # CPU / GPU Icons
 set -g @cpu_low_icon "🤣"
@@ -42,5 +42,5 @@ set -g @batt_low_charge_icon "🌘 "
 # One Dark settings
 set -g @onedark_date_first true
 set -g @onedark_date_format "%A, %b %d"
-set -g @onedark_time_format "%H:%m  #(curl -f http://wttr.in?format=1)"
+set -g @onedark_time_format '%H:%M  #(curl -f http://wttr.in?format=1)'
 set -g @onedark_widgets "${custom_widgets}"
