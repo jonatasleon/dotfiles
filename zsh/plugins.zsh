@@ -17,6 +17,7 @@ EOBUNDLES
 antigen bundles <<EOBUNDLES
     MichaelAquilina/zsh-you-should-use
     chrissicool/zsh-256color
+    lukechilds/zsh-nvm
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES

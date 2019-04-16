@@ -1,4 +1,4 @@
-source $HOME/.checkdep.zsh
-source $HOME/.profile.zsh
-source $HOME/.plugins.zsh
-source $HOME/.aliases.zsh
+source $HOME/.zsh/checkdep.zsh
+source $HOME/.zsh/profile.zsh
+source $HOME/.zsh/plugins.zsh
+source $HOME/.zsh/aliases.zsh
