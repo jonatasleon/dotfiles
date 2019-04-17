@@ -8,6 +8,7 @@ antigen bundles <<EOBUNDLES
     docker
     docker-compose
     git
+    pyenv
     svn
     tmux
     virtualenv
