@@ -48,7 +48,7 @@ i3_list=(
 )
 
 add_repositories() {
-    sudo add-apt-repository ppa:martin-frost/thoughtbot-rcm
+    sudo add-apt-repository -y ppa:martin-frost/thoughtbot-rcm
     sudo apt-get update && sudo apt-get upgrade -y
 }
 
