@@ -7,7 +7,7 @@ add_repositories() {
 }
 
 install_softwares() {
-    sudo apt install -y <<EOLIST
+    sudo apt-get install -y <<EOLIST
         acpi
         alttab
         asciinema
@@ -32,7 +32,7 @@ EOLIST
 
 
 install_i3() {
-    sudo apt install -y <<EOLIST
+    sudo apt-get install -y <<EOLIST
         xcb
         libxcb1-dev
         libxcb-shape0-dev
