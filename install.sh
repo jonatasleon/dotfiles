@@ -49,14 +49,15 @@ i3_list=(
 
 add_repositories() {
     sudo add-apt-repository ppa:martin-frost/thoughtbot-rcm
+    sudo apt-get update && sudo apt-get upgrade -y
 }
 
-install_softwares() {
+install_packages() {
     sudo apt-get install -y ${packages_list[@]}
 }
 
 
-install_i3() {
+install_i3gaps() {
     sudo apt-get install -y ${i3_list[@]}
 
     # clone the repository
