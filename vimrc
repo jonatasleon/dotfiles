@@ -78,6 +78,9 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'alvan/vim-closetag'
 Plugin 'mattn/emmet-vim'
 
+" i3wm
+Plugin 'PotatoesMaster/i3-vim-syntax'
+
 " Snippets
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
