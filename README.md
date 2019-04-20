@@ -4,5 +4,5 @@ Combo for Zsh + Tmux + Vim + Fzf
 
 ## Installing
 ```sh
-curl -s https://git.io/fjOy6 | bash -s
+curl -sL https://git.io/fjOy6 | bash -s
 ```
