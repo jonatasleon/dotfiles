@@ -83,6 +83,6 @@ retrieve_dotfiles() {
 
 
 add_repositories
-install_softwares
-install_i3
+install_packages
+install_i3gaps
 retrieve_dotfiles
