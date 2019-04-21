@@ -100,6 +100,7 @@ filetype plugin indent on    " required
 
 " Set onedark (https://github.com/joshdick/onedark.vim) as color scheme
 colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
 
 " Modify how vim shows BadWhitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
