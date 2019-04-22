@@ -4,61 +4,74 @@ packages_list=(
     acpi
     alttab
     asciinema
+    compton
+    conky
+    ctags
     curl
     dmenu
+    dunst
+    feh
     ffmpeg
+    fonts-powerline
     git
     git-svn
     htop
     hunspell
     i3blocks
     i3status
+    imagemagick
+    lftp
     minidlna
+    powerline
+    rar
     rcm
+    rofi
+    screenfetch
     scrot
+    tmux
     traceroute
+    transmission-cli
+    urlview
+    vim
     whois
+    xautolock
     xclip
     zsh
 )
 
 i3_list=(
-    autoconf
-    automake
-    libev-dev
-    libjpeg-turbo8-dev 
-    libpam0g-dev
-    libpango1.0-dev
-    libstartup-notification0-dev
     libxcb1-dev
-    libxcb-composite0
-    libxcb-composite0-dev
-    libxcb-cursor-dev
-    libxcb-icccm4-dev
-    libxcb-image0-dev 
     libxcb-keysyms1-dev
-    libxcb-randr0 
-    libxcb-randr0-dev
-    libxcb-shape0-dev
+    libpango1.0-dev
     libxcb-util0-dev
-    libxcb-util-dev
-    libxcb-xinerama0
+    libxcb-icccm4-dev
+    libyajl-dev
+    libstartup-notification0-dev
+    libxcb-randr0-dev
+    libev-dev
+    libxcb-cursor-dev
     libxcb-xinerama0-dev
-    libxcb-xinerama0-dev 
     libxcb-xkb-dev
-    libxcb-xkb-dev 
-    libxcb-xrm0
-    libxcb-xrm-dev
     libxkbcommon-dev
     libxkbcommon-x11-dev
-    libyajl-dev
-    xcb
+    xutils-dev
+    libxcb-shape0-dev
+    autoconf
+    libtool
 )
 
 add_repositories() {
     sudo add-apt-repository -y ppa:martin-frost/thoughtbot-rcm
     sudo add-apt-repository -y ppa:jonathonf/vim
     sudo apt-get update && sudo apt-get upgrade -y
+}
+
+install_font() {
+    cd /tmp
+    curl -L -o icons.zip $1
+    mkdir -p $HOME/.fonts
+    unzip -l icons | grep -e ".*ttf$" | awk '{ print $4  }' | xargs unzip icons.zip -d $HOME/.fonts
+    rm icons.zip
 }
 
 install_packages() {
@@ -104,20 +117,35 @@ install_i3lockcolor() {
     sudo make install
 }
 
+install_xcbutils() {
+    cd /tmp/
+    git clone --recursive https://github.com/Airblader/xcb-util-xrm
+    cd xcb-util-xrm/
+    ./autogen.sh
+    make
+    sudo make install
+
+    echo '/usr/local/lib/' > /etc/ld.so.conf.d/i3.conf
+    sudo ldconfig
+    sudo ldconfig -p
+}
+
 retrieve_dotfiles() {
     git clone https://github.com/jonatasleon/dotfiles $HOME/.dotfiles
     rcup -v
 }
 
 post_config() {
-    chsh -s $(which zsh)
-    echo 'Logout and Login again'
+    echo 'Run the command above. Logout and login to finish.'
+    echo 'chsh -s $(which zsh)'
 }
 
 add_repositories
 install_packages
-install_i3gaps
+install_xcbutils
+install_i3
 install_i3lockcolor
 install_betterlockscreen
+install_font https://github.com/FortAwesome/Font-Awesome/releases/download/5.8.1/fontawesome-free-5.8.1-desktop.zip
 retrieve_dotfiles
 post_config
