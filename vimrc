@@ -78,6 +78,9 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'alvan/vim-closetag'
 Plugin 'mattn/emmet-vim'
 
+" i3wm
+Plugin 'PotatoesMaster/i3-vim-syntax'
+
 " Snippets
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
@@ -97,6 +100,7 @@ filetype plugin indent on    " required
 
 " Set onedark (https://github.com/joshdick/onedark.vim) as color scheme
 colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
 
 " Modify how vim shows BadWhitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -205,7 +209,7 @@ autocmd InsertEnter,WinLeave *
   \ set nocursorline
 
 " Set NERDTree config
-" autocmd vimenter * 
+" autocmd vimenter *
   " \ NERDTree
 " autocmd StdinReadPre *
   " \ let s:std_in=1

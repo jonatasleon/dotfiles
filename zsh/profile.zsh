@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
 
 # Set vim as default editor
 export EDITOR=$(which vim)

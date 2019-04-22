@@ -14,4 +14,4 @@ alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
 alias profileconfig="$EDITOR ~/.dotfiles/profile.zsh"
 alias vimconfig="$EDITOR ~/.dotfiles/vimrc"
 alias zshconfig="$EDITOR ~/.dotfiles/zshrc"
-
+alias fun="ts $(whoami) || ta $(whoami)"
