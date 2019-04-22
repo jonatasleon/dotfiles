@@ -44,15 +44,15 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
+label=<>
 separator=false
 interval=30
 
-[memory]
-label=SWAP
-instance=swap
-separator=false
-interval=30
+# [memory]
+# label=SWAP
+# instance=swap
+# separator=false
+# interval=30
 
 # Disk usage
 #
@@ -60,7 +60,7 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=🏠
+label=<>
 #instance=/mnt/data
 interval=30
 
@@ -70,7 +70,7 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 #instance=wlan0
-color=#00FF00
+color=#98c379
 interval=10
 # separator=false
 
@@ -88,9 +88,9 @@ interval=10
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU
+label=
 interval=10
-min_width=CPU: 100.00%
+min_width= 100.00%
 #separator=false
 
 #[load_average]
@@ -107,6 +107,7 @@ interval=30
 # Date Time
 #
 [time]
+label=<>
 command=date '+%A, %b %d %H:%M'
 interval=5
 
