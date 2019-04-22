@@ -209,7 +209,7 @@ autocmd InsertEnter,WinLeave *
   \ set nocursorline
 
 " Set NERDTree config
-" autocmd vimenter * 
+" autocmd vimenter *
   " \ NERDTree
 " autocmd StdinReadPre *
   " \ let s:std_in=1
