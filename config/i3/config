@@ -175,7 +175,9 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # cycle through active workspaces
 bindsym $mod+Tab workspace next
+bindsym $mod+n workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+p workspace prev
 
 # support to display caps lock status
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
