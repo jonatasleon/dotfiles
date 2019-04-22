@@ -146,6 +146,10 @@ install_xcbutils
 install_i3
 install_i3lockcolor
 install_betterlockscreen
+# Install FontAwesome icons
 install_font https://github.com/FortAwesome/Font-Awesome/releases/download/5.8.1/fontawesome-free-5.8.1-desktop.zip
+
+# Install HelveticaNeue
+install_font https://freefontsdownload.net/download/74318/helveticaneue.zip
 retrieve_dotfiles
 post_config
