@@ -1,0 +1,23 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.bw: 0
+rofi.color-enabled: true
+rofi.columns: 1
+rofi.combi-modi: drun,run
+rofi.eh: 2
+rofi.font: Menlo Regular 12
+rofi.hide-scrollbar: true
+rofi.line-margin: 0
+rofi.lines: 5
+rofi.padding: 800
+rofi.separator-style: none
+rofi.width: 100
+
+! Window:           'background',  'border',     'separator'
+rofi.color-window: argb:cc282c34, argb:cc282c34, argb:cc98c379
+
+!   State:              'bg',       'fg',   'altbg',        'hlbg',         hlfg
+rofi.color-normal: argb:00282c34, #aab2bf, argb:00282c34, argb:0098c379, #98c379
+rofi.color-active: argb:00282c34, #aab2bf, argb:00282c34, argb:0098c379, #98c379
+rofi.color-urgent: argb:00282c34, #e06c75, argb:00282c34, argb:0098c379, #e5c07b
