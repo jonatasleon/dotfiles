@@ -21,6 +21,9 @@ export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 # NVM Configuration
 export NVM_LAZY_LOAD=true
 
+# Add file to gitignore global
+git config --global core.excludesfile $HOME/.gitignore_global
+
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
