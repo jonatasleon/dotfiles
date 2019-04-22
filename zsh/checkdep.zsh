@@ -1,8 +1,7 @@
 # Check if exist antigen
 if [ ! -f $HOME/.antigen/antigen.zsh ]; then
     echo "Downloading Antigen"
-    mkdir -p $HOME/.antigen
-    curl -L git.io/antigen > $HOME/.antigen/antigen.zsh
+    git clone https://github.com/zsh-users/antigen.git ~/.antigen
 fi
 
 # Check if exist vundle
@@ -27,5 +26,5 @@ fi
 if [ ! -d $HOME/.fzf ]; then
     echo "Downloading and installing fzf"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install --all --no-update-rc
+    $HOME/.fzf/install --all --no-update-rc
 fi
