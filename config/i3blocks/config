@@ -34,7 +34,7 @@ markup=none
 # The second parameter overrides the mixer selection
 # See the script for details.
 [volume]
-label=🔊
+label=
 instance=Master
 #instance=PCM
 interval=once
@@ -44,7 +44,7 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=<>
+label=
 separator=false
 interval=30
 
@@ -60,7 +60,7 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=<>
+label=
 #instance=/mnt/data
 interval=30
 
@@ -113,7 +113,7 @@ interval=30
 [calendar]
 command=~/.config/i3blocks/calendar
 interval=5
-label= 
+label=
 # datefmt=+%H:%M
 # shortfmt=+%H:%M
 # height=180
@@ -149,19 +149,3 @@ label=
 #[temperature]
 #label=TEMP
 #interval=10
-
-# Key indicators
-#
-# Add the following bindings to i3 config file:
-#
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-# [keyindicator]
-# instance=CAPS
-# interval=once
-# signal=11
-
-# [keyindicator]
-# instance=NUM
-# interval=once
-# signal=11
