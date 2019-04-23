@@ -36,6 +36,8 @@ packages_list=(
     whois
     xautolock
     xclip
+    xdotool
+    yad
     zsh
 )
 

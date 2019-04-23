@@ -105,11 +105,26 @@ label=⚡
 interval=30
 
 # Date Time
-#
-[time]
-label=<>
-command=date '+%A, %b %d %H:%M'
+# [time]
+# label=<>
+# command=date '+%A, %b %d %H:%M'
+# interval=5
+
+[calendar]
+command=~/.config/i3blocks/calendar
 interval=5
+label= 
+# datefmt=+%H:%M
+# shortfmt=+%H:%M
+# height=180
+# width=220
+
+# [rofi-calendar]
+# command=~/.config/i3blocks/rofi-calendar
+# interval=1
+# label=
+# DATEFTM=+%a. %d. %b. %Y
+# SHORTFTM=+%d.%m.%Y
 
 # Generic media player support
 #
