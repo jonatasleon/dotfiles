@@ -32,7 +32,7 @@ case "$BLOCK_BUTTON" in
 	i3-msg -q "exec yad --calendar \
         --width=$WIDTH --height=$HEIGHT \
 	    --undecorated --fixed \
-	    --no-buttons \
+	    --close-on-unfocus --no-buttons \
 	    --posx=$posX --posy=$posY \
 	    > /dev/null"
 esac
