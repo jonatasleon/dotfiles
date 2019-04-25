@@ -60,8 +60,8 @@ font pango:Noto Condensed SemiBold 12
 # gaps outer current plus 5
 # gaps horizontal current plus 40
 # gaps outer current toggle 60
-gaps outer 5
-gaps inner 20
+gaps outer 10
+gaps inner 10
 
 # Init compton
 exec_always --no-startup-id compton -f
@@ -72,7 +72,11 @@ exec --no-startup-id blueman-applet
 # Network management
 exec --no-startup-id nm-applet
 
+# Caffeine indicator
+exec --no-startup-id caffeine-indicator
+
 # Conky
+exec --no-startup-id conky
 
 # Auto lock
 exec xautolock -detectsleep \
