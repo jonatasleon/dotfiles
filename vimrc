@@ -239,6 +239,9 @@ au BufRead,BufNewFile *.js set filetype=javascript
 " Define default virtualenv directory
 let g:vim_venv = expand("~") . '/.vim/venv'
 
+" Startify config
+let g:startify_change_to_dir = 0
+
 " ctrlP
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '_site\|node_modules\|\v[\/]\.(git|hg|svn)$',
