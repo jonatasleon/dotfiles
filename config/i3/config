@@ -91,9 +91,15 @@ exec --no-startup-id alttab -w 1 -fg "$fg_color" -bg "$bg_color" -frame "$fg_col
 # set last used background
 exec --no-startup-id bash ~/.fehbg
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec bash ~/.config/rofi/power 'i3-msg exit'
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# lockscreen
+bindsym Ctrl+$mod+l exec betterlockscreen -l blur -t "Don't touch me!"
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -225,15 +231,6 @@ bindsym --release Ctrl+Print exec scrot -e 'xclip -selection clipboard -t image/
 bindsym --release $alt+Control+Sys_Req exec scrot -b -u -e 'xclip -selection clipboard -t image/png -i $f && mv $f /tmp/'
 bindsym --release Ctrl+Shift+Print exec scrot -s -e 'xclip -selection clipboard -t image/png -i $f && mv $f /tmp/'
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-# lockscreen
-bindsym Ctrl+$mod+l exec betterlockscreen -l blur -t "Don't touch me!"
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
@@ -319,6 +316,7 @@ assign [class="Spotify"] $workspace10
 assign [title=".*Google Docs$" window_role="pop-up"] $workspace3
 assign [class=Thunderbird] $workspace8
 assign [class=TelegramDesktop] $workspace9
+assign [class=Skype] $workspace9
 
 for_window [class="Spotify"] move to workspace $workspace10
 for_window [title=".*Google Docs$" window_role="pop-up"] move to workspace $workspace3
