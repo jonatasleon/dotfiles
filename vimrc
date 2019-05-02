@@ -2,7 +2,6 @@
 " Jonatas' Vimrc Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible    " be iMproved, required
-syntax on
 set nowrap
 set encoding=utf8
 
@@ -37,7 +36,10 @@ Plugin 'tpope/vim-surround'
 
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 Plugin 'valloric/matchtagalways'
+Plugin 'tommcdo/vim-exchange'
 
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -49,8 +51,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
-" Colorscheme
-" https://github.com/joshdick/onedark.vim
+" Colorscheme " https://github.com/joshdick/onedark.vim
 Plugin 'joshdick/onedark.vim'
 
 " Status line
@@ -70,9 +71,10 @@ Plugin 'vim-scripts/indentpython.vim'
 " Plugin Support
 Plugin 'pangloss/vim-javascript'
 
-" Markdown support
+" *TeX/Markdown support
 Plugin 'reedes/vim-pencil'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'lervag/vimtex'
 
 " HTML Support
 Plugin 'alvan/vim-closetag'
@@ -88,7 +90,7 @@ Plugin 'SirVer/ultisnips'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+syntax on
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
@@ -120,6 +122,9 @@ set relativenumber
 
 " Set wrap text
 set wrap linebreak nolist
+
+" Set conceal level
+set conceallevel=1
 
 " Set pastetoggle key
 set pastetoggle=<Leader>i
@@ -201,6 +206,13 @@ endfunction
 
 " Call every time we open a Markdown file
 autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
+autocmd FileType liquid       call pencil#init()
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType liquid       call pencil#init()
+augroup END
 
 " Set cursorline
 autocmd InsertLeave,WinEnter *
@@ -235,6 +247,10 @@ autocmd FileType *
 au BufRead,BufNewFile *.ejs set filetype=html
 au BufRead,BufNewFile *.js set filetype=javascript
 
+" LimeLigth integration with Goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 " Variable assignment ===============================
 " Define default virtualenv directory
 let g:vim_venv = expand("~") . '/.vim/venv'
@@ -257,6 +273,15 @@ let g:session_command_aliases=1
 
 " Remap move split
 let g:tmux_navigator_no_mappings = 1
+
+" Vim pencil
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+
+" vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+let g:tex_conceal='abdmg'
 
 " Set YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -352,7 +377,7 @@ else
 endif
 
 " Polyglot setup
-let g:polyglot_disabled = ['tmux']
+let g:polyglot_disabled = ['tmux', 'latex']
 
 " Highlight python code
 let python_highlight_all=1
@@ -377,6 +402,9 @@ let g:indentLine_conceallevel = 2
 
 " vCoolor
 let g:vcoolor_disable_mappings = 1
+
+" Lightlime
+let g:limelight_conceal_ctermfg = '240'
 
 " Variable assignment ===============================
 " Map jk to ESC in insert mode
@@ -484,6 +512,9 @@ nnoremap <Leader>ac :let @/=expand('<cword>')<CR>cgn
 " Vim Pencil Format Maps
 nnoremap <silent> Q gqap
 xnoremap <silent> Q gq
+
+" Zen Mode
+nnoremap <Leader>z :Goyo<CR>
 
 " CTags Maps
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
