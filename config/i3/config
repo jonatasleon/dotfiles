@@ -62,6 +62,10 @@ font pango:Noto Condensed SemiBold 12
 # gaps outer current toggle 60
 gaps outer 10
 gaps inner 10
+smart_borders on
+
+for_window [class=".*"] border pixel 3
+hide_edge_borders both
 
 # Init compton
 exec_always --no-startup-id compton -f
@@ -85,7 +89,7 @@ exec --no-startup-id prime-indicator
 exec xautolock -detectsleep \
   -time 5 -locker "betterlockscreen -l dim" \
   -notify 30 \
-  -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'"
+  -notifier "notify-send -u critical -t 10000 -- 'Locking screen in 30 seconds'"
 
 # Init alttab
 exec --no-startup-id alttab -w 1 -fg "$fg_color" -bg "$bg_color" -frame "$fg_color" -t 128x150 -i 127x64
@@ -311,8 +315,6 @@ bindsym XF86AudioLowerVolume exec $scriptspath/volume -np -d $volumestep -t $sta
 bindsym XF86AudioMute        exec $scriptspath/volume -mn -t $statuscmd -u $statussig
 
 for_window [class="Yad"] floating enable
-for_window [class=".*"] border pixel 0
-hide_edge_borders both
 
 # Open Spotify in last workspace
 assign [class="Spotify"] $workspace10
