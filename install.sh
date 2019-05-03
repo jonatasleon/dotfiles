@@ -4,6 +4,9 @@ packages_list=(
     acpi
     alttab
     asciinema
+    atool
+    bsdtar
+    caca-utils
     compton
     conky
     ctags
@@ -15,14 +18,19 @@ packages_list=(
     fonts-powerline
     git
     git-svn
+    highlight
     htop
     hunspell
     i3blocks
     i3status
     imagemagick
+    konsole
     lftp
+    mediainfo
     minidlna
+    odt2txt
     powerline
+    python-chardet
     rar
     rcm
     rofi
@@ -31,12 +39,15 @@ packages_list=(
     tmux
     traceroute
     transmission-cli
+    unrar
     urlview
     vim
+    w3m
     whois
     xautolock
     xclip
     xdotool
+    xpdf
     yad
     zsh
 )
