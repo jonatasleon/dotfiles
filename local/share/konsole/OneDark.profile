@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=false
 ColorScheme=OneDark
-Font=Fira Code,12,-1,5,75,0,0,0,0,0,Bold
+Font=Fira Code,13,-1,5,53,0,0,0,0,0,Retina
 UseFontLineChararacters=true
 
 [Cursor Options]
@@ -13,6 +13,7 @@ Environment=TERM=xterm-256color,COLORTERM=truecolor
 Name=OneDark
 Parent=FALLBACK/
 ShowTerminalSizeHint=false
+TerminalMargin=5
 
 [Interaction Options]
 AutoCopySelectedText=true
