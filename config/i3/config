@@ -13,21 +13,22 @@
 set $mod Mod4
 set $alt Mod1
 
-# Colors
-set $onedark_black #282c34
-set $onedark_blue #61afef
+# OneDark colors
 set $onedark_yellow #e5c07b
-set $onedark_red #e06c75
-set $onedark_white #aab2bf
-set $onedark_green #98c379
 set $onedark_visual_grey #3e4452
-set $onedark_comment_grey #5c6370
 
+# Background color: OneDark Black
 set $bg_color #282c34
+# Foreground color: OneDark White
 set $fg_color #aab2bf
-set $primary_color #98c379
-set $alert_color #e06c75
-set $hl_color #61afef
+# Primary color: OneDark Blue
+set $pr_color #61afef
+# Alert color: OneDark Red
+set $al_color #e06c75
+# Highlight color: OneDark Green
+set $hl_color #98c379
+# Separator color: OneDark Comment Grey
+set $sp_color #5c6370
 
 # Set path to volume utils
 set $scriptspath ~/.config/i3blocks
@@ -60,11 +61,11 @@ font pango:Noto Condensed SemiBold 12
 # gaps outer current plus 5
 # gaps horizontal current plus 40
 # gaps outer current toggle 60
-gaps outer 10
-gaps inner 10
+gaps outer 6
+gaps inner 6
 smart_borders on
 
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
 hide_edge_borders both
 
 # Init compton
@@ -175,6 +176,10 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+# Split window
+bindsym $mod+v split v
+bindsym $mod+Shift+v split h
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -212,15 +217,15 @@ bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 exec i3-msg 'move container to workspace $workspace1' && i3-msg 'workspace $workspace1'
-bindsym $mod+Shift+2 exec i3-msg 'move container to workspace $workspace2' && i3-msg 'workspace $workspace2'
-bindsym $mod+Shift+3 exec i3-msg 'move container to workspace $workspace3' && i3-msg 'workspace $workspace3'
-bindsym $mod+Shift+4 exec i3-msg 'move container to workspace $workspace4' && i3-msg 'workspace $workspace4'
-bindsym $mod+Shift+5 exec i3-msg 'move container to workspace $workspace5' && i3-msg 'workspace $workspace5'
-bindsym $mod+Shift+6 exec i3-msg 'move container to workspace $workspace6' && i3-msg 'workspace $workspace6'
-bindsym $mod+Shift+7 exec i3-msg 'move container to workspace $workspace7' && i3-msg 'workspace $workspace7'
-bindsym $mod+Shift+8 exec i3-msg 'move container to workspace $workspace8' && i3-msg 'workspace $workspace8'
-bindsym $mod+Shift+9 exec i3-msg 'move container to workspace $workspace9' && i3-msg 'workspace $workspace9'
+bindsym $mod+Shift+1 exec i3-msg 'move container to workspace $workspace1'  && i3-msg 'workspace $workspace1'
+bindsym $mod+Shift+2 exec i3-msg 'move container to workspace $workspace2'  && i3-msg 'workspace $workspace2'
+bindsym $mod+Shift+3 exec i3-msg 'move container to workspace $workspace3'  && i3-msg 'workspace $workspace3'
+bindsym $mod+Shift+4 exec i3-msg 'move container to workspace $workspace4'  && i3-msg 'workspace $workspace4'
+bindsym $mod+Shift+5 exec i3-msg 'move container to workspace $workspace5'  && i3-msg 'workspace $workspace5'
+bindsym $mod+Shift+6 exec i3-msg 'move container to workspace $workspace6'  && i3-msg 'workspace $workspace6'
+bindsym $mod+Shift+7 exec i3-msg 'move container to workspace $workspace7'  && i3-msg 'workspace $workspace7'
+bindsym $mod+Shift+8 exec i3-msg 'move container to workspace $workspace8'  && i3-msg 'workspace $workspace8'
+bindsym $mod+Shift+9 exec i3-msg 'move container to workspace $workspace9'  && i3-msg 'workspace $workspace9'
 bindsym $mod+Shift+0 exec i3-msg 'move container to workspace $workspace10' && i3-msg 'workspace $workspace10'
 
 # cycle through active workspaces
@@ -287,13 +292,13 @@ bar {
     colors {
         background $bg_color
         statusline $fg_color
-        separator $onedark_comment_grey
+        separator  $sp_color
 
-        # colour of border, background, and text
-        focused_workspace	$bg_color	$primary_color	$bg_color
-        active_workspace	$bg_color	$bg_color	$fg_color
-        inactive_workspace	$bg_color	$bg_color	$fg_color
-        urgent_workspace	$bg_color	$alert_color	$bg_color
+        # colour of         border,   background, text
+        focused_workspace   $hl_color $hl_color   $bg_color
+        active_workspace    $bg_color $bg_color   $fg_color
+        inactive_workspace  $bg_color $bg_color   $fg_color
+        urgent_workspace    $al_color $al_color   $bg_color
     }
 }
 
@@ -326,10 +331,10 @@ assign [class=Skype] $workspace9
 for_window [class="Spotify"] move to workspace $workspace10
 for_window [title=".*Google Docs$" window_role="pop-up"] move to workspace $workspace3
 
-# colour of border, background, text, indicator, and child_border
-client.focused			$alert_color   $bg_color $fg_color $alert_color   $hl_color
-client.focused_inactive	$bg_color $bg_color $fg_color $bg_color $primary_color
-client.unfocused		$bg_color $bg_color $fg_color $bg_color $primary_color
-client.urgent			$bg_color $bg_color $fg_color $bg_color $primary_color
-client.placeholder		$bg_color $bg_color $fg_color $bg_color $primary_color
-client.background		$bg_color
+# colour of             border,   background, text,     indicator, child_border
+client.focused          $al_color $bg_color   $fg_color $al_color  $hl_color
+client.focused_inactive $bg_color $bg_color   $fg_color $bg_color  $pr_color
+client.unfocused        $bg_color $bg_color   $fg_color $bg_color  $pr_color
+client.urgent           $bg_color $bg_color   $fg_color $bg_color  $pr_color
+client.placeholder      $bg_color $bg_color   $fg_color $bg_color  $pr_color
+client.background       $bg_color
