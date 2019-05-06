@@ -70,7 +70,7 @@ for_window [class=".*"] border pixel 2
 hide_edge_borders both
 
 # Init compton
-exec_always --no-startup-id compton -f
+exec --no-startup-id compton -f
 
 # Bluetooth management
 exec --no-startup-id blueman-applet
