@@ -5,6 +5,7 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo.
 antigen bundles <<EOBUNDLES
+    command-not-found
     docker
     docker-compose
     git
