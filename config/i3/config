@@ -325,12 +325,14 @@ for_window [class="Yad"] floating enable
 # Open Spotify in last workspace
 assign [class="Spotify"] $workspace10
 assign [title=".*Google Docs$" window_role="pop-up"] $workspace3
+assign [title=".* - Pocket Casts$" window_role="pop-up"] $workspace10
 assign [class=Thunderbird] $workspace8
 assign [class=TelegramDesktop] $workspace9
 assign [class=Skype] $workspace9
 
 for_window [class="Spotify"] move to workspace $workspace10
 for_window [title=".*Google Docs$" window_role="pop-up"] move to workspace $workspace3
+for_window [title=".* - Pocket Casts$" window_role="pop-up"] move to workspace $workspace10
 
 # colour of             border,   background, text,     indicator, child_border
 client.focused          $al_color $bg_color   $fg_color $al_color  $hl_color

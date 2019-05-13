@@ -11,9 +11,21 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=true
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # Set configuration to Spaceship-prompt
+export SPACESHIP_CHAR_SYMBOL="-> "
+
 export SPACESHIP_TIME_SHOW=true
-export SPACESHIP_DIR_LOCK_SYMBOL=" 🔒"
+export SPACESHIP_DIR_LOCK_SYMBOL=" "
 export SPACESHIP_DIR_TRUNC=4
+
+export SPACESHIP_PYENV_SYMBOL=" "
+export SPACESHIP_PYENV_COLOR="blue"
+
+export SPACESHIP_CONDA_COLOR="yellow"
+
+export SPACESHIP_VENV_PREFIX="venv:("
+export SPACESHIP_VENV_SUFFIX=")"
+
+export SPACESHIP_EXIT_CODE_SHOW=true
 
 # Workaround to git stash/pyenv problem https://github.com/pyenv/pyenv/issues/690
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
