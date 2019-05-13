@@ -88,10 +88,21 @@ interval=10
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=
+command=$SCRIPT_DIR/cpu
 interval=10
+label=
 min_width= 100.00%
-#separator=false
+#T_WARN=50
+#T_CRIT=80
+#DECIMALS=2
+
+[gpu_usage]
+command=$SCRIPT_DIR/gpu
+label=GPU
+interval=10
+#min_width=GPU 100% 100% 100% 100%
+#T_WARN=70
+#T_CRIT=90
 
 #[load_average]
 #interval=10

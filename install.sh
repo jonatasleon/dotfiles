@@ -36,6 +36,7 @@ packages_list=(
     rofi
     screenfetch
     scrot
+    sysstat
     tmux
     traceroute
     transmission-cli

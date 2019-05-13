@@ -14,6 +14,7 @@ Name=OneDark
 Parent=FALLBACK/
 ShowTerminalSizeHint=false
 TerminalMargin=5
+BrowserApplication[$e]=!google-chrome
 
 [Interaction Options]
 AutoCopySelectedText=true
