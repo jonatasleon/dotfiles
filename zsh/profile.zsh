@@ -23,7 +23,7 @@ export SPACESHIP_PYENV_COLOR="blue"
 export SPACESHIP_CONDA_COLOR="yellow"
 
 export SPACESHIP_VENV_PREFIX="venv:("
-export SPACESHIP_VENV_SUFFIX=")"
+export SPACESHIP_VENV_SUFFIX=") "
 
 export SPACESHIP_EXIT_CODE_SHOW=true
 
