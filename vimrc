@@ -130,7 +130,7 @@ set conceallevel=1
 set pastetoggle=<Leader>i
 
 " System clipboard
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Show linenumbers
 set ruler
