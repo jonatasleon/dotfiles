@@ -293,11 +293,11 @@ notify_volume() {
         text="$text $progress"
     fi
 
-    if $opt_use_dunstify; then
-        dunstify -i "$icon" -t $expires -h int:value:"$vol" -h string:synchronous:volume "$text" -r 1000
-    else
-        notify-send -i "$icon" -t $expires -h int:value:"$vol" -h string:synchronous:volume "$text"
-    fi
+    # if $opt_use_dunstify; then
+        # dunstify -i "$icon" -t $expires -h int:value:"$vol" -h string:synchronous:volume "$text" -r 1000
+    # else
+        # notify-send -i "$icon" -t $expires -h int:value:"$vol" -h string:synchronous:volume "$text"
+    # fi
 }
 
 # Updates the status line.
