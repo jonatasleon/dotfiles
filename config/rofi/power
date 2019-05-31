@@ -6,7 +6,7 @@
 # 2016 Oliver Kraitschy - http://okraits.de
 
 OPTIONS="Reboot system\nPower-off system\nSuspend system\nHibernate system"
-LAUNCHER="rofi -dmenu -i -p rofi-power"
+LAUNCHER="rofi -dmenu -i -p power"
 
 # source configuration or use default values
 if [ -f $HOME/.config/rofi/config ]; then

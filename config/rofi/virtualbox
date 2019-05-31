@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+# rofi-virtualbox: manage virtualbox machines with rofi
+
+OPTIONS="Start Machine\nStart Headless\nPower-off Machine\nClone Machine\nDelete Machine"
+
+# function definitions
+######################
+
+function vmsList()
+{
+  vboxmanage list vms | awk -F '"' '{print $2}'
+  #vboxmanage list runningvms | awk -F '"' '{print "Running: "$2}'
+}
+
+function startVM()
+{
+  vboxmanage startvm "$1"
+}
+
+function startHeadlessVM()
+{
+  vboxmanage startvm "$1" --type headless
+}
+
+function poweroffVM()
+{
+  vboxmanage controlvm "$1" acpipowerbutton --type headless
+}
+
+function cloneVM()
+{
+  vboxmanage clonevm "$1" --mode machine --register --options keepallmacs
+}
+
+function deleteVM()
+{
+  vboxmanage unregistervm "$1" --delete
+}
+
+# script execution starts here
+##############################
+
+LAUNCHER="rofi -dmenu -i -p"
+
+while true
+do
+  # select machine to control
+  vm=$(vmsList | $LAUNCHER 'VMs')
+  retval=$?
+  [ $retval -ne 0 ] && exit $retval
+  # select action to be executed
+  option=$(echo -e $OPTIONS | $LAUNCHER 'Actions')
+  retval=$?
+  [ $retval -ne 0 ] && exit $retval
+  case "$option" in
+    "Start Machine")
+      startVM "$vm"
+      ;;
+    "Start Headless")
+      startHeadlessVM "$vm"
+      ;;
+    "Power-off Machine")
+      poweroffVM "$vm"
+      ;;
+    "Clone Machine")
+      cloneVM "$vm"
+      ;;
+    "Delete Machine")
+      deleteVM "$vm"
+      ;;
+    *)
+      exit 1
+      ;;
+  esac
+
+  exit 0
+done
