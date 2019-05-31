@@ -69,24 +69,19 @@ i3_list=(
     libpulse-dev
     libstartup-notification0-dev
     libtool
+    libxcb1-dev
     libxcb-composite0-dev
     libxcb-cursor-dev
     libxcb-ewmh-dev
     libxcb-icccm4-dev
-    libxcb-icccm4-dev
     libxcb-image0-dev
     libxcb-keysyms1-dev
     libxcb-randr0-dev
-    libxcb-randr0-dev
     libxcb-shape0-dev
-    libxcb-util0-dev
     libxcb-util0-dev
     libxcb-xinerama0-dev
     libxcb-xkb-dev
-    libxcb-xkb-dev
     libxcb-xrm-dev
-    libxcb1-dev
-    libxcb1-dev
     libxkbcommon-dev
     libxkbcommon-x11-dev
     libyajl-dev
