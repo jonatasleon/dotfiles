@@ -23,7 +23,7 @@ export SPACESHIP_PYENV_COLOR="blue"
 export SPACESHIP_CONDA_COLOR="yellow"
 
 export SPACESHIP_VENV_PREFIX="venv:("
-export SPACESHIP_VENV_SUFFIX=")"
+export SPACESHIP_VENV_SUFFIX=") "
 
 export SPACESHIP_EXIT_CODE_SHOW=true
 
@@ -31,7 +31,7 @@ export SPACESHIP_EXIT_CODE_SHOW=true
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # NVM Configuration
-export NVM_LAZY_LOAD=true
+export NVM_LAZY_LOAD=false
 
 # Add file to gitignore global
 git config --global core.excludesfile $HOME/.gitignore_global
