@@ -54,27 +54,46 @@ packages_list=(
 )
 
 i3_list=(
+    autoconf
     automake
-    libxcb1-dev
-    libxcb-keysyms1-dev
-    libpango1.0-dev
-    libxcb-util0-dev
-    libxcb-icccm4-dev
-    libyajl-dev
-    libstartup-notification0-dev
-    libxcb-randr0-dev
+    cmake
+    cmake-data
+    libasound2-dev
+    libcairo2-dev
+    libcurl4-openssl-dev
     libev-dev
+    libiw-dev
+    libmpdclient-dev
     libpam-dev
+    libpango1.0-dev
+    libpulse-dev
+    libstartup-notification0-dev
+    libtool
+    libxcb-composite0-dev
     libxcb-cursor-dev
+    libxcb-ewmh-dev
+    libxcb-icccm4-dev
+    libxcb-icccm4-dev
+    libxcb-image0-dev
+    libxcb-keysyms1-dev
+    libxcb-randr0-dev
+    libxcb-randr0-dev
+    libxcb-shape0-dev
+    libxcb-util0-dev
+    libxcb-util0-dev
     libxcb-xinerama0-dev
     libxcb-xkb-dev
-    libxcb-composite0-dev
+    libxcb-xkb-dev
+    libxcb-xrm-dev
+    libxcb1-dev
+    libxcb1-dev
     libxkbcommon-dev
     libxkbcommon-x11-dev
+    libyajl-dev
+    pkg-config
+    python-xcbgen
+    xcb-proto
     xutils-dev
-    libxcb-shape0-dev
-    autoconf
-    libtool
 )
 
 add_repositories() {
@@ -145,6 +164,13 @@ install_xcbutils() {
     echo '/usr/local/lib/' > /etc/ld.so.conf.d/i3.conf
     sudo ldconfig
     sudo ldconfig -p
+}
+
+install_polybar() {
+    cd /tmp/
+    git clone --recursive https://github.com/jaagr/polybar.git
+    cd polybar
+    yes | ./build.sh
 }
 
 retrieve_dotfiles() {

@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=false
 ColorScheme=OneDark
-Font=Fira Code,13,-1,5,53,0,0,0,0,0,Retina
+Font=FuraCode Nerd Font,13,-1,5,53,0,0,0,0,0,Retina
 UseFontLineChararacters=true
 
 [Cursor Options]
@@ -29,3 +29,5 @@ ScrollBarPosition=2
 BlinkingCursorEnabled=false
 BlinkingTextEnabled=false
 UrlHintsModifiers=67108864
+
+; vim: set ft=dosini
