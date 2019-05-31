@@ -172,6 +172,8 @@ set wildignore+=*/node_modules/*
 " Update time
 set updatetime=250
 
+set t_BE=
+
 " Arrow-keys support
 set <Left>=OD
 set <Right>=OC
