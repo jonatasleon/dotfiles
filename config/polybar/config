@@ -316,7 +316,7 @@ animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 6
+thermal-zone = 2
 warn-temperature = 60
 
 format = <ramp> <label>
@@ -335,7 +335,7 @@ ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/script
-interval = None
+interval = 900
 click-left = ~/.config/rofi/power
 tail = true
 exec = echo powermenu
