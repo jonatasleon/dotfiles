@@ -33,6 +33,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'chrisbra/csv.vim'
 
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
@@ -131,6 +132,9 @@ set pastetoggle=<Leader>i
 
 " System clipboard
 set clipboard+=unnamedplus
+
+" Bracked paste workaround: https://vimhelp.org/term.txt.html#xterm-bracketed-paste
+set t_BE=
 
 " Show linenumbers
 set ruler

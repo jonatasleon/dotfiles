@@ -33,7 +33,7 @@ export SPACESHIP_EXIT_CODE_SHOW=true
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # NVM Configuration
-export NVM_LAZY_LOAD=true
+export NVM_LAZY_LOAD=false
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
