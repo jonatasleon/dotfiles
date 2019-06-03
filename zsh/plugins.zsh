@@ -23,7 +23,7 @@ antigen bundles <<EOBUNDLES
     chrissicool/zsh-256color
     lukechilds/zsh-nvm
     zsh-users/zsh-autosuggestions
-    zsh-users/zsh-syntax-highlighting
+    zdharma/fast-syntax-highlighting
 EOBUNDLES
 
 # Theme to use.
