@@ -275,9 +275,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $layout_mode "Set display layout: [w]ork, [h]ome, [r]ose. Enter/Esc to close."
+set $set_display_mode "Set display layout: [w]ork, [h]ome, [r]ose. Enter/Esc to close."
 
-mode $layout_mode {
+mode $set_display_mode {
     bindsym w exec bash ~/.i3/screenlayouts/work.sh && \
                 i3-msg mode 'default' && \
                 i3-msg 'rename workspace $workspace1 to "tmp"' && \
@@ -288,33 +288,8 @@ mode $layout_mode {
     bindsym Return mode "default"
 }
 
-bindsym $mod+Shift+w mode $layout_mode
+bindsym $mod+Shift+w mode $set_display_mode
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-    # status_command SCRIPT_DIR=$SCRIPT_DIR $STATUS_CMD
-    # position top
-    # colors {
-        # background $bg_color
-        # statusline $fg_color
-        # separator  $sp_color
-
-        # # colour of         border,   background, text
-        # focused_workspace   $hl_color $hl_color   $bg_color
-        # active_workspace    $bg_color $bg_color   $fg_color
-        # inactive_workspace  $bg_color $bg_color   $fg_color
-        # urgent_workspace    $al_color $al_color   $bg_color
-    # }
-# }
-
-# Uncomment to use alsa-utils (append "-c $alsacard" without quotes to override default card)
-#bindsym XF86AudioRaiseVolume exec $SCRIPT_DIR/volume -anp -i $volumestep -t $STATUS_CMD -u $statussig
-#bindsym XF86AudioLowerVolume exec $SCRIPT_DIR/volume -anp -d $volumestep -t $STATUS_CMD -u $statussig
-#bindsym XF86AudioMute        exec $SCRIPT_DIR/volume -amn -t $STATUS_CMD -u $statussig
-
-# pulseaudio-utils settings when not using alsa-utils
-#
 # Symbolic name for sink (numeric index not supported) (used with -s $sinkname)
 #   Recommended: comment out this setting and omit the -s option to use default sink
 #   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}'
