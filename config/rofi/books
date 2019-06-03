@@ -49,7 +49,7 @@ gen_list(){
 
 main() {
   get_books
-  book=$( (gen_list) | rofi -dmenu -i -matching fuzzy -p "Book" )
+  book=$( (gen_list) | rofi -dmenu -i -sort -levenshstein-sort -matching fuzzy -p "Book" )
   if [ -f "${BOOKS[$book]}" ]; then
     zathura "${BOOKS[$book]}"
   fi
