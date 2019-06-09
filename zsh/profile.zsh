@@ -38,6 +38,9 @@ export NVM_LAZY_LOAD=false
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export LESS="-R"
+export LESSOPEN="|~/.lessfilter %s"
+
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
