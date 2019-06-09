@@ -138,7 +138,7 @@ bindsym $alt+F4 kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id rofi -show combi
+bindsym $mod+d exec --no-startup-id rofi -show combi -show-icons
 bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh -terminal $TERMINAL
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
