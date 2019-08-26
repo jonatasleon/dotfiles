@@ -220,6 +220,11 @@ augroup pencil
   autocmd FileType liquid       call pencil#init()
 augroup END
 
+augroup recpos
+   autocmd!
+   autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup END
+
 " Set cursorline
 autocmd InsertLeave,WinEnter *
   \ set cursorline

@@ -115,6 +115,7 @@ bindsym $mod+Shift+t exec bash ~/.config/rofi/virtualbox
 # lockscreen
 bindsym Ctrl+$mod+l exec betterlockscreen -l blur -t "Don't touch me!"
 
+
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -173,6 +174,8 @@ bindsym $mod+Shift+p move workspace to output left
 # alternatively, you can use the cursor keys:
 bindsym Shift+$alt+Left move workspace to output left
 bindsym Shift+$alt+Right move workspace to output right
+bindsym Shift+$alt+Up move workspace to output up
+bindsym Shift+$alt+Down move workspace to output down
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
