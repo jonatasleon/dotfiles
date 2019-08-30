@@ -1,6 +1,7 @@
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes.
 # For a full list of active aliases, run `alias`.
+alias more="less"
 alias chrome="google-chrome-stable"
 alias hs="history | grep"
 alias lhalt="ls -halt"

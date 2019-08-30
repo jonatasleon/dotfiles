@@ -10,7 +10,6 @@ antigen bundles <<EOBUNDLES
     docker-compose
     git
     web-search
-    lol
     pyenv
     svn
     tmux

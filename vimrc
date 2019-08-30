@@ -41,6 +41,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'valloric/matchtagalways'
 Plugin 'tommcdo/vim-exchange'
+Plugin 'machakann/vim-highlightedyank'
 
 " File/Window/Pane navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -133,6 +134,9 @@ set pastetoggle=<Leader>i
 " System clipboard
 set clipboard+=unnamedplus
 
+" Keep cursor centered
+set scrolloff=10
+
 " Bracked paste workaround: https://vimhelp.org/term.txt.html#xterm-bracketed-paste
 set t_BE=
 
@@ -165,10 +169,11 @@ set list
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 
 " Set Proper Tabs
-set tabstop=4
+set expandtab
+set tabstop=2
+set softtabstop=2
 set shiftwidth=4
 set smarttab
-set expandtab
 
 " Wildignore
 set wildignore+=*/node_modules/*
@@ -247,7 +252,10 @@ autocmd BufNewFile,BufRead *.html,*.css
 
 " Flag unnecessary whitespace
 autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h
-  \ match BadWhitespace /\s\+$/
+  \ match BadWhitespace /\s\+$/ |
+  \ set tabstop=4     |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4
 
 " Disabe automatic comment insertion
 autocmd FileType *

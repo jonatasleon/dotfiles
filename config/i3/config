@@ -84,6 +84,8 @@ exec --no-startup-id caffeine-indicator
 # Primer support (Graphic Board Indicator)
 exec --no-startup-id prime-indicator
 
+exec --no-startup-id /usr/bin/python ~/.auto-layout/alternating_layouts.py
+
 # Run script to set up polybar
 exec_always --no-startup-id ~/.config/polybar/launch
 
