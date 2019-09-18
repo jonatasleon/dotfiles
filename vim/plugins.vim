@@ -21,6 +21,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'chrisbra/csv.vim'
+Plugin 'mileszs/ack.vim'
 
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
