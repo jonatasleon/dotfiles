@@ -1,5 +1,5 @@
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -76,6 +76,8 @@ Plugin 'PotatoesMaster/i3-vim-syntax'
 
 " Snippets
 Plugin 'honza/vim-snippets'
+Plugin 'epilande/vim-es2015-snippets'
+Plugin 'epilande/vim-react-snippets'
 Plugin 'SirVer/ultisnips'
 
 " All of your Plugins must be added before the following line

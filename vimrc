@@ -281,6 +281,7 @@ let g:SimpylFold_docstring_preview=1
 
 " ALE Config
 let g:ale_vim_vint_use_global = 1
+let g:ale_vim_vint_executable = GetEnvPath('vint')
 let g:ale_fix_on_save = 1
 let g:ale_virtualenv_dir_names = [g:vim_venv]
 let g:ale_echo_msg_error_str = 'E'
@@ -290,20 +291,17 @@ let g:ale_sign_column_always = 1
 
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
-  \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
-  \ 'vim': ['vint'],
+  \ 'css': ['csslint'],
   \ 'javascript': ['eslint'],
-  \ 'html': ['prettier'],
-  \ 'json': ['jsonlint']
+  \ 'json': ['jsonlint'],
+  \ 'vim': ['vint']
   \ }
 let g:ale_fixers = {
-  \ 'javascript': ['eslint'],
+  \ 'css': ['prettier'],
+  \ 'html': ['prettier'],
+  \ 'javascript': ['prettier-eslint'],
+  \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ]
   \ }
-let g:ale_linter_aliases = {
-  \ 'vue': ['javascript', 'html', 'scss'],
-  \ }
-let g:ale_vim_vint_executable = GetEnvPath('vint')
-let g:vue_disable_pre_processors=1
 " Closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.ejs"
 
