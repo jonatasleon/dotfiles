@@ -178,16 +178,71 @@ post_config() {
     echo 'chsh -s $(which zsh)'
 }
 
-add_repositories
-install_packages
-install_xcbutils
-install_i3
-install_i3lockcolor
-install_betterlockscreen
-# Install FontAwesome icons
-install_font https://github.com/FortAwesome/Font-Awesome/releases/download/5.8.1/fontawesome-free-5.8.1-desktop.zip
+script_name=$(basename $0)
 
-# Install HelveticaNeue
-install_font https://freefontsdownload.net/download/74318/helveticaneue.zip
-retrieve_dotfiles
-post_config
+sub_help(){
+    echo "Usage: $script_name <subcommand> [options]"
+    echo "Subcommands:"
+    echo "    install-npm-packages  Install needed npm packages"
+    echo ""
+    echo "For help with each subcommand run:"
+    echo "$script_name <subcommand> -h|--help"
+    echo ""
+
+}
+
+sub_full-install() {
+    add_repositories
+    install_packages
+    install_xcbutils
+    install_i3
+    install_i3lockcolor
+    install_betterlockscreen
+
+    # Install FontAwesome icons
+    install_font 'https://github.com/FortAwesome/Font-Awesome/releases/download/5.8.1/fontawesome-free-5.8.1-desktop.zip'
+
+    # Install HelveticaNeue
+    install_font 'https://freefontsdownload.net/download/74318/helveticaneue.zip'
+    retrieve_dotfiles
+    post_config
+}
+
+sub_install-deb-packages() {
+    add_repositories
+    install_packages
+}
+
+sub_install-npm-packages() {
+    npm_packages=(
+        eslint
+        prettier
+        csslint
+        jsonlint
+    )
+    param=$1
+    case $param in
+        "-h" | "--help")
+            echo "install npm packages"
+            ;;
+        "")
+            npm install -g ${npm_packages[@]}
+            ;;
+    esac
+}
+
+subcommand=$1
+case $subcommand in
+    "" | "-h" | "--help")
+        sub_help
+        ;;
+    *)
+        shift
+        sub_${subcommand} $@
+        if [ $? = 127  ]; then
+            echo "Error: '$subcommand' is not a known subcommand." >&2
+            echo "       Run '$script_name --help' for a list of known subcommands." >&2
+            exit 1
+        fi
+        ;;
+esac
