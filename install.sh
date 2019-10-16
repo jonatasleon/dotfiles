@@ -1,95 +1,7 @@
 #!/bin/bash
 
-packages_list=(
-    acpi
-    alttab
-    asciinema
-    atool
-    bsdtar
-    caca-utils
-    compton
-    conky
-    ctags
-    curl
-    dmenu
-    dunst
-    feh
-    ffmpeg
-    fonts-powerline
-    git
-    git-svn
-    highlight
-    htop
-    hunspell
-    i3blocks
-    i3status
-    imagemagick
-    konsole
-    lftp
-    mediainfo
-    minidlna
-    odt2txt
-    powerline
-    python-chardet
-    rar
-    rcm
-    rofi
-    screenfetch
-    scrot
-    sysstat
-    tmux
-    traceroute
-    transmission-cli
-    unrar
-    urlview
-    vim
-    w3m
-    whois
-    xautolock
-    xclip
-    xdotool
-    xpdf
-    yad
-    zsh
-)
-
-i3_list=(
-    autoconf
-    automake
-    cmake
-    cmake-data
-    libasound2-dev
-    libcairo2-dev
-    libcurl4-openssl-dev
-    libev-dev
-    libiw-dev
-    libmpdclient-dev
-    libpam-dev
-    libpango1.0-dev
-    libpulse-dev
-    libstartup-notification0-dev
-    libtool
-    libxcb1-dev
-    libxcb-composite0-dev
-    libxcb-cursor-dev
-    libxcb-ewmh-dev
-    libxcb-icccm4-dev
-    libxcb-image0-dev
-    libxcb-keysyms1-dev
-    libxcb-randr0-dev
-    libxcb-shape0-dev
-    libxcb-util0-dev
-    libxcb-xinerama0-dev
-    libxcb-xkb-dev
-    libxcb-xrm-dev
-    libxkbcommon-dev
-    libxkbcommon-x11-dev
-    libyajl-dev
-    pkg-config
-    python-xcbgen
-    xcb-proto
-    xutils-dev
-)
+packages_list=$(echo ./packages)
+i3_list=$(echo ./i3packages)
 
 add_repositories() {
     sudo add-apt-repository -y ppa:martin-frost/thoughtbot-rcm
@@ -106,8 +18,8 @@ install_font() {
 }
 
 install_packages() {
-    sudo apt-get install -y ${packages_list[@]}
-    sudo apt-get install -y ${i3_list[@]}
+    sudo apt-get install -y $(echo $packages_list)
+    sudo apt-get install -y $(echo $i3_list)
 }
 
 install_i3() {
