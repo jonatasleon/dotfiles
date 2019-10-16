@@ -91,7 +91,7 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set expandtab
 set tabstop=2
 set softtabstop=2
-set shiftwidth=4
+set shiftwidth=2
 set smarttab
 
 " Wildignore
@@ -164,7 +164,7 @@ autocmd InsertEnter,WinLeave *
   " \ if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Set Proper Tabs for a full-stack development
-autocmd BufNewFile,BufRead *.html,*.css
+autocmd BufNewFile,BufRead *.html,*.css,*.js
   \ set tabstop=2     |
   \ set softtabstop=2 |
   \ set shiftwidth=2
@@ -338,6 +338,7 @@ let g:tagbar_sort = 0
 " Indent Highlight
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
+let g:indentLine_enabled = 1
 
 " vCoolor
 let g:vcoolor_disable_mappings = 1
@@ -407,10 +408,10 @@ nnoremap <silent> <expr> <Leader>q IsLastBuffer() ? ':q<CR>' : ':bd<CR>'
 nnoremap <Leader>Q :qa<CR>
 
 " Quickly source .vimrc
-nnoremap <Leader>vr :source ~/.vimrc<CR>
+nnoremap <Leader>vr :source ~/.config/nvim/init.vim<CR>
 
 " Quickly open .vimrc in new buffer
-nnoremap <expr> <Leader>vv RunOutNERDTree(':edit ~/.dotfiles/vimrc<CR>')
+nnoremap <expr> <Leader>vv RunOutNERDTree(':edit ~/.dotfiles/config/nvim/init.vim<CR>')
 
 " Enable folding with the Leader + Spacebar
 nnoremap <Leader><Space> za
@@ -436,6 +437,9 @@ nnoremap <silent> <Leader>w <C-w><C-w>
 " Set Carbon map
 xnoremap <Leader>p :CarbonNowSh<CR>
 
+" Set Ack map
+noremap <Leader>a :Ack! <cword><cr>
+
 " ALE Maps
 nnoremap <silent> <Leader>an :ALENextWrap<CR>
 nnoremap <silent> <Leader>ap :ALEPreviousWrap<CR>
@@ -458,15 +462,10 @@ nnoremap <Leader>z :Goyo<CR>
 " CTags Maps
 nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 
-" Vimgrep
-nnoremap <Leader>vw :execute "vimgrep /" . expand('<cword>') . "/gj **" <Bar> cw<CR>
-
 " Marks
 nnoremap <Leader>m ma
 nnoremap <Leader>' 'a
 
 " Commands Assignment ==============================
-" Add command to find a term in all current dir
-command! -nargs=+ FindAll vimgrep /<args>/gj ** | cw
-
+" Open file in chrome
 command! -nargs=1 Chrome execute "silent !google-chrome <args>" | redraw!

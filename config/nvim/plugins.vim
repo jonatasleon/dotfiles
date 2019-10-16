@@ -21,6 +21,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'chrisbra/csv.vim'
+Plugin 'mileszs/ack.vim'
 
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
@@ -57,7 +58,7 @@ Plugin 'plytophogy/vim-virtualenv'
 Plugin 'vim-python/python-syntax'
 Plugin 'vim-scripts/indentpython.vim'
 
-" Plugin Support
+" Javascript Support
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
