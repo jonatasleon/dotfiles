@@ -22,6 +22,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'chrisbra/csv.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'ryanoasis/vim-devicons'
 
 " Text Editing
 Plugin 'andrewradev/splitjoin.vim'
