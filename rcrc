@@ -1,1 +1,1 @@
-EXCLUDES="README.md install.sh LICENSE"
+EXCLUDES="README.md install.sh LICENSE packages i3packages"
