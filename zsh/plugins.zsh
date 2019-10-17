@@ -33,3 +33,5 @@ antigen apply
 
 bindkey "^ " autosuggest-accept
 bindkey "^U" backward-kill-line
+
+export PATH="$PATH:$(yarn global bin)"
