@@ -60,7 +60,7 @@ Plugin 'vim-scripts/indentpython.vim'
 
 " Javascript Support
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'maxmellon/vim-jsx-pretty'
 
 " *TeX/Markdown support
 Plugin 'reedes/vim-pencil'

@@ -307,6 +307,10 @@ let g:ale_fixers = {
   \ }
 " Closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.ejs"
+let g:closetag_filetypes = 'javascript'
+let g:closetag_regions = {
+  \ 'javascript': 'jsxRegion',
+  \ }
 
 " Gitgutter
 if exists('&signcolumn')  " Vim 7.4.2201
@@ -345,6 +349,15 @@ let g:vcoolor_disable_mappings = 1
 
 " Lightlime
 let g:limelight_conceal_ctermfg = '240'
+
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript': 1,
+    \}
+
 
 " Variable assignment ===============================
 " Map jk to ESC in insert mode
