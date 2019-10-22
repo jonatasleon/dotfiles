@@ -134,6 +134,31 @@ fun! MathAndLiquid()
     hi link math_block Function
 endfunction
 
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowcmd
+  set nolist
+  set listchars=
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set showcmd
+  set list
+  set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 " Call every time we open a Markdown file
 autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
 autocmd FileType liquid       call pencil#init()
@@ -184,10 +209,6 @@ autocmd FileType *
 " 'filetype' that has already been set
 au BufRead,BufNewFile *.ejs set filetype=html
 au BufRead,BufNewFile *.js set filetype=javascript
-
-" LimeLigth integration with Goyo
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 " Variable assignment ===============================
 " Define default virtualenv directory
