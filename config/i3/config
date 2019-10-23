@@ -306,17 +306,23 @@ bindsym XF86AudioLowerVolume exec $SCRIPT_DIR/volume -np -d $volumestep -t $STAT
 bindsym XF86AudioMute        exec $SCRIPT_DIR/volume -mn -t $STATUS_CMD -u $statussig
 
 for_window [class="Yad"] floating enable
+for_window [title="Authy"] floating enable
+for_window [title="Calculator"] floating enable
+for_window [title="Musixmatch"] floating enable
+
+for_window [title="Authy"] sticky enable
+for_window [title="Musixmatch"] sticky enable
 
 # Open Spotify in last workspace
 assign [class="Spotify"] $workspace10
-assign [title=".*Google Docs$" window_role="pop-up"] $workspace3
-assign [title=".* - Pocket Casts$" window_role="pop-up"] $workspace10
-assign [class=Thunderbird] $workspace8
-assign [class=TelegramDesktop] $workspace9
 assign [class=Skype] $workspace9
+assign [class=TelegramDesktop] $workspace9
+assign [class=Thunderbird] $workspace8
+assign [title=".* - Pocket Casts$" window_role="pop-up"] $workspace10
+assign [title=".*Google Docs$" window_role="pop-up"] $workspace3
 
-for_window [class="Spotify"] move to workspace $workspace10
 for_window [title=".*Google Docs$" window_role="pop-up"] move to workspace $workspace3
+for_window [class="Spotify"] move to workspace $workspace10
 for_window [title=".* - Pocket Casts$" window_role="pop-up"] move to workspace $workspace10
 
 # colour of             border,   background, text,     indicator, child_border
