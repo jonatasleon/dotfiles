@@ -19,3 +19,9 @@ alias vim="nvim"
 alias vimconfig="$EDITOR ~/.dotfiles/config/nvim/init.vim"
 alias xopen="xdg-open"
 alias zshconfig="$EDITOR ~/.dotfiles/zshrc"
+
+# pyenv aliases
+alias venv="pyenv virtualenv"
+alias activate="pyenv activate"
+alias deactivate="pyenv deactivate"
+alias which="pyenv which"
