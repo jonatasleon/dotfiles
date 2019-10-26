@@ -76,9 +76,9 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Snippets
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
-Plug 'SirVer/ultisnips'
 
 " All of your Plugins must be added before the following line
 call plug#end()

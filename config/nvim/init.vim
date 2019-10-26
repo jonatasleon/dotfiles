@@ -91,7 +91,7 @@ set wildignore+=*/node_modules/*
 " Update time
 set updatetime=250
 
-fun! MathAndLiquid()
+function! MathAndLiquid()
     "" Define certain regions
     " Block math. Look for "$$[anything]$$"
     syn region math start=/\$\$/ end=/\$\$/
@@ -133,6 +133,19 @@ function! s:goyo_leave()
   set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
   Limelight!
 endfunction
+
+" Command is only returned when out of NERDTree
+function! RunOutNERDTree(command)
+    if !(exists("b:NERDTree") && b:NERDTree.isTabTree())
+        return a:command
+    endif
+    echo "You're into NERDTree"
+endf
+
+function! IsLastBuffer()
+    return len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+endf
+
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
@@ -383,18 +396,6 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" Command is only returned when out of NERDTree
-fun! RunOutNERDTree(command)
-    if !(exists("b:NERDTree") && b:NERDTree.isTabTree())
-        return a:command
-    endif
-    echo "You're into NERDTree"
-endf
-
-fun! IsLastBuffer()
-    return len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-endf
-
 " Buffers maps
 nnoremap <silent> <expr> <Leader>n  RunOutNERDTree(':bnext<CR>')
 nnoremap <silent> <expr> <Leader>p  RunOutNERDTree(':bprev<CR>')
@@ -402,9 +403,8 @@ nnoremap <silent> <expr> <Leader>1  RunOutNERDTree(':bfirst<CR>')
 nnoremap <silent> <expr> <Leader>9  RunOutNERDTree(':blast<CR>')
 nnoremap <silent> <expr> <Leader>bm RunOutNERDTree(':bm<CR>')
 nnoremap <silent> <expr> <Leader>ba RunOutNERDTree(':ba<CR>')
-nnoremap <silent> <Leader>bl :vs<CR><C-w><C-w>:b#<CR>
-nnoremap <silent> <Leader>bL :sp<CR><C-w><C-w>:b#<CR>
-nnoremap <silent> <Leader>bq :bdelete %<CR>
+nnoremap <silent> <Leader>bv :vs<CR><C-w><C-w>:b#<CR>
+nnoremap <silent> <Leader>bs :sp<CR><C-w><C-w>:b#<CR>
 
 " Save document
 nnoremap <Leader>s :w<CR>
