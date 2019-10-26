@@ -4,10 +4,10 @@ if [ ! -f $HOME/.antigen/antigen.zsh ]; then
     git clone https://github.com/zsh-users/antigen.git ~/.antigen
 fi
 
-# Check if exist vundle
-if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
-    echo "Downloading Vundle"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Check if exist vim.plug file
+if [ ! -f $HOME/.local/share/nvim/site/autoload/plug.vim ]; then
+    echo "Downloading vim.plug"
+    curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Check if exist TPM

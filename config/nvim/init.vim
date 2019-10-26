@@ -5,21 +5,15 @@ set nocompatible    " be iMproved, required
 set nowrap
 set encoding=utf8
 
-""" START Vundle Configuration
-
-" Disable file type for vundle
-filetype off    " required
 source ~/.config/nvim/plugins.vim
-filetype plugin indent on    " required
-syntax on
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
-" Put your non-Plugin stuff after this line
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration Section
 """""""""""""""""""""""""""""""""""""""""""""""""
+
+filetype plugin indent on
+
+syntax on
 
 " Set onedark (https://github.com/joshdick/onedark.vim) as color scheme
 colorscheme onedark
@@ -446,6 +440,7 @@ nnoremap <Leader>vr :source ~/.config/nvim/init.vim<CR>
 
 " Quickly open .vimrc in new buffer
 nnoremap <expr> <Leader>vv RunOutNERDTree(':edit ~/.dotfiles/config/nvim/init.vim<CR>')
+nnoremap <expr> <Leader>vp RunOutNERDTree(':edit ~/.dotfiles/config/nvim/plugins.vim<CR>')
 
 " Enable folding with the Leader + Spacebar
 nnoremap <Leader><Space> za

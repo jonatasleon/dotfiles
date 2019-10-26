@@ -1,86 +1,81 @@
-" set the runtime path to include Vundle and initialize
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin()
 
 " Utilities
-Plugin 'KabbAmine/vCoolor.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'etdev/vim-hexcolor'
-Plugin 'godlygeek/tabular'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'kristijanhusak/vim-carbon-now-sh'
-Plugin 'majutsushi/tagbar'
-Plugin 'mhinz/vim-startify'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'chrisbra/csv.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'ryanoasis/vim-devicons'
+Plug 'KabbAmine/vCoolor.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'etdev/vim-hexcolor'
+Plug 'godlygeek/tabular'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'majutsushi/tagbar'
+Plug 'mhinz/vim-startify'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'chrisbra/csv.vim'
+Plug 'mileszs/ack.vim'
+Plug 'ryanoasis/vim-devicons'
 
 " Text Editing
-Plugin 'andrewradev/splitjoin.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'valloric/matchtagalways'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'machakann/vim-highlightedyank'
+Plug 'andrewradev/splitjoin.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'valloric/matchtagalways'
+Plug 'tommcdo/vim-exchange'
+Plug 'machakann/vim-highlightedyank'
 
 " File/Window/Pane navigation
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/ZoomWin'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/ZoomWin'
 
 " Git support
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Colorscheme " https://github.com/joshdick/onedark.vim
-Plugin 'joshdick/onedark.vim'
+Plug 'joshdick/onedark.vim'
 
 " Status line
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Linting
-Plugin 'sheerun/vim-polyglot'
-Plugin 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
 
 " Python support
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'plytophogy/vim-virtualenv'
-Plugin 'vim-python/python-syntax'
-Plugin 'vim-scripts/indentpython.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'plytophogy/vim-virtualenv'
+Plug 'vim-python/python-syntax'
+Plug 'vim-scripts/indentpython.vim'
 
 " Javascript Support
-Plugin 'pangloss/vim-javascript'
-Plugin 'maxmellon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " *TeX/Markdown support
-Plugin 'reedes/vim-pencil'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
-Plugin 'lervag/vimtex'
+Plug 'reedes/vim-pencil'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
+Plug 'lervag/vimtex'
 
 " HTML Support
-Plugin 'alvan/vim-closetag'
-Plugin 'mattn/emmet-vim'
+Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
 
 " i3wm
-Plugin 'PotatoesMaster/i3-vim-syntax'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Snippets
-Plugin 'honza/vim-snippets'
-Plugin 'epilande/vim-es2015-snippets'
-Plugin 'epilande/vim-react-snippets'
-Plugin 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
+Plug 'SirVer/ultisnips'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
