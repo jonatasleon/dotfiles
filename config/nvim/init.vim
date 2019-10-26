@@ -50,9 +50,6 @@ set clipboard+=unnamedplus
 " Keep cursor centered
 set scrolloff=10
 
-" Bracked paste workaround: https://vimhelp.org/term.txt.html#xterm-bracketed-paste
-set t_BE=
-
 " Show linenumbers
 set ruler
 
@@ -93,19 +90,6 @@ set wildignore+=*/node_modules/*
 
 " Update time
 set updatetime=250
-
-set t_BE=
-
-" Arrow-keys support
-set <Left>=OD
-set <Right>=OC
-set <Up>=OA
-set <Down>=OB
-
-" Define a function to create path to executables into virtualenv
-fun! GetEnvPath(bin_name)
-    return g:vim_venv . '/bin/' . a:bin_name
-endf
 
 fun! MathAndLiquid()
     "" Define certain regions
@@ -205,9 +189,6 @@ au BufRead,BufNewFile *.ejs set filetype=html
 au BufRead,BufNewFile *.js set filetype=javascript
 
 " Variable assignment ===============================
-" Define default virtualenv directory
-let g:vim_venv = expand("~") . '/.vim/venv'
-
 let g:python_host_prog = expand("~") . '/.pyenv/versions/nvim2/bin/python'
 let g:python3_host_prog = expand("~") . '/.pyenv/versions/nvim3/bin/python'
 
@@ -299,9 +280,7 @@ let g:SimpylFold_docstring_preview=1
 
 " ALE Config
 let g:ale_vim_vint_use_global = 1
-let g:ale_vim_vint_executable = GetEnvPath('vint')
 let g:ale_fix_on_save = 1
-let g:ale_virtualenv_dir_names = [g:vim_venv]
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%: %code%] %s [%severity%]'

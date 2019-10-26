@@ -30,7 +30,7 @@ Plug 'machakann/vim-highlightedyank'
 " File/Window/Pane navigation
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-scripts/ZoomWin'
+Plug 'troydm/zoomwintab.vim'
 
 " Git support
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -48,8 +48,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 
-" Python support
+" Complete
 Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Python support
 Plug 'plytophogy/vim-virtualenv'
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/indentpython.vim'
