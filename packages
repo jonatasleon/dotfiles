@@ -25,6 +25,7 @@ konsole
 lftp
 mediainfo
 minidlna
+neovim
 odt2txt
 powerline
 python-chardet
@@ -39,7 +40,6 @@ traceroute
 transmission-cli
 unrar
 urlview
-vim
 w3m
 whois
 xautolock
