@@ -171,14 +171,6 @@ autocmd InsertLeave,WinEnter *
 autocmd InsertEnter,WinLeave *
   \ set nocursorline
 
-" Set NERDTree config
-" autocmd vimenter *
-  " \ NERDTree
-" autocmd StdinReadPre *
-  " \ let s:std_in=1
-" autocmd VimEnter *
-  " \ if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " Set Proper Tabs for a full-stack development
 autocmd BufNewFile,BufRead *.html,*.css,*.js
   \ set tabstop=2     |
@@ -235,6 +227,9 @@ let g:tex_conceal='abdmg'
 
 " Set YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -375,6 +370,23 @@ inoremap <Esc> <Nop>
 
 " Map space to Leader
 map <Space> <Leader>
+
+autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
+
+function! s:check_back_space() abort "{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ deoplete#manual_complete()
+inoremap <silent><expr><S-TAB>
+    \ pumvisible() ? "\<C-p>" :
+    \ "\<S-TAB>"
+inoremap <silent><CR>
+    \ pumvisible() ? deoplete#close_popup() :
+    \ "\<CR>"
 
 " Change move to displayed line
 nnoremap j gj

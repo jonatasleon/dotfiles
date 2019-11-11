@@ -49,8 +49,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 
 " Complete
-Plug 'Valloric/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
 
 " Python support
 Plug 'plytophogy/vim-virtualenv'
