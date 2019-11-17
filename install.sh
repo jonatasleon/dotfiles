@@ -5,6 +5,7 @@ i3_list=$(cat ./i3packages)
 
 add_repositories() {
     sudo add-apt-repository -y ppa:martin-frost/thoughtbot-rcm
+    sudo add-apt-repository -y ppa:neovim-ppa/stable
     sudo apt-get update && sudo apt-get upgrade -y
 }
 

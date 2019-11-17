@@ -4,6 +4,7 @@ asciinema
 atool
 bsdtar
 caca-utils
+ccache
 compton
 conky
 ctags
@@ -13,6 +14,7 @@ dunst
 feh
 ffmpeg
 fonts-powerline
+g++
 git
 git-svn
 highlight
@@ -29,6 +31,7 @@ neovim
 odt2txt
 powerline
 python-chardet
+python-xcbgen
 rar
 rcm
 rofi
