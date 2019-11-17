@@ -68,8 +68,8 @@ font-2 = FontAwesome5Free:style=Regular:size=11;2
 font-3 = FontAwesome5Brands:style=Regular:size=11;2
 
 modules-left = powermenu i3 xwindow
-modules-center = pulseaudio calendar
-modules-right = filesystem backlight-acpi xbacklight memory cpu temperature battery
+modules-center = calendar
+modules-right = filesystem pulseaudio xbacklight memory cpu temperature battery
 
 tray-position = right
 tray-padding = 3

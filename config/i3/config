@@ -306,6 +306,9 @@ bindsym XF86AudioRaiseVolume exec $SCRIPT_DIR/volume -np -i $volumestep -t $STAT
 bindsym XF86AudioLowerVolume exec $SCRIPT_DIR/volume -np -d $volumestep -t $STATUS_CMD -u $statussig
 bindsym XF86AudioMute        exec $SCRIPT_DIR/volume -mn -t $STATUS_CMD -u $statussig
 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
 for_window [class="Yad"] floating enable
 for_window [title="Authy"] floating enable
 for_window [title="Calculator"] floating enable
