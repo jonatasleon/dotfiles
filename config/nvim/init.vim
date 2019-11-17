@@ -89,19 +89,20 @@ set smarttab
 set wildignore+=*/node_modules/*
 
 " Update time
-set updatetime=250
+set updatetime=300
 
 function! MathAndLiquid()
     "" Define certain regions
     " Block math. Look for "$$[anything]$$"
     syn region math start=/\$\$/ end=/\$\$/
+
     " inline math. Look for "$[not $][anything]$"
     syn match math_block '\$[^$].\{-}\$'
 
-    " Liquid single line. Look for "{%[anything]%}"
-    syn match liquid '{%.*%}'
+    " Liquid single line. Look for "{%[anything]%}" syn match liquid '{%.*%}'
     " Liquid multi line. Look for "{%[anything]%}[anything]{%[anything]%}"
     syn region highlight_block start='{% highlight .*%}' end='{%.*%}'
+
     " Fenced code blocks, used in GitHub Flavored Markdown (GFM)
     syn region highlight_block start='```' end='```'
 
@@ -140,11 +141,11 @@ function! RunOutNERDTree(command)
         return a:command
     endif
     echo "You're into NERDTree"
-endf
+endfunction
 
 function! IsLastBuffer()
     return len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-endf
+endfunction
 
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -152,7 +153,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Call every time we open a Markdown file
 autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
-autocmd FileType liquid       call pencil#init()
+autocmd FileType liquid call pencil#init()
 
 augroup pencil
   autocmd!
@@ -224,12 +225,6 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
-
-" Set YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -371,23 +366,6 @@ inoremap <Esc> <Nop>
 " Map space to Leader
 map <Space> <Leader>
 
-autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
-
-function! s:check_back_space() abort "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#manual_complete()
-inoremap <silent><expr><S-TAB>
-    \ pumvisible() ? "\<C-p>" :
-    \ "\<S-TAB>"
-inoremap <silent><CR>
-    \ pumvisible() ? deoplete#close_popup() :
-    \ "\<CR>"
-
 " Change move to displayed line
 nnoremap j gj
 nnoremap k gk
@@ -466,9 +444,7 @@ nnoremap <silent> <Leader>ap :ALEPreviousWrap<CR>
 nnoremap <Leader>ai :ALEInfo<CR>
 nnoremap <Leader>af :ALEFix<CR>
 nnoremap <Leader>al :ALELint<CR>
-nnoremap <Leader>ag :YcmCompleter GoTo<CR>
-nnoremap <Leader>ar :YcmCompleter GoToReferences<CR>
-nnoremap <Leader>am :YcmCompleter RefactorRename<Space>
+
 " change current work (like ciw) but repeatable with dot . for same next word.
 nnoremap <Leader>ac :let @/=expand('<cword>')<CR>cgn
 
