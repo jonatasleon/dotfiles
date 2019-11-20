@@ -52,12 +52,12 @@ install_i3lockcolor() {
   rm -rf build/
   mkdir -p build && cd build/
 
-    # Disabling sanitizers is important for release versions!
-    # The prefix and sysconfdir are, obviously, dependent on the distribution.
-    ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-    make
-    sudo make install
-  }
+  # Disabling sanitizers is important for release versions!
+  # The prefix and sysconfdir are, obviously, dependent on the distribution.
+  ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+  make
+  sudo make install
+}
 
 install_xcbutils() {
   cd /tmp/
@@ -80,9 +80,10 @@ install_polybar() {
 }
 
 install_pyenv() {
-  curl https://pyenv.run | bash
   PY3_VERSION='3.8.0'
   PY2_VERSION='2.7.15'
+  curl https://pyenv.run | bash
+
   pyenv install $PY3_VERSION
   pyenv install $PY2_VERSION
 

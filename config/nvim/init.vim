@@ -548,7 +548,7 @@ nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 
 " Marks
 nnoremap <Leader>m ma
-nnoremap <Leader>' 'a
+nnoremap <Leader>' 'azz
 
 " Commands Assignment ==============================
 " Open file in chrome
