@@ -72,7 +72,24 @@ set laststatus=2
 set foldmethod=syntax
 set foldlevel=99
 
+" if hidden is not set, TextEdit might fail.
 set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+" set cmdheight=2
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Show invisible characters
 set list
@@ -133,6 +150,7 @@ function! s:goyo_leave()
   set list
   set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
   Limelight!
+  hi Normal guibg=NONE ctermbg=NONE
 endfunction
 
 " Command is only returned when out of NERDTree
@@ -147,13 +165,18 @@ function! IsLastBuffer()
     return len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
 endfunction
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-" Call every time we open a Markdown file
-autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
-autocmd FileType liquid call pencil#init()
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 augroup pencil
   autocmd!
@@ -165,6 +188,25 @@ augroup recpos
    autocmd!
    autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Hook goyo functions
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" Call every time we open a Markdown file
+autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
+autocmd FileType liquid call pencil#init()
 
 " Set cursorline
 autocmd InsertLeave,WinEnter *
@@ -309,13 +351,6 @@ let g:closetag_regions = {
   \ 'javascript': 'jsxRegion',
   \ }
 
-" Gitgutter
-if exists('&signcolumn')  " Vim 7.4.2201
-  set signcolumn=yes
-else
-  let g:gitgutter_sign_column_always = 1
-endif
-
 " Polyglot setup
 let g:polyglot_disabled = ['tmux', 'latex']
 
@@ -355,8 +390,7 @@ let g:mta_filetypes = {
     \ 'javascript': 1,
     \}
 
-
-" Variable assignment ===============================
+" Mappings ===============================
 " Map jk to ESC in insert mode
 inoremap jk <esc>
 
@@ -410,6 +444,60 @@ nnoremap <Leader>vr :source ~/.config/nvim/init.vim<CR>
 " Quickly open .vimrc in new buffer
 nnoremap <expr> <Leader>vv RunOutNERDTree(':edit ~/.dotfiles/config/nvim/init.vim<CR>')
 nnoremap <expr> <Leader>vp RunOutNERDTree(':edit ~/.dotfiles/config/nvim/plugins.vim<CR>')
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+" nmap <silent> <C-d> <Plug>(coc-range-select)
+" xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Enable folding with the Leader + Spacebar
 nnoremap <Leader><Space> za
@@ -465,3 +553,12 @@ nnoremap <Leader>' 'a
 " Commands Assignment ==============================
 " Open file in chrome
 command! -nargs=1 Chrome execute "silent !google-chrome <args>" | redraw!
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
