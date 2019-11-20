@@ -1,3 +1,4 @@
+source $HOME/.zshenv
 source $HOME/.zsh/checkdep.zsh
 source $HOME/.zsh/profile.zsh
 source $HOME/.zsh/plugins.zsh
