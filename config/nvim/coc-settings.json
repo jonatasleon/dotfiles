@@ -1,0 +1,7 @@
+{
+  "python.sortImports.path": "~/.pyenv/versions/nvim3/bin/isort",
+  "python.linting.pylintPath": "~/.pyenv/versions/nvim3/bin/pylint",
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "~/.pyenv/versions/nvim3/bin/black",
+  "python.jediPath": "~/.pyenv/versions/nvim3/lib/python3.6/site-packages"
+}

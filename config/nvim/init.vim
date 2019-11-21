@@ -505,9 +505,6 @@ nnoremap <Leader><Space> za
 " Press <Leader> Enter to remove search highlights
 noremap <silent> <Leader><cr> :noh<CR>
 
-" Toggle Relative Number
-nnoremap <silent> <Leader>rn :set relativenumber!<CR>
-
 " NERDTree
 map <silent> <C-n> :NERDTreeToggle<CR>
 
