@@ -35,6 +35,7 @@ alias tssh="tmux-cssh"
 
 # pyenv aliases
 alias activate="pyenv activate"
+alias ac="pyenv activate"
 alias deactivate="pyenv deactivate"
 alias shell="pyenv shell"
 alias venv="pyenv virtualenv"
