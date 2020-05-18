@@ -237,8 +237,8 @@ au BufRead,BufNewFile *.ejs set filetype=html
 au BufRead,BufNewFile *.js set filetype=javascript
 
 " Variable assignment ===============================
-let g:python_host_prog = expand("~") . '/.pyenv/versions/nvim2/bin/python'
-let g:python3_host_prog = expand("~") . '/.pyenv/versions/nvim3/bin/python'
+let g:python_host_prog = expand("~") . '/.pyenv/versions/py2/bin/python'
+let g:python3_host_prog = expand("~") . '/.pyenv/versions/py3/bin/python'
 
 " Startify config
 let g:startify_change_to_dir = 0
@@ -546,6 +546,9 @@ nnoremap <silent> <Leader>tb :TagbarToggle<CR>
 " Marks
 nnoremap <Leader>m ma
 nnoremap <Leader>' 'azz
+
+" Align Markdown Tables
+au FileType markdown vmap <Leader>l <Plug>(EasyAlign)
 
 " Commands Assignment ==============================
 " Open file in chrome

@@ -16,14 +16,13 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/csv.vim'
-Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 Plug 'ryanoasis/vim-devicons'
 
 " Text Editing
 Plug 'andrewradev/splitjoin.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'valloric/matchtagalways'
 Plug 'tommcdo/vim-exchange'
 Plug 'machakann/vim-highlightedyank'
 
@@ -65,6 +64,7 @@ Plug 'reedes/vim-pencil'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 Plug 'lervag/vimtex'
+Plug 'junegunn/vim-easy-align'
 
 " HTML Support
 Plug 'alvan/vim-closetag'
