@@ -10,7 +10,7 @@ bind l   if-shell "$is_vim" "send C-a C-l" "select-pane -R"
 bind C-l if-shell "$is_vim" "send C-a C-l" "select-pane -R"
 bind k   if-shell "$is_vim" "send C-a C-k" "select-pane -U"
 bind C-k if-shell "$is_vim" "send C-a C-k" "select-pane -U"
-bind C-\ if-shell "$is_vim" "send C-a \\" "select-pane -l"
+bind 'C-\' if-shell "$is_vim" "send 'C-a \\'" "select-pane -l"
 
 # Binds below are based on tmux-pain-control
 # Window move bindings
@@ -41,4 +41,3 @@ bind "c" new-window -c "#{pane_current_path}"
 # bind -T copy-mode-vi M-J               send halfpage-down
 # bind -T copy-mode-vi PageDown          send page-down
 # bind -T copy-mode-vi PageUp            send page-up
-

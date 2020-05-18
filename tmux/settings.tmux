@@ -10,4 +10,3 @@ set-option -g allow-rename off
 set-option -g repeat-time 1000
 
 set -g mouse on
-
