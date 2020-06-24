@@ -1,11 +1,12 @@
 call plug#begin()
 
 " Utilities
+Plug 'xolox/vim-misc'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'etdev/vim-hexcolor'
+Plug 'ap/vim-css-color'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kristijanhusak/vim-carbon-now-sh'
@@ -13,6 +14,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/csv.vim'
@@ -25,6 +27,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'machakann/vim-highlightedyank'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'mattn/vim-textobj-url'
 
 " File/Window/Pane navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -45,10 +50,12 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Linting
 Plug 'sheerun/vim-polyglot'
-Plug 'w0rp/ale'
 
 " Complete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+" Snippets
+Plug 'honza/vim-snippets'
 
 " Python support
 Plug 'plytophogy/vim-virtualenv'
@@ -68,16 +75,9 @@ Plug 'junegunn/vim-easy-align'
 
 " HTML Support
 Plug 'alvan/vim-closetag'
-Plug 'mattn/emmet-vim'
 
 " i3wm
 Plug 'PotatoesMaster/i3-vim-syntax'
-
-" Snippets
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
-Plug 'epilande/vim-es2015-snippets'
-Plug 'epilande/vim-react-snippets'
 
 " All of your Plugins must be added before the following line
 call plug#end()

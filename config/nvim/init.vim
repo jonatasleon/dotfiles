@@ -75,25 +75,31 @@ set foldlevel=99
 " if hidden is not set, TextEdit might fail.
 set hidden
 
-" Some servers have issues with backup files, see #649
+" Some servers have issues with backup files.
 set nobackup
 set nowritebackup
 
 " Better display for messages
-" set cmdheight=2
+set cmdheight=2
+
+" Define spell languages
+set spelllang=pt_br,en_us
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" always show signcolumns
-set signcolumn=yes
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Show invisible characters
 set list
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+set listchars=tab:>·,trail:~,extends:>,precedes:<
 
 " Set Proper Tabs
 set expandtab
@@ -104,6 +110,9 @@ set smarttab
 
 " Wildignore
 set wildignore+=*/node_modules/*
+
+set wildmode=longest:full,full
+set wildmenu
 
 " Update time
 set updatetime=300
@@ -148,7 +157,7 @@ function! s:goyo_leave()
   endif
   set showcmd
   set list
-  set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+  set listchars=tab:>·,trail:~,extends:>,precedes:<
   Limelight!
   hi Normal guibg=NONE ctermbg=NONE
 endfunction
@@ -156,7 +165,7 @@ endfunction
 " Command is only returned when out of NERDTree
 function! RunOutNERDTree(command)
     if !(exists("b:NERDTree") && b:NERDTree.isTabTree())
-        return a:command
+      return a:command
     endif
     echo "You're into NERDTree"
 endfunction
@@ -170,14 +179,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()
@@ -188,17 +189,6 @@ augroup recpos
    autocmd!
    autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Hook goyo functions
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -245,16 +235,10 @@ let g:startify_change_to_dir = 0
 
 " ctrlP
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '_site\|node_modules\|\v[\/]\.(git|hg|svn)$',
+  \ 'dir':  'node_modules\|\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|pyc)$',
   \ }
 let g:ctrlp_show_hidden = 1
-
-" Session settings
-let g:session_autoload='no'
-let g:session_autosave='no'
-let g:session_default_to_last=1
-let g:session_command_aliases=1
 
 " Remap move split
 let g:tmux_navigator_no_mappings = 1
@@ -283,7 +267,6 @@ let g:NERDSpaceDelims = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formmater = 'unique_tail_improved'
 let g:airline_powerline_fonts = 1
-" let g:airline_section_x = '%{PencilMode()}'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -323,49 +306,11 @@ endif
 " Show doctring folded code
 let g:SimpylFold_docstring_preview=1
 
-" ALE Config
-let g:ale_vim_vint_use_global = 1
-let g:ale_fix_on_save = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%: %code%] %s [%severity%]'
-let g:ale_sign_column_always = 1
-
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-  \ 'css': ['csslint'],
-  \ 'javascript': ['eslint'],
-  \ 'json': ['jsonlint'],
-  \ 'vim': ['vint']
-  \ }
-let g:ale_fixers = {
-  \ 'css': ['prettier'],
-  \ 'html': ['prettier'],
-  \ 'javascript': ['prettier-eslint'],
-  \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ]
-  \ }
-" Closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.ejs"
-let g:closetag_filetypes = 'javascript'
-let g:closetag_regions = {
-  \ 'javascript': 'jsxRegion',
-  \ }
-
 " Polyglot setup
 let g:polyglot_disabled = ['tmux', 'latex']
 
 " Highlight python code
 let python_highlight_all=1
-
-" Trigger configuration. Do not use <Tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-b>"
-let g:UltiSnipsJumpBackwardTrigger="<C-z>"
-let g:UltiSnipsListSnippets="<C-l>"
-let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " CTags-Tagbar
 let g:tagbar_autofocus = 1
@@ -445,60 +390,6 @@ nnoremap <Leader>vr :source ~/.config/nvim/init.vim<CR>
 nnoremap <expr> <Leader>vv RunOutNERDTree(':edit ~/.dotfiles/config/nvim/init.vim<CR>')
 nnoremap <expr> <Leader>vp RunOutNERDTree(':edit ~/.dotfiles/config/nvim/plugins.vim<CR>')
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Create mappings for function text object, requires document symbols feature of languageserver.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-" nmap <silent> <C-d> <Plug>(coc-range-select)
-" xmap <silent> <C-d> <Plug>(coc-range-select)
-
 " Enable folding with the Leader + Spacebar
 nnoremap <Leader><Space> za
 
@@ -520,8 +411,8 @@ nnoremap <silent> <Leader>w <C-w><C-w>
 " Set Carbon map
 xnoremap <Leader>p :CarbonNowSh<CR>
 
-" Set Ack map
-noremap <Leader>a :Ack! <cword><cr>
+" Set Ag map
+noremap <Leader>a :Ag! <cword><cr>
 
 " ALE Maps
 nnoremap <silent> <Leader>an :ALENextWrap<CR>
@@ -554,11 +445,68 @@ au FileType markdown vmap <Leader>l <Plug>(EasyAlign)
 " Open file in chrome
 command! -nargs=1 Chrome execute "silent !google-chrome <args>" | redraw!
 
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
+" COC Configuration
+let g:coc_global_extensions=[
+    \ 'coc-css',
+    \ 'coc-eslint',
+    \ 'coc-highlight',
+    \ 'coc-html',
+    \ 'coc-json',
+    \ 'coc-python',
+    \ 'coc-tabnine',
+    \ 'coc-translator',
+    \ 'coc-tsserver',
+    \ 'coc-snippets',
+    \]
 
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+" Use <Tab> and <S-Tab> to navigate the completion list
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" use <c-space>for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
