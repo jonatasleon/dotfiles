@@ -9,12 +9,14 @@ UseFontLineChararacters=true
 CursorShape=0
 
 [General]
+BrowserApplication[$e]=!google-chrome
 Environment=TERM=xterm-256color,COLORTERM=truecolor
 Name=OneDark
 Parent=FALLBACK/
 ShowTerminalSizeHint=false
+TerminalColumns=165
 TerminalMargin=5
-BrowserApplication[$e]=!google-chrome
+TerminalRows=42
 
 [Interaction Options]
 AutoCopySelectedText=true

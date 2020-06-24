@@ -89,6 +89,8 @@ Color=145,150,161
 Color=199,207,221
 
 [General]
+Blur=true
+ColorRandomization=false
 Description=OneDark
-Opacity=1
+Opacity=0.85
 Wallpaper=
