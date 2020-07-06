@@ -4,7 +4,6 @@ call plug#begin()
 Plug 'xolox/vim-misc'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-css-color'
 Plug 'godlygeek/tabular'
@@ -20,6 +19,11 @@ Plug 'tpope/vim-surround'
 Plug 'chrisbra/csv.vim'
 Plug 'rking/ag.vim'
 Plug 'ryanoasis/vim-devicons'
+
+" FZF
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 
 " Text Editing
 Plug 'andrewradev/splitjoin.vim'
@@ -54,9 +58,6 @@ Plug 'sheerun/vim-polyglot'
 " Complete
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
-" Snippets
-Plug 'honza/vim-snippets'
-
 " Python support
 Plug 'plytophogy/vim-virtualenv'
 Plug 'vim-python/python-syntax'
@@ -75,9 +76,6 @@ Plug 'junegunn/vim-easy-align'
 
 " HTML Support
 Plug 'alvan/vim-closetag'
-
-" i3wm
-Plug 'PotatoesMaster/i3-vim-syntax'
 
 " All of your Plugins must be added before the following line
 call plug#end()

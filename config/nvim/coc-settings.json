@@ -1,6 +1,9 @@
 {
+    // JS Config
     "eslint.autoFixOnSave": true,
     "javascript.validate.enable": false,
+
+    // Python Config
     "python.condaPath": "~/.pyenv/versions/miniconda3-latest/bin/conda",
     "python.formatting.blackPath": "black",
     "python.formatting.provider": "black",
@@ -9,5 +12,11 @@
     "python.pythonPath": "python",
     "python.sortImports.path": "isort",
     "python.venvFolders": [".pyenv"],
-    "python.venvPath": "~/.pyenv"
+    "python.venvPath": "~/.pyenv",
+
+    //Explorer Config
+    "explorer.width": 30,
+    "explorer.keyMappings": {
+      "<cr>": ["expandable?", "expand", "open"]
+    }
 }
