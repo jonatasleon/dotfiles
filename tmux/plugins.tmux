@@ -13,3 +13,6 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @onedark_date_first true
 set -g @onedark_date_format "%A, %b %d"
 set -g @onedark_time_format '%H:%M'
+
+# Fingers plugin
+set -g @fingers-keyboard-layout qwerty-left-homerow
