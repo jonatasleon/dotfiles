@@ -1,4 +1,23 @@
+#!/bin/zsh
+
+# Add local bins to PATH
 export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add scripts dir to path
+export CUSTOM_SCRIPTS_DIR="${HOME}/.scripts"
+if [ -d "${CUSTOM_SCRIPTS_DIR}" ]; then
+  PATH="${PATH}:${CUSTOM_SCRIPTS_DIR}"
+fi
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export ANDROID_HOME=$HOME/.android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Set vim as default editor
 export EDITOR=$(which vim)
@@ -17,26 +36,55 @@ export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_DIR_LOCK_SYMBOL=" "
 export SPACESHIP_DIR_TRUNC=4
 
-export SPACESHIP_PYENV_SYMBOL=" "
+# export SPACESHIP_PYENV_SYMBOL=" "
 export SPACESHIP_PYENV_COLOR="blue"
 
-export SPACESHIP_RUBY_SYMBOL=" "
+# export SPACESHIP_RUBY_SYMBOL=" "
 
 export SPACESHIP_CONDA_COLOR="yellow"
 
-export SPACESHIP_VENV_PREFIX=" venv:("
+export SPACESHIP_VENV_PREFIX="venv:("
 export SPACESHIP_VENV_SUFFIX=") "
 
 export SPACESHIP_EXIT_CODE_SHOW=true
+export SPACESHIP_EXIT_CODE_PREFIX="("
+export SPACESHIP_EXIT_CODE_SUFFIX=") "
+
+export SPACESHIP_WATSON_SHOW=true
+export SPACESHIP_WATSON_SUFFIX=" "
+export SPACESHIP_PROMPT_ORDER=(
+  time
+  user
+  watson
+  dir
+  host
+  git
+  package
+  node
+  ruby
+  rust
+  haskell
+  julia
+  docker
+  aws
+  venv
+  conda
+  pyenv
+  kubectl
+  exec_time
+  line_sep
+  battery
+  vi_mode
+  jobs
+  exit_code
+  char
+)
 
 # Workaround to git stash/pyenv problem https://github.com/pyenv/pyenv/issues/690
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # NVM Configuration
 export NVM_LAZY_LOAD=false
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 export LESS="-R"
 export LESSOPEN="|~/.lessfilter %s"
@@ -51,13 +99,4 @@ git config --global core.excludesfile $HOME/.gitignore_global
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
-
-texactivate() {
-    mkdir -p $HOME/.texenv
-    export TEXMFHOME=$HOME/.texenv
-}
-
-texdeactivate() {
-    unset TEXMFHOME
 }

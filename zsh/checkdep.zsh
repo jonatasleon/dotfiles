@@ -16,13 +16,7 @@ if [ ! -d $HOME/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# Check for my custom snips
-if [ ! -d $HOME/.vim/UltiSnips  ]; then
-    echo "Downloading Jonatas' custom UltiSnips"
-    git clone https://github.com/jonatasleon/my-snips ~/.vim/UltiSnips
-fi
-
-# Check for my custom snips
+# Check if fzf is installed
 if [ ! -d $HOME/.fzf ]; then
     echo "Downloading and installing fzf"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf

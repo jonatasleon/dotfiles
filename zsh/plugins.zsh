@@ -1,4 +1,5 @@
 source $HOME/.antigen/antigen.zsh
+source $HOME/.zsh/watson.zsh
 
 # load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -8,12 +9,16 @@ antigen bundles <<EOBUNDLES
     command-not-found
     docker
     docker-compose
+    fancy-ctrl-z
+    fzf
     git
-    web-search
     pyenv
+    rvm
     svn
     tmux
+    tmuxinator
     virtualenv
+    web-search
 EOBUNDLES
 
 # Bundles from custom repos.
@@ -33,5 +38,3 @@ antigen apply
 
 bindkey "^ " autosuggest-accept
 bindkey "^U" backward-kill-line
-
-export PATH="$PATH:$(yarn global bin)"

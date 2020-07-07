@@ -13,16 +13,15 @@ alias mkcd='foo() { mkdir -p "$1"; cd "$1" }; foo'
 alias more="less"
 alias tailf="tail -f"
 alias xopen="xdg-open"
+alias kp="ps -ef | fzf -m --header='[kill:process]' | awk '{ print \$2 }' | xargs kill -9"
+alias tsa='_tsa() { ts "$1" || ta "$1" }; _tsa'
+alias fd='fdfind'
 
-# Updates
+# Utils
 alias update="sudo apt-get update && sudo apt-get upgrade -y"
 alias updatedotfiles="(cd ~/.dotfiles; git pull --rebase origin master)"
 alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
-
-# Edit Configs
-alias profileconfig="$EDITOR ~/.dotfiles/zsh/profile.zsh"
-alias vimconfig="$EDITOR ~/.dotfiles/config/nvim/init.vim"
-alias zshconfig="$EDITOR ~/.dotfiles/zshrc"
+alias editdotfiles="cd ~/.dotfiles; vim"
 
 # TMUX Aliases
 alias tssh="tmux-cssh"
