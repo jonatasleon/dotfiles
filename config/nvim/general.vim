@@ -67,8 +67,7 @@ set hidden
 set nobackup
 set nowritebackup
 
-" Better display for messages
-set cmdheight=2
+set cmdheight=1
 
 " Define spell languages
 set spelllang=pt_br,en_us

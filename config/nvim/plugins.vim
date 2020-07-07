@@ -19,6 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'chrisbra/csv.vim'
 Plug 'rking/ag.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'voldikss/vim-floaterm'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -68,10 +69,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " *TeX/Markdown support
-Plug 'reedes/vim-pencil'
-Plug 'plasticboy/vim-markdown'
+" Plug 'reedes/vim-pencil'
+" Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
 
 " HTML Support

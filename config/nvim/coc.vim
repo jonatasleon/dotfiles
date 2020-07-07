@@ -6,11 +6,12 @@ let g:coc_global_extensions=[
     \ 'coc-highlight',
     \ 'coc-html',
     \ 'coc-json',
+    \ 'coc-markmap',
     \ 'coc-python',
+    \ 'coc-snippets',
     \ 'coc-tabnine',
     \ 'coc-translator',
     \ 'coc-tsserver',
-    \ 'coc-snippets',
     \]
 
 " use <tab> for trigger completion and navigate to the next complete item
@@ -68,3 +69,11 @@ nmap <leader>f  <Plug>(coc-format-selected)
 " Explorer config
 nmap <C-n> :CocCommand explorer --quit-on-open<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+" coc-markmap
+" Create markmap from the whole file
+nmap <Leader>M <Plug>(coc-markmap-create)
+" Create markmap from the selected lines
+vmap <Leader>M <Plug>(coc-markmap-create-v)
+" Define command to markmap
+command! -range=% Markmap CocCommand markmap.create <line1> <line2>

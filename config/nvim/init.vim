@@ -60,9 +60,6 @@ au BufRead,BufNewFile *.js set filetype=javascript
 let g:python_host_prog = expand("~") . '/.pyenv/versions/py2/bin/python'
 let g:python3_host_prog = expand("~") . '/.pyenv/versions/py3/bin/python'
 
-" Startify config
-let g:startify_change_to_dir = 0
-
 " Remap move split
 let g:tmux_navigator_no_mappings = 1
 
@@ -157,9 +154,6 @@ nnoremap <Leader>vr :source ~/.config/nvim/init.vim<CR>
 nnoremap <expr> <Leader>vv RunOutNERDTree(':edit ~/.dotfiles/config/nvim/init.vim<CR>')
 nnoremap <expr> <Leader>vp RunOutNERDTree(':edit ~/.dotfiles/config/nvim/plugins.vim<CR>')
 
-" Enable folding with the Leader + Spacebar
-nnoremap <Leader><Space> za
-
 " Press <Leader> Enter to remove search highlights
 noremap <silent> <Leader><cr> :noh<CR>
 
@@ -200,6 +194,8 @@ au FileType markdown vmap <Leader>l <Plug>(EasyAlign)
 command! -nargs=1 Chrome execute "silent !google-chrome <args>" | redraw!
 
 source ~/.config/nvim/airline.vim
+source ~/.config/nvim/startify.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/fzf.vim
+source ~/.config/nvim/floaterm.vim
 source ~/.config/nvim/nerdtree.vim
