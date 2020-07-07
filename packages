@@ -5,7 +5,9 @@ caca-utils
 ccache
 ctags
 curl
+fd-find
 ffmpeg
+flameshot
 fonts-powerline
 g++
 git
@@ -35,9 +37,11 @@ powerline
 python-openssl
 rar
 rcm
+rename
 ripgrep
 rofi
 screenfetch
+silversearcher-ag
 sysstat
 tmux
 traceroute
