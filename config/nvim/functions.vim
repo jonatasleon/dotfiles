@@ -21,37 +21,6 @@ function! MathAndLiquid()
     hi link math_block Function
 endfunction
 
-function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowcmd
-  set nolist
-  set listchars=
-  Limelight
-endfunction
-
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set showcmd
-  set list
-  set listchars=tab:>·,trail:~,extends:>,precedes:<
-  Limelight!
-  hi Normal guibg=NONE ctermbg=NONE
-endfunction
-
-" Command is only returned when out of NERDTree
-function! RunOutNERDTree(command)
-    if !(exists("b:NERDTree") && b:NERDTree.isTabTree())
-      return a:command
-    endif
-    echo "You're into NERDTree"
-endfunction
-
 function! IsLastBuffer()
     return len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
 endfunction

@@ -9,7 +9,6 @@ Plug 'ap/vim-css-color'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kristijanhusak/vim-carbon-now-sh'
-Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tmhedberg/SimpylFold'
@@ -17,9 +16,10 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/csv.vim'
-Plug 'rking/ag.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'voldikss/vim-floaterm'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -38,11 +38,9 @@ Plug 'mattn/vim-textobj-url'
 
 " File/Window/Pane navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdtree'
 Plug 'troydm/zoomwintab.vim'
 
 " Git support
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
@@ -69,11 +67,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " *TeX/Markdown support
-" Plug 'reedes/vim-pencil'
-" Plug 'plasticboy/vim-markdown'
+Plug 'reedes/vim-pencil'
+Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
-" Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
+Plug 'parkr/vim-jekyll'
 
 " HTML Support
 Plug 'alvan/vim-closetag'
