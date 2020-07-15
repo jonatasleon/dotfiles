@@ -88,10 +88,8 @@ install_pyenv() {
   pyenv install $PY2_VERSION
 
   pyenv virtualenv $PY3_VERSION py3
-  pyenv virtualenv $PY3_VERSION nvim3
 
   pyenv virtualenv $PY2_VERSION py2
-  pyenv virtualenv $PY2_VERSION nvim2
 }
 
 retrieve_dotfiles() {
