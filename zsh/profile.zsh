@@ -6,6 +6,8 @@ export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export XDG_DATA_HOME=$HOME/.local/share
+
 # Add scripts dir to path
 export CUSTOM_SCRIPTS_DIR="${HOME}/.scripts"
 if [ -d "${CUSTOM_SCRIPTS_DIR}" ]; then
@@ -36,10 +38,7 @@ export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_DIR_LOCK_SYMBOL=" "
 export SPACESHIP_DIR_TRUNC=4
 
-# export SPACESHIP_PYENV_SYMBOL=" "
 export SPACESHIP_PYENV_COLOR="blue"
-
-# export SPACESHIP_RUBY_SYMBOL=" "
 
 export SPACESHIP_CONDA_COLOR="yellow"
 
