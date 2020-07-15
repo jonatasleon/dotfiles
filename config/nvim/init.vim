@@ -9,6 +9,7 @@ source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/which-key.vim
 source ~/.config/nvim/general.vim
 source ~/.config/nvim/functions.vim
+source ~/.config/nvim/rnvimr.vim
 source ~/.config/nvim/tmux-navigate.vim
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/startify.vim

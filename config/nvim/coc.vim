@@ -1,8 +1,8 @@
 " COC Configuration
 let g:coc_global_extensions=[
+    \ 'coc-browser',
     \ 'coc-css',
     \ 'coc-eslint',
-    \ 'coc-explorer',
     \ 'coc-highlight',
     \ 'coc-html',
     \ 'coc-json',
@@ -65,10 +65,6 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-
-" Explorer config
-nmap <C-n> :CocCommand explorer --quit-on-open<CR>
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 " coc-markmap
 " Create markmap from the whole file

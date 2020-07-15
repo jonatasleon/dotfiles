@@ -12,11 +12,5 @@
     "python.pythonPath": "python",
     "python.sortImports.path": "isort",
     "python.venvFolders": [".pyenv"],
-    "python.venvPath": "~/.pyenv",
-
-    //Explorer Config
-    "explorer.width": 30,
-    "explorer.keyMappings": {
-      "<cr>": ["expandable?", "expand", "open"]
-    }
+    "python.venvPath": "~/.pyenv"
 }

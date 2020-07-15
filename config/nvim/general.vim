@@ -258,7 +258,6 @@ xnoremap <silent> Q gq
 nnoremap <Leader>z :Goyo<CR>
 
 " Marks
-nnoremap <Leader>m ma
 nnoremap <Leader>' 'azz
 
 " Align Markdown Tables

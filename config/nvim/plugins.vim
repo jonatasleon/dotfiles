@@ -20,6 +20,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'blindFS/vim-taskwarrior'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
