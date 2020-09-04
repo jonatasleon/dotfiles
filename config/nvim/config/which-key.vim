@@ -2,6 +2,7 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 nnoremap <silent> <Leader> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <Leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <Leader><Space> :silent <C-u> :silent WhichKey 'g'<CR>
 
 " Create map to add keys to
 let g:which_key_map =  {}
@@ -21,6 +22,8 @@ highlight default link WhichKeyDesc      Function
 autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+
+let g:which_key_map.g = {}
 
 " l is for search
 let g:which_key_map.l = {

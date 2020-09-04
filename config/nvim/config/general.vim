@@ -197,6 +197,7 @@ let g:limelight_conceal_ctermfg = '240'
 " Mappings ===============================
 " Map jk to ESC in insert mode
 inoremap jk <esc>
+inoremap kj <esc>
 
 " Disable Esc key in insert mode
 inoremap <Esc> <C-c>
@@ -234,7 +235,7 @@ nnoremap <silent> <Leader>s :w<CR>
 nnoremap <Leader>S :w !sudo tee %<CR>
 
 " Close window
-nnoremap <silent> <expr> <Leader>q IsLastBuffer() ? ':q<CR>' : ':bd<CR>'
+nnoremap <silent> <expr> <Leader>q '<C-u>:bd<CR>'
 nnoremap <Leader>Q :qa<CR>
 
 " Quickly source .vimrc

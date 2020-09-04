@@ -6,16 +6,23 @@
 alias gsf="git svn fetch"
 
 # Make shell easier
-alias hs="history | grep"
-alias lhalt="ls -halt"
-alias lhaltr="ls -haltr"
 alias mkcd='foo() { mkdir -p "$1"; cd "$1" }; foo'
 alias more="less"
 alias tailf="tail -f"
 alias xopen="xdg-open"
-alias kp="ps -ef | fzf -m --header='[kill:process]' | awk '{ print \$2 }' | xargs kill -9"
 alias tsa='_tsa() { ts "$1" || ta "$1" }; _tsa'
 alias fd='fdfind'
+alias kp="ps -ef | fzf -m --header='[kill:process]' --reverse | awk '{ print \$2 }' | xargs kill -9"
+alias kps="ss -plunt4 | fzf -m --header='[kill:process]' --reverse | awk '{ print \$2 }' | xargs kill -9"
+alias hs="history | fzf"
+
+# VBoxManage aliases
+alias vm=VBoxManage
+alias startvms="VBoxManage list vms | fzf -m --reverse --preview=\"echo {} | sed -E 's/^.*\{(.*)\}$/\1/' | xargs -I {} VBoxManage showvminfo {}\" | sed -E 's/^.*\{(.*)\}$/\1/' | sed -E 's/^.*\{(.*)\}$/\1/' | xargs -I {} vboxmanage startvm {} --type headless"
+alias haltvms="vboxmanage list runningvms | fzf -m --reverse | sed -E 's/^.*\{(.*)\}$/\1/' | xargs -I {} vboxmanage controlvm {} acpipowerbutton"
+alias resetvms="vboxmanage list runningvms | fzf -m --reverse | sed -E 's/^.*\{(.*)\}$/\1/' | xargs -I {} vboxmanage controlvm {} reset"
+alias vms="VBoxManage list vms"
+alias runningvms="VBoxManage list runningvms"
 
 # Utils
 alias update="sudo apt-get update && sudo apt-get upgrade -y"

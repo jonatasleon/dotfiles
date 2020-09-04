@@ -4,17 +4,18 @@
 set nocompatible    " be iMproved, required
 set nowrap
 set encoding=utf8
+set modeline
 
-source ~/.config/nvim/plugins.vim
-source ~/.config/nvim/which-key.vim
-source ~/.config/nvim/general.vim
-source ~/.config/nvim/functions.vim
-source ~/.config/nvim/rnvimr.vim
-source ~/.config/nvim/tmux-navigate.vim
-source ~/.config/nvim/airline.vim
-source ~/.config/nvim/startify.vim
-source ~/.config/nvim/coc.vim
-source ~/.config/nvim/fzf.vim
-source ~/.config/nvim/floaterm.vim
-source ~/.config/nvim/goyo.vim
-
+source $HOME/.config/nvim/config/plugins.vim
+source $HOME/.config/nvim/config/which-key.vim
+source $HOME/.config/nvim/config/general.vim
+source $HOME/.config/nvim/config/functions.vim
+source $HOME/.config/nvim/config/airline.vim
+source $HOME/.config/nvim/config/coc.vim
+source $HOME/.config/nvim/config/floaterm.vim
+source $HOME/.config/nvim/config/fzf.vim
+source $HOME/.config/nvim/config/goyo.vim
+source $HOME/.config/nvim/config/notes.vim
+source $HOME/.config/nvim/config/rnvimr.vim
+source $HOME/.config/nvim/config/startify.vim
+source $HOME/.config/nvim/config/tmux-navigate.vim

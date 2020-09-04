@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Check if exist antigen
 if [ ! -f $HOME/.antigen/antigen.zsh ]; then
     echo "Downloading Antigen"

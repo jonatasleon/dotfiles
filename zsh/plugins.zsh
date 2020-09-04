@@ -27,6 +27,7 @@ antigen bundles <<EOBUNDLES
     chrissicool/zsh-256color
     lukechilds/zsh-nvm
     zsh-users/zsh-autosuggestions
+    zsh-users/zsh-completions
     zdharma/fast-syntax-highlighting
 EOBUNDLES
 
@@ -35,6 +36,8 @@ antigen theme denysdovhan/spaceship-prompt
 
 # Tell Antigen that you're done.
 antigen apply
+
+compdef vboxmanage=VBoxManage
 
 bindkey "^ " autosuggest-accept
 bindkey "^U" backward-kill-line

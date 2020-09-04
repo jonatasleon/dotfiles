@@ -6,7 +6,6 @@ Plug 'KabbAmine/vCoolor.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-css-color'
-Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'mhinz/vim-startify'
@@ -21,7 +20,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-Plug 'blindFS/vim-taskwarrior'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -60,7 +58,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Python support
-Plug 'plytophogy/vim-virtualenv'
+" Plug 'plytophogy/vim-virtualenv'
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/indentpython.vim'
 
@@ -75,6 +73,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
 Plug 'parkr/vim-jekyll'
+Plug 'xolox/vim-notes'
 
 " HTML Support
 Plug 'alvan/vim-closetag'
