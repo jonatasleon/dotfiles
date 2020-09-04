@@ -49,12 +49,9 @@ export SPACESHIP_EXIT_CODE_SHOW=true
 export SPACESHIP_EXIT_CODE_PREFIX="("
 export SPACESHIP_EXIT_CODE_SUFFIX=") "
 
-export SPACESHIP_WATSON_SHOW=true
-export SPACESHIP_WATSON_SUFFIX=" "
 export SPACESHIP_PROMPT_ORDER=(
   time
   user
-  watson
   dir
   host
   git
@@ -69,7 +66,6 @@ export SPACESHIP_PROMPT_ORDER=(
   venv
   conda
   pyenv
-  kubectl
   exec_time
   line_sep
   battery
