@@ -5,6 +5,8 @@
 # Git-SVN aliases
 alias gsf="git svn fetch"
 
+alias sdiff="_sdiff() { svn diff \"$@\" | colordiff | less -R }; _sdiff"
+
 # Make shell easier
 alias mkcd='foo() { mkdir -p "$1"; cd "$1" }; foo'
 alias more="less"
@@ -12,8 +14,8 @@ alias tailf="tail -f"
 alias xopen="xdg-open"
 alias tsa='_tsa() { ts "$1" || ta "$1" }; _tsa'
 alias fd='fdfind'
-alias kp="ps -ef | fzf -m --header='[kill:process]' --reverse | awk '{ print \$2 }' | xargs kill -9"
-alias kps="ss -plunt4 | fzf -m --header='[kill:process]' --reverse | awk '{ print \$2 }' | xargs kill -9"
+alias kp="ps -ef | tail -n +2 | fzf -m --header='[kill:process]' --reverse --preview=\"echo {} | tr -s ' ' | cut -d' ' -f2 | xargs -I {} ps -p {} -o command\" | awk '{ print \$2 }' | xargs kill -9"
+alias kps="ps -ef | tail -n +2 | fzf -m --header='[kill:process]' --reverse --preview=\"echo {} | tr -s ' ' | cut -d' ' -f2 | xargs -I {} ps -p {} -o command\" | awk '{ print \$2 }' | xargs sudo kill -9"
 alias hs="history | fzf"
 
 # VBoxManage aliases
