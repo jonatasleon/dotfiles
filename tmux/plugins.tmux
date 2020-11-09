@@ -7,6 +7,7 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'laktak/extrakto'
 set -g @plugin 'wfxr/tmux-fzf-url'
+set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'tmux-plugins/tpm'
 
 # One Dark settings
