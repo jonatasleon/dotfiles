@@ -5,18 +5,16 @@
 # Git-SVN aliases
 alias gsf="git svn fetch"
 
-alias sdiff="_sdiff() { svn diff \"$@\" | colordiff | less -R }; _sdiff"
-
 # Make shell easier
 alias mkcd='foo() { mkdir -p "$1"; cd "$1" }; foo'
 alias more="less"
 alias tailf="tail -f"
 alias xopen="xdg-open"
-alias tsa='_tsa() { ts "$1" || ta "$1" }; _tsa'
+alias tsa='tmux new-session -A -s'
 alias fd='fdfind'
 alias kp="ps -ef | tail -n +2 | fzf -m --header='[kill:process]' --reverse --preview=\"echo {} | tr -s ' ' | cut -d' ' -f2 | xargs -I {} ps -p {} -o command\" | awk '{ print \$2 }' | xargs kill -9"
 alias kps="ps -ef | tail -n +2 | fzf -m --header='[kill:process]' --reverse --preview=\"echo {} | tr -s ' ' | cut -d' ' -f2 | xargs -I {} ps -p {} -o command\" | awk '{ print \$2 }' | xargs sudo kill -9"
-alias hs="history | fzf"
+alias sn="tmux new -d -s sshuttle && tmux send-keys -t sshuttle.0 \"sshuttle --dns -r irlanda.dgi.inpe.br 0.0.0.0/0 --exclude 192.168.0.1/24\" ENTER"
 
 # VBoxManage aliases
 alias vm=VBoxManage

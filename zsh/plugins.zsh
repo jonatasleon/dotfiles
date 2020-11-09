@@ -41,3 +41,7 @@ compdef vboxmanage=VBoxManage
 
 bindkey "^ " autosuggest-accept
 bindkey "^U" backward-kill-line
+
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYENV="true"
+export WORKON_HOME=$HOME/.virtualenvs
+pyenv virtualenvwrapper_lazy
