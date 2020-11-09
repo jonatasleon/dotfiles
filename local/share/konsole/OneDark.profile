@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=false
 ColorScheme=OneDark
-Font=FiraCode Nerd Font,10,-1,5,50,0,0,0,0,0,Regular
+Font=FiraCode Nerd Font,11,-1,5,50,0,0,0,0,0,Regular
 UseFontLineChararacters=true
 
 [Cursor Options]
