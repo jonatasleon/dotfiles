@@ -4,16 +4,5 @@
     "javascript.validate.enable": false,
 
     // Python Config
-    "python.condaPath": "~/.pyenv/versions/miniconda3-latest/bin/conda",
-    "python.formatting.blackPath": "black",
-    "python.formatting.provider": "black",
-    "python.linting.enabled": true,
-    "python.linting.pylintPath": "pylint",
-    "python.pythonPath": "python",
-    "python.sortImports.path": "isort",
-    "python.venvFolders": [".pyenv"],
-    "python.venvPath": "~/.pyenv",
-    "python.linting.pylintArgs": [
-        "--load-plugins=pylint_django"
-    ]
+    "python.jediEnabled": false
 }
