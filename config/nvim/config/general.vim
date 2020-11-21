@@ -235,7 +235,7 @@ nnoremap <silent> <Leader>s :w<CR>
 nnoremap <Leader>S :w !sudo tee %<CR>
 
 " Close window
-nnoremap <silent> <expr> <Leader>q '<C-u>:bd<CR>'
+nnoremap <silent> <expr> <Leader>q ':bd<CR>'
 nnoremap <Leader>Q :qa<CR>
 
 " Quickly source .vimrc
@@ -243,7 +243,7 @@ nnoremap <Leader>vr :source ~/.config/nvim/init.vim<CR>
 
 " Quickly open .vimrc in new buffer
 nnoremap <Leader>vv :edit ~/.dotfiles/config/nvim/init.vim<CR>
-nnoremap <Leader>vp :edit ~/.dotfiles/config/nvim/plugins.vim<CR>
+nnoremap <Leader>vp :edit ~/.dotfiles/config/nvim/config/plugins.vim<CR>
 
 " Press <Leader> Enter to remove search highlights
 noremap <silent> <Leader><CR> :nohlsearch<CR>
