@@ -3,14 +3,6 @@ let g:startify_change_to_dir = 0
 
 let g:startify_session_dir = '~/.config/nvim/session'
 
-let g:startify_lists = [
-  \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-  \ { 'type': 'sessions',  'header': ['   Sessions']       },
-  \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
-  \ { 'type': 'files',     'header': ['   Files']            },
-  \ ]
-
-" Bookmarks
 let g:startify_bookmarks = [
   \ { 'p': '~/.dotfiles/zsh/profile.zsh' },
   \ { 'v': '~/.dotfiles/config/nvim/init.vim' },
