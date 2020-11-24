@@ -23,37 +23,43 @@ autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
-let g:which_key_map.g = {}
+let g:which_key_map.k = {
+  \ 'name': '+environment',
+  \ 'i': [':CocCommand python.setInterpreter', 'Set Python interpreter'],
+  \ 's': [':CocCommand python.sortImports', 'Sort imports'],
+  \ 'l': [':CocCommand python.runLinting', 'Run linting'],
+  \ 'f': [':!black %', 'Run formatting'],
+  \ }
 
 " l is for search
 let g:which_key_map.l = {
-      \ 'name' : '+search' ,
-      \ 'o' : [':set spell!'   , 'toggle spell check'],
-      \ '/' : [':History/'     , 'history'],
-      \ ';' : [':Commands'     , 'commands'],
-      \ 'a' : [':Ag'           , 'text Ag'],
-      \ 'b' : [':Buffers'      , 'open buffers'],
-      \ 'B' : [':BLines'       , 'current buffer'],
-      \ 'c' : [':Commits'      , 'commits'],
-      \ 'C' : [':BCommits'     , 'buffer commits'],
-      \ 'f' : [':Files'        , 'files'],
-      \ 'g' : [':GFiles'       , 'git files'],
-      \ 'G' : [':GFiles?'      , 'modified git files'],
-      \ 'h' : [':History'      , 'file history'],
-      \ 'H' : [':History:'     , 'command history'],
-      \ 'l' : [':Lines'        , 'lines'] ,
-      \ 'm' : [':Marks'        , 'marks'] ,
-      \ 'M' : [':Maps'         , 'normal maps'] ,
-      \ 'p' : [':Helptags'     , 'help tags'] ,
-      \ 'P' : [':Tags'         , 'project tags'],
-      \ 's' : [':Snippets'     , 'snippets'],
-      \ 'S' : [':Colors'       , 'color schemes'],
-      \ 't' : [':Rg'           , 'text Rg'],
-      \ 'T' : [':BTags'        , 'buffer tags'],
-      \ 'w' : [':Windows'      , 'search windows'],
-      \ 'y' : [':Filetypes'    , 'file types'],
-      \ 'z' : [':FZF'          , 'FZF'],
-      \ }
+  \ 'name' : '+search' ,
+  \ 'o' : [':set spell!'   , 'toggle spell check'],
+  \ '/' : [':History/'     , 'history'],
+  \ ';' : [':Commands'     , 'commands'],
+  \ 'a' : [':Ag'           , 'text Ag'],
+  \ 'b' : [':Buffers'      , 'open buffers'],
+  \ 'B' : [':BLines'       , 'current buffer'],
+  \ 'c' : [':Commits'      , 'commits'],
+  \ 'C' : [':BCommits'     , 'buffer commits'],
+  \ 'f' : [':Files'        , 'files'],
+  \ 'g' : [':GFiles'       , 'git files'],
+  \ 'G' : [':GFiles?'      , 'modified git files'],
+  \ 'h' : [':History'      , 'file history'],
+  \ 'H' : [':History:'     , 'command history'],
+  \ 'l' : [':Lines'        , 'lines'] ,
+  \ 'm' : [':Marks'        , 'marks'] ,
+  \ 'M' : [':Maps'         , 'normal maps'] ,
+  \ 'p' : [':Helptags'     , 'help tags'] ,
+  \ 'P' : [':Tags'         , 'project tags'],
+  \ 's' : [':Snippets'     , 'snippets'],
+  \ 'S' : [':Colors'       , 'color schemes'],
+  \ 't' : [':Rg'           , 'text Rg'],
+  \ 'T' : [':BTags'        , 'buffer tags'],
+  \ 'w' : [':Windows'      , 'search windows'],
+  \ 'y' : [':Filetypes'    , 'file types'],
+  \ 'z' : [':FZF'          , 'FZF'],
+  \ }
 
 " Register which key map
 autocmd! User vim-which-key call which_key#register('<Space>', "g:which_key_map")
