@@ -1,5 +1,4 @@
 source $HOME/.antigen/antigen.zsh
-source $HOME/.zsh/watson.zsh
 
 # load the oh-my-zsh's library.
 antigen use oh-my-zsh
