@@ -1,3 +1,6 @@
+" Polyglot setup
+let g:polyglot_disabled = ['tmux', 'latex']
+
 call plug#begin()
 
 " Utilities

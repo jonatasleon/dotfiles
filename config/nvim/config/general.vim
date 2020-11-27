@@ -177,9 +177,6 @@ let g:NERDSpaceDelims = 1
 " Show doctring folded code
 let g:SimpylFold_docstring_preview=1
 
-" Polyglot setup
-let g:polyglot_disabled = ['tmux', 'latex']
-
 " Highlight python code
 let python_highlight_all=1
 
