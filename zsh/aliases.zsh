@@ -31,9 +31,10 @@ alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
 
 # TMUX Aliases
 alias base="tmux new -A -s base"
-alias sn="tmux new -d -s sshuttle && tmux send-keys -t sshuttle.0 \"sshuttle --dns -r irlanda.dgi.inpe.br 0.0.0.0/0 --exclude 192.168.0.1/24\" ENTER"
 alias tsa='tmux new-session -A -s'
 alias tssh="tmux-cssh"
+alias tsn="tmux new -d -s sshuttle && tmux send-keys -t sshuttle.0 \"sshuttle --dns -r irlanda.dgi.inpe.br 0.0.0.0/0 --exclude 192.168.0.1/24\" ENTER"
+alias tjp='tmux new -d -s jupyter && tmux send-keys -t jupyter.0 "jupyter lab" ENTER'
 
 # pyenv aliases
 alias ac="pyenv activate"
