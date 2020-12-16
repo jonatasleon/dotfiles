@@ -81,6 +81,9 @@ export NVM_LAZY_LOAD=false
 export LESS="-R"
 export LESSOPEN="|~/.lessfilter %s"
 
+# Load secrets
+[ -f $HOME/.vault ] && source $HOME/.vault
+
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
