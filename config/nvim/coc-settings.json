@@ -8,5 +8,17 @@
     "python.sortImports.path": "isort",
     "python.formatting.autopep8Path": "autopep8",
     "python.formatting.provider": "black",
-    "python.linting.pylintPath": "pylint"
+    "python.linting.pylintPath": "pylint",
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "args": ["serve"],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {},
+            "settings": {}
+        }
+    }
 }
