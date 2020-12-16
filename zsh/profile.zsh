@@ -3,12 +3,6 @@
 # Add local bins to PATH
 export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Add poetry to PATH
-export PATH="$HOME/.poetry/bin:$PATH"
-
 export XDG_DATA_HOME=$HOME/.local/share
 
 # Add scripts dir to path
