@@ -1,3 +1,6 @@
+" Zen Mode
+nnoremap <Leader>z :Goyo<CR>
+
 " Hook goyo functions
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
@@ -24,4 +27,3 @@ function! s:goyo_leave()
   Limelight!
   hi Normal guibg=NONE ctermbg=NONE
 endfunction
-

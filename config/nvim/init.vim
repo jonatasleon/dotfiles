@@ -10,6 +10,7 @@ set autoread
 source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/which-key.vim
 source $HOME/.config/nvim/config/general.vim
+source $HOME/.config/nvim/config/langs.vim
 source $HOME/.config/nvim/config/fzf.vim
 source $HOME/.config/nvim/config/functions.vim
 source $HOME/.config/nvim/config/airline.vim
