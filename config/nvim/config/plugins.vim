@@ -8,18 +8,19 @@ Plug 'xolox/vim-misc'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tmhedberg/SimpylFold'
+Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/csv.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'voldikss/vim-floaterm'
+Plug 'frazrepo/vim-rainbow'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
@@ -61,7 +62,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Python support
-" Plug 'plytophogy/vim-virtualenv'
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/indentpython.vim'
 
@@ -78,8 +78,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'parkr/vim-jekyll'
 Plug 'xolox/vim-notes'
 
-" HTML Support
+" HTML & CSS Support
 Plug 'alvan/vim-closetag'
+Plug 'ap/vim-css-color'
 
 " All of your Plugins must be added before the following line
 call plug#end()
