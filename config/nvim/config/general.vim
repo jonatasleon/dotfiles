@@ -27,6 +27,7 @@ syntax on
 colorscheme onedark
 hi Normal guibg=NONE ctermbg=NONE
 
+" ===============================================
 " Options setting ===============================
 
 " Show command progress
@@ -115,6 +116,9 @@ set updatetime=300
 set timeout
 set timeoutlen=500
 
+" Split
+set splitbelow
+set splitright
 
 " Variable assignment ===============================
 let g:python_host_prog = expand("~/.pyenv/versions/py2/bin/python")
@@ -124,6 +128,8 @@ let g:node_host_prog = expand("~/.nvm/versions/node/v10.20.1/bin/node")
 " Remap move split
 let g:tmux_navigator_no_mappings = 1
 
+" rainbow enable
+let g:rainbow_active = 1
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
