@@ -120,6 +120,8 @@ set timeoutlen=500
 set splitbelow
 set splitright
 
+set mouse=a
+
 " Variable assignment ===============================
 let g:python_host_prog = expand("~/.pyenv/versions/py2/bin/python")
 let g:python3_host_prog = expand("~/.pyenv/versions/py3/bin/python")
