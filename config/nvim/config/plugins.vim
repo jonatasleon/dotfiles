@@ -75,8 +75,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
-Plug 'parkr/vim-jekyll'
-Plug 'xolox/vim-notes'
 
 " HTML & CSS Support
 Plug 'alvan/vim-closetag'

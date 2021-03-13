@@ -17,7 +17,6 @@ source $HOME/.config/nvim/config/airline.vim
 source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/floaterm.vim
 source $HOME/.config/nvim/config/goyo.vim
-source $HOME/.config/nvim/config/notes.vim
 source $HOME/.config/nvim/config/rnvimr.vim
 source $HOME/.config/nvim/config/startify.vim
 source $HOME/.config/nvim/config/tmux-navigate.vim
