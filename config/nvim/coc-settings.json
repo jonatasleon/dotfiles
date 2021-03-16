@@ -1,4 +1,8 @@
 {
+    // Emmet
+    "emmet.includeLanguages": {
+        "vue-html": "html"
+    },
     // JS Config
     "eslint.autoFixOnSave": true,
     "javascript.validate.enable": false,

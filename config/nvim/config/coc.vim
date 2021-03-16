@@ -12,6 +12,7 @@ let g:coc_global_extensions=[
     \ 'coc-tabnine',
     \ 'coc-translator',
     \ 'coc-tsserver',
+    \ 'coc-vetur',
     \]
 
 " use <tab> for trigger completion and navigate to the next complete item

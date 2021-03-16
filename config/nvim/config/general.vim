@@ -133,9 +133,6 @@ let g:tmux_navigator_no_mappings = 1
 " rainbow enable
 let g:rainbow_active = 1
 
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
 " Show doctring folded code
 let g:SimpylFold_docstring_preview=1
 
@@ -149,6 +146,21 @@ let g:vcoolor_disable_mappings = 1
 
 " Lightlime
 let g:limelight_conceal_ctermfg = '240'
+
+" Vue
+let g:vue_pre_processors = []
+
+" NERDCommenter =========================================
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+let g:user_emmet_leader_key='<C-Y>'
 
 " Mappings ===============================
 " Map jk to ESC in insert mode
@@ -237,3 +249,23 @@ function! s:NewLineInsertExpr( isUndoCount, command )
 endfunction
 nnoremap <silent> <expr> o <SID>NewLineInsertExpr(1, 'o')
 nnoremap <silent> <expr> O <SID>NewLineInsertExpr(1, 'O')
+
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
