@@ -6,6 +6,14 @@ if [ ! -f $HOME/.antigen/antigen.zsh ]; then
     git clone https://github.com/zsh-users/antigen.git ~/.antigen
 fi
 
+# Check if exist antigen
+if [ ! -f $HOME/.asdf ]; then
+    echo "Downloading asdf"
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+    cd ~/.asdf
+    git checkout "$(git describe --abbrev=0 --tags)"
+fi
+
 # Check if exist vim.plug file
 if [ ! -f $HOME/.local/share/nvim/site/autoload/plug.vim ]; then
     echo "Downloading vim.plug"

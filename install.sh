@@ -79,19 +79,6 @@ install_polybar() {
   yes | ./build.sh
 }
 
-install_pyenv() {
-  PY3_VERSION='3.8.0'
-  PY2_VERSION='2.7.15'
-  curl https://pyenv.run | bash
-
-  pyenv install $PY3_VERSION
-  pyenv install $PY2_VERSION
-
-  pyenv virtualenv $PY3_VERSION py3
-
-  pyenv virtualenv $PY2_VERSION py2
-}
-
 retrieve_dotfiles() {
   git clone https://github.com/jonatasleon/dotfiles $HOME/.dotfiles
   rcup -v
@@ -117,7 +104,6 @@ sub_help(){
 sub_full-install() {
   add_repositories
   install_packages
-  install_pyenv
   install_xcbutils
   install_i3
   install_i3lockcolor

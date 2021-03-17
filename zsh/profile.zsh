@@ -35,8 +35,6 @@ export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_DIR_LOCK_SYMBOL=" "
 export SPACESHIP_DIR_TRUNC=4
 
-export SPACESHIP_PYENV_COLOR="blue"
-
 export SPACESHIP_CONDA_COLOR="yellow"
 
 export SPACESHIP_VENV_PREFIX="venv:("
@@ -62,7 +60,6 @@ export SPACESHIP_PROMPT_ORDER=(
   aws
   venv
   conda
-  pyenv
   exec_time
   line_sep
   battery
@@ -71,9 +68,6 @@ export SPACESHIP_PROMPT_ORDER=(
   exit_code
   char
 )
-
-# Workaround to git stash/pyenv problem https://github.com/pyenv/pyenv/issues/690
-export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # NVM Configuration
 export NVM_LAZY_LOAD=false

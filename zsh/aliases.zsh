@@ -4,6 +4,7 @@
 
 # Git-SVN aliases
 alias gsf="git svn fetch"
+alias gnvm="git reset --soft HEAD~1"
 
 # Make shell easier
 alias fd="fdfind"
@@ -33,13 +34,11 @@ alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
 alias base="tmux new -A -s base"
 alias tsa='tmux new-session -A -s'
 alias tssh="tmux-cssh"
-alias tsn="tmux new -d -s sshuttle && tmux send-keys -t sshuttle.0 \"sshuttle --dns -r irlanda.dgi.inpe.br 0.0.0.0/0 --exclude 192.168.0.1/24\" ENTER"
 alias tjp='tmux new -d -s jupyter && tmux send-keys -t jupyter.0 "jupyter lab" ENTER'
 
 # pyenv aliases
-alias ac="pyenv activate"
-alias activate="pyenv activate"
-alias deactivate="pyenv deactivate"
-alias shell="pyenv shell"
-alias venv="pyenv virtualenv"
-alias which="pyenv which"
+# alias ac="pyenv activate"
+# alias activate="pyenv activate"
+# alias deactivate="pyenv deactivate"
+# alias shell="pyenv shell"
+# alias venv="pyenv virtualenv"
