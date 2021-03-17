@@ -20,4 +20,3 @@ source $HOME/.config/nvim/config/goyo.vim
 source $HOME/.config/nvim/config/rnvimr.vim
 source $HOME/.config/nvim/config/startify.vim
 source $HOME/.config/nvim/config/tmux-navigate.vim
-source $HOME/.config/nvim/config/closetag.vim

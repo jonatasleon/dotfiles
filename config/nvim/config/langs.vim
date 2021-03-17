@@ -55,20 +55,39 @@ highlight BadWhitespace ctermbg=red guibg=darkred
 autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Call every time we open a Markdown file
-autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
-autocmd FileType liquid call pencil#init()
+function! MathAndLiquid()
+    "" Define certain regions
+    " Block math. Look for "$$[anything]$$"
+    syn region math start=/\$\$/ end=/\$\$/
 
-" Align Markdown Tables
-autocmd FileType markdown vmap <Leader>l <Plug>(EasyAlign)
+    " inline math. Look for "$[not $][anything]$"
+    syn match math_block '\$[^$].\{-}\$'
+
+    " Liquid single line. Look for "{%[anything]%}" syn match liquid '{%.*%}'
+    " Liquid multi line. Look for "{%[anything]%}[anything]{%[anything]%}"
+    syn region highlight_block start='{% highlight .*%}' end='{%.*%}'
+
+    " Fenced code blocks, used in GitHub Flavored Markdown (GFM)
+    syn region highlight_block start='```' end='```'
+
+    "" Actually highlight those regions.
+    hi link math Statement
+    hi link liquid Statement
+    hi link highlight_block Function
+    hi link math_block Function
+endfunction
 
 augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType liquid       call pencil#init()
-augroup END
+    autocmd!
+    " Align Markdown Tables
+    autocmd FileType markdown vmap <Leader>l <Plug>(EasyAlign)
 
-" Highlight python code
-let python_highlight_all=1
+    autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown call MathAndLiquid()
+    autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown PencilSoft
+
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType liquid       call pencil#init()
+augroup END
 
 " Vim pencil
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'

@@ -5,7 +5,6 @@ call plug#begin()
 
 " Utilities
 Plug 'xolox/vim-misc'
-Plug 'KabbAmine/vCoolor.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
@@ -20,7 +19,6 @@ Plug 'tpope/vim-surround'
 Plug 'chrisbra/csv.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'voldikss/vim-floaterm'
-" Plug 'frazrepo/vim-rainbow'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'kevinhwang91/rnvimr'
 Plug 'mattn/emmet-vim'
@@ -42,7 +40,6 @@ Plug 'mattn/vim-textobj-url'
 
 " File/Window/Pane navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'troydm/zoomwintab.vim'
 
 " Git support
 Plug 'airblade/vim-gitgutter'
@@ -55,14 +52,12 @@ Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Linting
-Plug 'sheerun/vim-polyglot'
-
 " Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'onsails/lspkind-nvim'
 
 " Python support
-Plug 'vim-python/python-syntax'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'vim-scripts/indentpython.vim'
 
 " Javascript Support

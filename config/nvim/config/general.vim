@@ -123,31 +123,22 @@ set splitright
 set mouse=a
 
 " Variable assignment ===============================
-let g:python_host_prog = expand("~/.pyenv/versions/py2/bin/python")
-let g:python3_host_prog = expand("~/.pyenv/versions/py3/bin/python")
-let g:node_host_prog = expand("~/.nvm/versions/node/v10.20.1/bin/node")
+let g:python_host_prog = trim(system("asdf which python2"))
+let g:python3_host_prog = trim(system("asdf which python3"))
+let g:node_host_prog = trim(system("asdf which node"))
 
-" Remap move split
-let g:tmux_navigator_no_mappings = 1
-
-" rainbow enable
-let g:rainbow_active = 1
-
-" Show doctring folded code
+" Show doctring folded code =============================
 let g:SimpylFold_docstring_preview=1
 
-" Indent Highlight
+" Indent Highlight ======================================
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 let g:indentLine_enabled = 1
 
-" vCoolor
-let g:vcoolor_disable_mappings = 1
-
-" Lightlime
+" Lightlime =============================================
 let g:limelight_conceal_ctermfg = '240'
 
-" Vue
+" Vue ===================================================
 let g:vue_pre_processors = []
 
 " NERDCommenter =========================================
@@ -161,6 +152,16 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 let g:user_emmet_leader_key='<C-Y>'
+
+" EditoConfig ============================================
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" AutoPairs ==============================================
+let g:AutoPairsFlyMode = 1
+
+" Highlight python code
+let python_highlight_all=1
+
 
 " Mappings ===============================
 " Map jk to ESC in insert mode
