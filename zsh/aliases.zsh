@@ -33,12 +33,9 @@ alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
 # TMUX Aliases
 alias base="tmux new -A -s base"
 alias tsa='tmux new-session -A -s'
-alias tssh="tmux-cssh"
-alias tjp='tmux new -d -s jupyter && tmux send-keys -t jupyter.0 "jupyter lab" ENTER'
+alias tl="tmux list-sessions"
+alias ta="tmux attach-session -t"
+alias tkss="tmux kill-session -t"
 
-# pyenv aliases
-# alias ac="pyenv activate"
-# alias activate="pyenv activate"
-# alias deactivate="pyenv deactivate"
-# alias shell="pyenv shell"
-# alias venv="pyenv virtualenv"
+alias tjp='tmux new -d -s jupyter && tmux send-keys -t jupyter.0 "jupyter lab" ENTER'
+alias tssh="tmux-cssh"

@@ -7,9 +7,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 # Add scripts dir to path
 export CUSTOM_SCRIPTS_DIR="${HOME}/.scripts"
-if [ -d "${CUSTOM_SCRIPTS_DIR}" ]; then
-  PATH="${PATH}:${CUSTOM_SCRIPTS_DIR}"
-fi
+[ -d "${CUSTOM_SCRIPTS_DIR}" ] && PATH="${PATH}:${CUSTOM_SCRIPTS_DIR}"
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export ANDROID_HOME=$HOME/.android/sdk
@@ -44,48 +42,12 @@ export SPACESHIP_EXIT_CODE_SHOW=true
 export SPACESHIP_EXIT_CODE_PREFIX="("
 export SPACESHIP_EXIT_CODE_SUFFIX=") "
 
-export SPACESHIP_PROMPT_ORDER=(
-  time
-  user
-  dir
-  host
-  git
-  package
-  node
-  ruby
-  rust
-  haskell
-  julia
-  docker
-  aws
-  venv
-  conda
-  exec_time
-  line_sep
-  battery
-  vi_mode
-  jobs
-  exit_code
-  char
-)
-
-# NVM Configuration
-export NVM_LAZY_LOAD=false
-
-export LESS="-R"
-export LESSOPEN="|~/.lessfilter %s"
+export WORKON_HOME=~/.envs
+mkdir -p $WORKON_HOME
+source $(asdf which virtualenvwrapper.sh)
 
 # Load secrets
 [ -f $HOME/.vault ] && source $HOME/.vault
 
-# Load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Add file to gitignore global
 git config --global core.excludesfile $HOME/.gitignore_global
-
-# Profiling zsh start up
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
