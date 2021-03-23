@@ -3,16 +3,18 @@
     "emmet.includeLanguages": {
         "vue-html": "html"
     },
+
     // JS Config
     "eslint.autoFixOnSave": true,
     "javascript.validate.enable": false,
 
     // Python Config
-    "python.jediEnabled": false,
     "python.sortImports.path": "isort",
     "python.formatting.autopep8Path": "autopep8",
     "python.formatting.provider": "black",
     "python.linting.pylintPath": "pylint",
+
+    // Terraform Config
     "languageserver": {
         "terraform": {
             "command": "terraform-ls",

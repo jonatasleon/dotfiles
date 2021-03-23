@@ -7,7 +7,7 @@ let g:coc_global_extensions=[
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-markmap',
-    \ 'coc-python',
+    \ 'coc-pyright',
     \ 'coc-snippets',
     \ 'coc-tabnine',
     \ 'coc-translator',
