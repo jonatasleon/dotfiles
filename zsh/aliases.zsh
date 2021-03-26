@@ -2,6 +2,10 @@
 # plugins, and themes.
 # For a full list of active aliases, run `alias`.
 
+alias cat="bat"
+alias ls="exa"
+alias top="ytop"
+
 # Git-SVN aliases
 alias gsf="git svn fetch"
 alias gnvm="git reset --soft HEAD~1"
