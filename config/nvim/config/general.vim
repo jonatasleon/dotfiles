@@ -182,7 +182,7 @@ nnoremap <silent> <Leader>s :w<CR>
 nnoremap <Leader>S :w !sudo tee %<CR>
 
 " Close window
-nnoremap <silent> <expr> <Leader>q ':bd<CR>'
+nnoremap <silent> <expr> <Leader>q (IsLastBuffer()) ? ":bd<CR>:Startify<CR>" : ":Bdelete<CR>"
 nnoremap <Leader>Q :qa<CR>
 
 " Quickly source .vimrc
