@@ -1,6 +1,3 @@
-" Polyglot setup
-let g:polyglot_disabled = ['tmux', 'latex']
-
 call plug#begin()
 
 " Utilities
@@ -9,7 +6,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kristijanhusak/vim-carbon-now-sh'
-Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tmhedberg/SimpylFold'
 Plug 'Konfekt/FastFold'
@@ -20,10 +16,18 @@ Plug 'chrisbra/csv.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'kevinhwang91/rnvimr'
 Plug 'mattn/emmet-vim'
+Plug 'ludovicchabant/vim-gutentags'
 
-" FZF
+" Starter
+Plug 'mhinz/vim-startify'
+
+" Side Browser
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'kristijanhusak/defx-icons'
+Plug 'kristijanhusak/defx-git'
+
+" Finder and Dispatcher
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
@@ -37,6 +41,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'mattn/vim-textobj-url'
+Plug 'wellle/targets.vim'
 
 " File/Window/Pane navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -45,7 +50,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-" Colorscheme " https://github.com/joshdick/onedark.vim
+" Colorscheme
 Plug 'joshdick/onedark.vim'
 
 " Status line
@@ -54,14 +59,13 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'onsails/lspkind-nvim'
 
 " Python support
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'vim-scripts/indentpython.vim'
 
 " Javascript Support
-Plug 'pangloss/vim-javascript'
+Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
 

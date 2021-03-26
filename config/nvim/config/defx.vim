@@ -103,6 +103,12 @@ augroup defx_group
     autocmd TabLeave * if &ft ==# 'defx' | wincmd w | endif
     " keymap
     autocmd FileType defx do WinEnter | call s:defx_settings()
+    autocmd FileType defx set nonumber
+    autocmd FileType defx set norelativenumber
+    autocmd FileType defx set noshowcmd
+    autocmd FileType defx set nolist
+    autocmd FileType defx set listchars=
     " replace netrw to defx
     autocmd BufEnter * call s:browse()
 augroup END
+
