@@ -6,6 +6,8 @@ source $HOME/.zsh/plugins.zsh
 source $HOME/.zsh/aliases.zsh
 source $HOME/.zsh/functions.zsh
 
+source $(asdf which virtualenvwrapper.sh)
+
 fpath=(~/.zsh/ $fpath)
 fpath=($fpath ~/.zsh/completion)
 fpath=(${ASDF_DIR}/completions $fpath)

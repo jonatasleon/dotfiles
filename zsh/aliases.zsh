@@ -13,12 +13,12 @@ alias gnvm="git reset --soft HEAD~1"
 # Make shell easier
 alias fd="fdfind"
 alias hs="history | grep"
-alias kp="ps -ef | tail -n +2 | fzf -m --header='[kill:process]' --reverse --preview=\"echo {} | tr -s ' ' | cut -d' ' -f2 | xargs -I {} ps -p {} -o command\" | awk '{ print \$2 }' | xargs kill -9"
-alias kps="ps -ef | tail -n +2 | fzf -m --header='[kill:process]' --reverse --preview=\"echo {} | tr -s ' ' | cut -d' ' -f2 | xargs -I {} ps -p {} -o command\" | awk '{ print \$2 }' | xargs sudo kill -9"
 alias mkcd='foo() { mkdir -p "$1"; cd "$1" }; foo'
 alias more="less"
 alias tailf="tail -f"
 alias xopen="xdg-open"
+alias kp="ps -ef | tail -n +2 | fzf -m --header='[kill:process]' --reverse --preview=\"echo {} | tr -s ' ' | cut -d' ' -f2 | xargs -I {} ps -p {} -o command\" | awk '{ print \$2 }' | xargs kill -9"
+alias kps="ps -ef | tail -n +2 | fzf -m --header='[kill:process]' --reverse --preview=\"echo {} | tr -s ' ' | cut -d' ' -f2 | xargs -I {} ps -p {} -o command\" | awk '{ print \$2 }' | xargs sudo kill -9"
 
 # VBoxManage aliases
 alias haltvms="vboxmanage list runningvms | fzf -m --reverse | sed -E 's/^.*\{(.*)\}$/\1/' | xargs -I {} vboxmanage controlvm {} acpipowerbutton"
@@ -35,11 +35,11 @@ alias updatedotfiles="(cd ~/.dotfiles; git pull --rebase origin master)"
 alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
 
 # TMUX Aliases
-alias base="tmux new -A -s base"
-alias tsa='tmux new-session -A -s'
+alias ts="tmux new-session -s"
+alias tsa="tmux new-session -A -s"
 alias tl="tmux list-sessions"
 alias ta="tmux attach-session -t"
+alias tA="tmux attach"
 alias tkss="tmux kill-session -t"
 
-alias tjp='tmux new -d -s jupyter && tmux send-keys -t jupyter.0 "jupyter lab" ENTER'
 alias tssh="tmux-cssh"

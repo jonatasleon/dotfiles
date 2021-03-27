@@ -35,16 +35,15 @@ export SPACESHIP_DIR_TRUNC=4
 
 export SPACESHIP_CONDA_COLOR="yellow"
 
-export SPACESHIP_VENV_PREFIX="venv:("
-export SPACESHIP_VENV_SUFFIX=") "
+# export SPACESHIP_VENV_PREFIX="venv:("
+# export SPACESHIP_VENV_SUFFIX=") "
 
 export SPACESHIP_EXIT_CODE_SHOW=true
 export SPACESHIP_EXIT_CODE_PREFIX="("
 export SPACESHIP_EXIT_CODE_SUFFIX=") "
 
 export WORKON_HOME=~/.envs
-mkdir -p $WORKON_HOME
-source $(asdf which virtualenvwrapper.sh)
+[ ! -d $WORKON_HOME ] && mkdir -p $WORKON_HOME
 
 # Load secrets
 [ -f $HOME/.vault ] && source $HOME/.vault
