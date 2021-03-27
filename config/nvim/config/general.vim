@@ -111,7 +111,7 @@ let g:SimpylFold_docstring_preview=1
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 let g:indentLine_enabled = 1
-let g:indentLine_fileTypeExclude = ['dashboard', 'defx']
+let g:indentLine_fileTypeExclude = ['startify', 'defx']
 
 " Lightlime =============================================
 let g:limelight_conceal_ctermfg = '240'
@@ -139,6 +139,9 @@ let g:AutoPairsFlyMode = 1
 
 " Highlight python code
 let python_highlight_all=1
+
+" Blamer =================================================
+let g:blamer_delay = 500
 
 
 " Mappings ===============================

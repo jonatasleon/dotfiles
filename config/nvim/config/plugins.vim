@@ -19,6 +19,9 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'mattn/emmet-vim'
 Plug 'ludovicchabant/vim-gutentags'
 
+Plug 'moll/vim-bbye' " optional dependency
+Plug 'aymericbeaumet/vim-symlink'
+
 " Starter
 Plug 'mhinz/vim-startify'
 
@@ -49,6 +52,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " Git support
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
 
 " Colorscheme
 Plug 'joshdick/onedark.vim'
