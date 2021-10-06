@@ -10,8 +10,7 @@
 
     // Python Config
     "python.sortImports.path": "isort",
-    "python.formatting.autopep8Path": "autopep8",
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "autopep8",
     "python.linting.pylintPath": "pylint",
 
     // Terraform Config

@@ -7,6 +7,7 @@ source $HOME/.zsh/aliases.zsh
 source $HOME/.zsh/functions.zsh
 
 source $(asdf which virtualenvwrapper.sh)
+PATH=$PATH:$(asdf which nvim)
 
 fpath=(~/.zsh/ $fpath)
 fpath=($fpath ~/.zsh/completion)

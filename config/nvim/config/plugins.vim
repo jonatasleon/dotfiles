@@ -18,12 +18,15 @@ Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'mattn/emmet-vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+Plug 'preservim/tagbar'
 
 Plug 'moll/vim-bbye' " optional dependency
 Plug 'aymericbeaumet/vim-symlink'
 
 " Starter
 Plug 'mhinz/vim-startify'
+Plug 'rmagatti/auto-session'
 
 " Side Browser
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -83,6 +86,8 @@ Plug 'junegunn/vim-easy-align'
 " HTML & CSS Support
 Plug 'alvan/vim-closetag'
 Plug 'ap/vim-css-color'
+
+Plug 'hashivim/vim-terraform'
 
 " All of your Plugins must be added before the following line
 call plug#end()

@@ -5,6 +5,7 @@
 alias cat="bat"
 alias ls="exa"
 alias top="ytop"
+alias nord="nordvpn"
 
 # Git-SVN aliases
 alias gsf="git svn fetch"
@@ -33,6 +34,8 @@ alias editdotfiles="cd ~/.dotfiles; vim"
 alias update="sudo apt-get update && sudo apt-get upgrade -y"
 alias updatedotfiles="(cd ~/.dotfiles; git pull --rebase origin master)"
 alias updatesnips="(cd ~/.vim/UltiSnips; git pull --rebase origin master)"
+alias myip="curl https://ipinfo.io/ip"
+alias sad="ssh-add"
 
 # TMUX Aliases
 alias ts="tmux new-session -s"

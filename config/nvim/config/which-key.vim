@@ -23,12 +23,16 @@ autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
+let g:which_key_map = extend(g:which_key_map, {
+  \ 'T': [':TagbarToggle', 'Tagbar toggle'],
+  \ })
+
 let g:which_key_map.k = {
-  \ 'name': '+environment',
+  \ 'name': '+coc',
   \ 'i': [':CocCommand python.setInterpreter', 'Set Python interpreter'],
-  \ 's': [':CocCommand python.sortImports', 'Sort imports'],
   \ 'l': [':CocCommand python.runLinting', 'Run linting'],
-  \ 'f': [':!black %', 'Run formatting'],
+  \ 'r': [':CocCommand pyright.restartserver', 'Restart Server'],
+  \ 's': [':CocCommand pyright.organizeimports', 'Sort imports'],
   \ }
 
 " l is for search

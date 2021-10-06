@@ -135,7 +135,7 @@ let g:user_emmet_leader_key='<C-Y>'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " AutoPairs ==============================================
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 
 " Highlight python code
 let python_highlight_all=1
@@ -196,7 +196,7 @@ nnoremap <Leader>vv :edit ~/.dotfiles/config/nvim/init.vim<CR>
 nnoremap <Leader>vp :edit ~/.dotfiles/config/nvim/config/plugins.vim<CR>
 
 " Press <Leader> Enter to remove search highlights
-noremap <silent> <Leader><CR> :nohlsearch<CR>
+nnoremap <silent> <Leader><CR> :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
 " Set Carbon map
 xnoremap <Leader>p :CarbonNowSh<CR>
@@ -236,6 +236,16 @@ function! s:NewLineInsertExpr( isUndoCount, command )
 endfunction
 nnoremap <silent> <expr> o <SID>NewLineInsertExpr(1, 'o')
 nnoremap <silent> <expr> O <SID>NewLineInsertExpr(1, 'O')
+
+" Quickly add empty lines
+" https://github.com/mhinz/vim-galore#quickly-add-empty-lines
+nnoremap [<space> :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap ]<space> :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+" Don't lose selection when shifting sidewards
+" https://github.com/mhinz/vim-galore#dont-lose-selection-when-shifting-sidewards
+xnoremap < <gv
+xnoremap > >gv
 
 let g:ft = ''
 function! NERDCommenter_before()
